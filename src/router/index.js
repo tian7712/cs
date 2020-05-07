@@ -361,11 +361,11 @@ export const asyncRoutes = [
   path: '/Article',
   component: Layout,
   name: 'article',
-  // meta: {
-  //   title: '文章列表',
-  //   icon: 'wuzi',
-  //   roles: ['admin', 'editor'] // you can set roles in root nav
-  // },
+  meta: {
+    title: '文章列表',
+    icon: 'wuzi',
+    roles: ['admin', 'editor'] // you can set roles in root nav
+  },
   children: [
     {
       path: 'index',
@@ -373,12 +373,13 @@ export const asyncRoutes = [
       name: 'index',
       meta: { title: '文章', icon: 'documentation' }
     }
-    // , {
-    //   path: 'apply',
-    //   component: () => import('@/views/material/apply'),
-    //   name: 'apply',
-    //   meta: { title: '物资申请', icon: 'documentation' }
-    // }
+    , {
+      path: 'articleadd',
+      component: () => import('@/views/article/add'),
+      name: 'articleadd',
+      hidden:true,
+      meta: { title: '添加文章', icon: 'documentation' }
+    }
   ]
 },
   // {
@@ -401,7 +402,55 @@ export const asyncRoutes = [
   
   // tableRouter,
 
-
+  {
+    path: '/delivery',
+    component: Layout,
+    redirect: '/delivery/delivery-management',
+    // alwaysShow:true , // 将始终显示根菜单
+    name: '配送',
+    meta: {
+      title: '配送',
+      icon: 'jifen',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'delivery-management',
+        component: () => import('@/views/delivery/management'),
+        name: 'deliveryManagement',
+        meta: { title: '配送单管理', icon: 'documentation' }
+      }, {
+        path: 'Delivery-note',
+        component: () => import('@/views/delivery/note'),
+        name: 'DeliveryNote',
+        meta: { title: '生成配送单', icon: 'documentation' }
+      },
+      {
+        path: 'delivery-route',
+        component: () => import('@/views/delivery/route'),
+        name: 'route',
+        meta: { title: '配送路线', icon: 'documentation' }
+      }, {
+        path: 'delivery-personnel',
+        component: () => import('@/views/delivery/personnel'),
+        name: 'deliveryPersonnel',
+        meta: { title: '配送人员', icon: 'documentation' }
+      }, {
+        path: 'delivery-managementList',
+        component: () => import('@/views/delivery/managementList'),
+        name: ' managementList',
+        hidden:true,
+        meta: { title: '配送单商品管理', icon: 'documentation' }
+      }, {
+        path: 'delivery-addRoute',
+        component: () => import('@/views/delivery/addRoute'),
+        name: 'addRoute',
+        hidden:true,
+        meta: { title: '添加路线', icon: 'documentation' }
+      }
+      
+    ]
+  },
 
   
  

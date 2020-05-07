@@ -2,7 +2,7 @@
   <div class="outside-div">
     <el-row :gutter="20">
       <el-col :span="8">
-        <el-card class="box-card-1">
+        <el-card class="box-card-1 conheight">
           <div class="card-div">
             <!-- <svg-icon icon-class="user1"/> -->
             <div class="card-background background1">
@@ -18,7 +18,7 @@
         </el-card>
       </el-col>
       <el-col :span="8">
-        <el-card class="box-card-1">
+        <el-card class="box-card-1 conheight">
           <div class="card-div">
             <div class="card-background background2">
               <svg class="icon" aria-hidden="true">
@@ -33,7 +33,7 @@
         </el-card>
       </el-col>
       <el-col :span="8">
-        <el-card class="box-card-1">
+        <el-card class="box-card-1 conheight">
           <div class="card-div">
             <div class="card-background background3">
               <svg class="icon" aria-hidden="true">
@@ -50,7 +50,7 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <el-card class="box-card">
+        <el-card class="box-card conheight">
           <div slot="header" class="clearfix">
             <span>待处理事务</span>
           </div>
@@ -110,7 +110,7 @@
         </el-card>
       </el-col>
       <el-col :span="12">
-        <el-card class="box-card">
+        <el-card class="box-card conheight">
           <div slot="header" class="clearfix">
             <span>交易统计</span>
           </div>
@@ -127,7 +127,7 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <el-card class="box-card">
+        <el-card class="box-card conheight">
           <div slot="header" class="clearfix">
             <span>商城信息统计</span>
           </div>
@@ -164,7 +164,7 @@
         </el-card>
       </el-col>
       <el-col :span="12">
-        <el-card class="box-card box-rk">
+        <el-card class="box-card box-rk conheight">
           <div slot="header" class="clearfix">
             <span>快捷入口</span>
           </div>
@@ -257,11 +257,7 @@
                 </div>
                 <p><a href="">站点设置</a></p>
               </el-col>
-              <!-- <el-col :span="4">提现申请</el-col>
-              <el-col :span="4"></el-col>
-              <el-col :span="4"></el-col>
-              <el-col :span="4"></el-col>
-              <el-col :span="4"></el-col> -->
+         
             </el-row>
           </div>
         </el-card>
@@ -295,6 +291,16 @@ export default {
       ],
       value: ""
     };
+  },
+  methods:{
+     getHeight(){
+          this.conheight.height=window.innerHeight-170+'px';
+       },
+　　　　created(){
+        window.addEventListener('resize', this.getHeight);
+        this.getHeight()
+     }
+
   }
 };
 </script>
@@ -311,7 +317,7 @@ export default {
   margin-top: 1%;
 }
 .box-card {
-  height: 350px;
+  height: 320px;
   margin: 1%;
 }
 .box-card-1 {
@@ -420,14 +426,6 @@ export default {
   justify-content: center; 
   align-items: center;
 }
-// .icon-row{
-//   el-col:hover{
-// height: 60px;
-//   color: skyblue;
-//   background-color: skyblue ;
-// }
-//   }
 
-  // width: 60px;
   
 </style>

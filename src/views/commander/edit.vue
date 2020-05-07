@@ -153,9 +153,11 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
+      
       vipValue: "",
       hide: false,
       imgurl:
@@ -191,6 +193,10 @@ export default {
       ]
     };
   },
+   created() {
+    
+    this.activePath = window.sessionStorage.getItem('token')
+  },
   methods: {
     selectImg(index) {
       this.dialogVisible = false;
@@ -209,10 +215,11 @@ export default {
       this.url = row.img;
       this.vipValue = row.id;
       this.pvalue = row.name;
-      console.log(row.img);
+      // console.log(row.img);
     },
     del() {
       this.hide = false;
+      console.log(this.activePath);
     }
   }
 };

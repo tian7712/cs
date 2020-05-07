@@ -9,10 +9,10 @@
         <el-col :span="24">
           <el-form ref="form" :model="form" label-width="10%" :label-position="labelPosition">
             <el-form-item label="团长佣金类型">
-               <el-radio-group v-model="form.volume">
+               <!-- <el-radio-group v-model="form.moneyvalue"></el-radio-group> -->
            
-                <el-radio label="金额"></el-radio>
-              </el-radio-group>
+                <el-radio label="金额" v-model="form.moneyvalue"></el-radio>
+              
                  <p>金额：团长可得佣金=设置金额</p>
             </el-form-item>
          <el-form-item label="社区距离限制">
@@ -96,6 +96,7 @@ export default {
         record: "",
         evaluate: "",
         down: "",
+        moneyvalue:true,
         volume: "",
         vip: "",
         dengji:"不显示"

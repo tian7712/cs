@@ -4,6 +4,7 @@
     <div class="position">
       当前位置：
       <span>团长列表</span>
+      <el-button @click="sr">1</el-button>
     </div>
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
@@ -155,7 +156,7 @@
             <el-switch v-model="scope.row.state" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="300">
+        <el-table-column label="操作" width="300" align="center">
           <template slot-scope="scope">
             <el-row class="buttonstyle">
               <el-button size="mini" @click="commanderEdit" type="primary" plain>编辑</el-button>
@@ -188,7 +189,9 @@
         :page-size="20"
         layout="total, sizes, prev, pager, next, jumper"
         :total="100"
+        style="margin:1%"
       ></el-pagination>
+      
     </el-card>
 
     <!-- 表单1 -->
@@ -276,6 +279,8 @@ p {
 </style>  
 <script>
 import Tinymce from "@/components/Tinymce";
+
+
 export default {
   data() {
     return {
@@ -303,6 +308,35 @@ export default {
       tableData: [
         {
           id: "12210",
+
+          CellName: "软件园二区",
+          SuperiorLeader: "暂无上级",
+          phone: 15659123951,
+          Quantityofgoods: 397,
+          confirmed: 369.4,
+          commanderimg:
+            "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKBrqTKvvrFictbhPvRb5nQ1saesHU4ic6cxS9lNwGoKic25dKGENWEO3H9gnB462icwOMtQpocYcdjJg/132",
+          Withdrawable: 0.0,
+          Paid: 0.0,
+          Withdrawing: 0.0,
+          revenue: 0,
+          address: "福建省厦门市思明区观日路4号软件园二期",
+          ApplicationTime: "2020-03-25 15:38:46",
+          AuditTime: "2020-03-30 11:55:39",
+          rest: true,
+          state: false,
+          operation: true,
+          commanderID: 0,
+          commanderName: "林晓晖",
+          commanderNickname: "火焰VS天堂",
+          currentMembersNumber: 1,
+          invitationsNumber: 1,
+          consumedNumber: 0,
+          amount: 893.14,
+          grade: ""
+        },
+         {
+          id: "12212",
 
           CellName: "软件园二区",
           SuperiorLeader: "暂无上级",
@@ -377,46 +411,8 @@ export default {
           });
         });
     },
-    dig() {
-      this.$confirm("确定要将选中会员移动到 普通等级 吗？", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(() => {
-          this.$message({
-            type: "success",
-            message: "移动成功!"
-          });
-          this.dialogFormVisible1 = false;
-        })
-        .catch(() => {
-          this.$message({
-            type: "info",
-            message: "已取消移动"
-          });
-        });
-    },
-    dig2() {
-      this.$confirm("确定要将选中会员移动到 默认分组 吗？", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(() => {
-          this.$message({
-            type: "success",
-            message: "移动成功!"
-          });
-          this.dialogFormVisible1 = false;
-        })
-        .catch(() => {
-          this.$message({
-            type: "info",
-            message: "已取消移动"
-          });
-        });
-    },
+   
+   
     operationoff() {
       this.$message("操作成功");
       console.log(this.operation);
@@ -430,7 +426,9 @@ export default {
         h("br"),
         h("span", {}, column.label.split("/")[2])
       ]);
+      
     },
+
     commanderAdd(){
       this.$router.push({ path: "/commander/commanderAdd" });
     },

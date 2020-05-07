@@ -77,7 +77,7 @@
         </el-table-column>
         <el-table-column prop="time" label="	注册时间" width="150"></el-table-column>
 
-        <el-table-column label="操作" width="400">
+        <el-table-column label="操作" width="400" align="center">
           <div class="statebutton">
             <el-button size="mini" @click="vipdetails">会员详情</el-button>
             <el-button size="mini" @click="edit">会员订单</el-button>

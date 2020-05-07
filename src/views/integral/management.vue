@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <div class="position">当前位置：商品管理</div>
+    <div class="position">当前位置：<span> 商品管理</span></div>
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4">
@@ -334,6 +334,10 @@ export default {
 <style lang="scss" scoped>
 .position {
   margin: 2% 0 1% 1%;
+  font-size: 1em;
+  span {
+    color: rgb(76, 153, 89);
+  }
 }
 .app-container {
   .roles-table {

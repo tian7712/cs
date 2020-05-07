@@ -26,7 +26,11 @@ const roles = [
     vipRadio:false,
     fromRadio:false,
     dengjiname:'一级【默认等级】',
-    money:1,
+    ClassificationName:"新人送券",
+    ClassificationNameValue:false,
+
+
+    money:"1元",
     routes: routes
   },
   {
@@ -44,6 +48,9 @@ const roles = [
     fromRadio:false,
     dengjiname:'一级【默认等级】',
     description: 'Normal Editor. Can see all pages except permission page',
+    money:"0元",
+    ClassificationName:"88礼券免费领",
+    ClassificationNameValue:true,
     routes: routes.filter(i => i.path !== '/permission')// just a mock
   },
   {
@@ -56,11 +63,12 @@ const roles = [
     Salesvolume:'12',
     stock:'52',
     dengjiname:'一级【默认等级】',
-    money:1,
+    money:"1元",
     img:'https://fuss10.elemecdn.com/d/e6/c4d93a3805b3ce3f323f7974e6f78jpeg.jpeg',
     phoneRadio:false,
     vipRadio:false,
     fromRadio:false,
+    ClassificationNameValue:false,
     description: 'Just a visitor. Can only see the home page and the document page',
     routes: [{
       path: '',

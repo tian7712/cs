@@ -65,7 +65,14 @@ const commanderRouter = {
       hidden: true, 
       meta: { title: '添加核销人员', icon: 'documentation' }
     },
-    
+    {
+      path: 'WriteoffJL',
+      component: () => import('@/views/commander/WriteoffJL'),
+      name: '核销订单记录',
+      hidden: true, 
+      meta: { title: '核销订单记录', icon: 'documentation' }
+    },
+   
     {
       path: 'management',
       component: () => import('@/views/commander/management/index'), // Parent router-view

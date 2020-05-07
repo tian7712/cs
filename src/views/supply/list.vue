@@ -58,10 +58,12 @@
         <el-table-column prop="name" label="供应商名称" width="120"></el-table-column>
    
         <el-table-column  label="供应商标志" width="150">
-  <template slot-scope="scope"><el-image
+  <template slot-scope="scope">
+    <el-image
       style="width: 70px; height: 70px"
       :src="scope.row.logo"
-      :fit="fit"></el-image></template>
+      :fit="fit"></el-image>
+      </template>
 
 
         </el-table-column>
@@ -91,7 +93,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="time" label="申请时间/审核时间" width="220" :render-header="renderheader">
+        <el-table-column prop="time" label="申请时间/审核时间" width="220" :render-header="renderheader" align="center">
           <template slot-scope="scope">
             <div>
               <p>{{ scope.row.appiytime }}</p>

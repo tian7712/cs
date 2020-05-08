@@ -4,7 +4,7 @@
     <div class="position">
       当前位置：
       <span>团长列表</span>
-      <el-button @click="sr">1</el-button>
+    
     </div>
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">

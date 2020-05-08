@@ -8,7 +8,7 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="3">
-          <el-select v-model="vipvalue" placeholder="不按时间">
+          <el-select v-model="timeValue" placeholder="不按时间">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -20,7 +20,7 @@
             <el-option label="送达时间" value="3"></el-option>
           </el-select>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="5.5">
           <el-date-picker
             v-model="timeValue"
             type="daterange"
@@ -31,6 +31,13 @@
             end-placeholder="结束日期"
             :picker-options="pickerOptions"
           ></el-date-picker>
+        </el-col>
+        <el-col :span="3">
+          <el-select v-model="lineValue" placeholder="配送线路">
+
+            <el-option label="配送线路" value="1"></el-option>
+            
+          </el-select>
         </el-col>
         <el-col :span="3">
           <el-input placeholder="输入编号/团长姓名"></el-input>
@@ -44,7 +51,7 @@
           </el-button-group>
         </el-col>
       </el-row>
-      <el-button style="margin:1%;">一键生成清单</el-button>
+      <el-button style="margin:1%;" size="mini">一键生成清单</el-button>
 
       <el-table
         ref="multipleTable"
@@ -142,10 +149,11 @@ export default {
       components: { Tinymce },
      
       timeValue: "",
+      lineValue:"",
 
       list: false,
-      vipvalue: "",
-      vipvalue2: "",
+      timeValue: "",
+     
       inputname: "",
       textMap: {
         update: "修改",

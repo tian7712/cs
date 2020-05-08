@@ -14,7 +14,7 @@ import orderRouter from './modules/order'
 import commanderRouter from './modules/commander'
 import supplyRouter from './modules/supply'
 import marketingRouter from './modules/marketing'
-
+import settingRouter from './modules/setting'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -382,6 +382,7 @@ export const asyncRoutes = [
     }
   ]
 },
+
   // {
   //   path: '/icon',
   //   component: Layout,
@@ -447,14 +448,78 @@ export const asyncRoutes = [
         name: 'addRoute',
         hidden:true,
         meta: { title: '添加路线', icon: 'documentation' }
+      }, {
+        path: 'delivery-addPersonnel',
+        component: () => import('@/views/delivery/addPersonnel'),
+        name: 'addPersonnel',
+        hidden:true,
+        meta: { title: '添加配送人员', icon: 'documentation' }
       }
       
     ]
   },
+  {
+    path: '/Jurisdiction',
+    component: Layout,
+    redirect: '/Jurisdiction/roleManagement',
+    // alwaysShow:true , // 将始终显示根菜单
+    name: '权限',
+    meta: {
+      title: '权限',
+      icon: 'jifen',
+      roles: ['admin'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'roleManagement',
+        component: () => import('@/views/Jurisdiction/roleManagement'),
+        name: 'roleManagement',
+        meta: { title: '角色管理', icon: 'documentation' }
+      }, {
+        path: 'userManagement',
+        component: () => import('@/views/Jurisdiction/userManagement'),
+        name: 'userManagement',
+        meta: { title: '后台用户管理', icon: 'documentation' }
+      },
 
+      {
+        path: 'add',
+        component: () => import('@/views/Jurisdiction/add'),
+        name: '添加用户',
+        hidden: true, 
+        meta: { title: '添加用户', icon: 'documentation' }
+      },
+      {
+        path: 'edit',
+        component: () => import('@/views/Jurisdiction/edit'),
+        name: '编辑用户',
+        hidden: true, 
+        meta: { title: '编辑用户', icon: 'documentation' }
+      }
+    ]
+  },
   
- 
-
+  {
+    path: '/Enclosure',
+    component: Layout,
+    name: 'enclosure',
+    meta: {
+      title: '附件',
+      icon: 'wuzi',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/enclosure/index'),
+        name: 'index',
+        meta: { title: '附件设置', icon: 'documentation' }
+      }
+     
+    ]
+  },
+  
+  settingRouter,
   
 
  

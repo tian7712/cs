@@ -1,71 +1,72 @@
+
 <template>
   <div class="app-container">
-    <div class="position">当前位置：<span>物资列表</span> </div>
+    <div class="position">
+      当前位置：
+      <span>优惠券分类</span>
+    </div>
     <el-card class="box-card">
       <el-row :gutter="20">
-        <el-col :span="4">
-          <el-input placeholder="请输入内容" clearable></el-input>
-        </el-col>
-        <el-col :span="4">
-          <el-select v-model="value" placeholder="请选择">
-            <el-option v-for="item in options" :key="item.value" :value="item.value"></el-option>
-          </el-select>
-        </el-col>
-        <el-col :span="2">
-          <el-button  icon="el-icon-search">搜索</el-button>
-        </el-col>
-
-        <el-col :span="2" :offset="12">
-          <el-button icon="el-icon-plus" @click="handleAddRole">添加</el-button>
+        <el-col :span="4" :offset="22">
+          <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAddRole">添加分类</el-button>
         </el-col>
       </el-row>
 
-      <el-table :data="rolesList" style="width: 100%;margin-top:30px;">
-        <el-table-column align="center" label="ID" width="50">
+      <el-table :data="rolesList" style="width: 100%;margin-top:30px;" stripe>
+        <el-table-column align="header-center" label="ID" width="150">
           <template slot-scope="scope">{{ scope.row.id }}</template>
         </el-table-column>
-        <el-table-column align="center" label="图片" width="200">
-           <template slot-scope="scope">
-               <el-image :src="scope.row.img" style="width: 60px; height:60px;">
-            <div slot="error" class="image-slot">
-              <i class="el-icon-picture-outline"></i>
-            </div>
-          </el-image>
-
-
-           </template>
-        
-        </el-table-column>
-        <el-table-column align="header-center" label="名称">
-          <template slot-scope="scope">{{ scope.row.name }}</template>
-        </el-table-column>
-
-        <el-table-column align="header-center" label="规格" width="120">
-          <template>1</template>
-        </el-table-column>
-        <el-table-column align="header-center" label="是否上架" width="100">
- <template slot-scope="scope"> <el-switch v-model="scope.row.shelf" active-color="#13ce66" inactive-color="#ff4949"></el-switch></template>
-
-         
-      
-        </el-table-column>
-        <el-table-column align="center" label="操作">
+        <el-table-column label="分类名称">
           <template slot-scope="scope">
-            <el-button icon="el-icon-edit" size="small" @click="handleEdit">修改</el-button>
-            <el-button icon="el-icon-delete" size="small" @click="handleDelete(scope)">删除</el-button>
+            <!-- width="250" -->
+            <el-input v-model="scope.row.ClassificationName"></el-input>
           </template>
         </el-table-column>
+
+        <el-table-column align="center">
+          <template slot-scope="scope">
+            <el-switch
+              v-model="scope.row.ClassificationNameValue"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            ></el-switch>
+            <!-- <el-button type="primary" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button> -->
+            <el-button
+              type="primary"
+              icon="el-icon-delete"
+              size="mini"
+              @click="handleDel(scope)"
+              class="Classification"
+            >删除</el-button>
+          </template>
+        </el-table-column>
+        <!-- <el-table-column>
+          <div :model="dynamicValidateForm" ref="dynamicValidateForm" label-width="100%">
+            <div
+              v-for="(domain, index) in dynamicValidateForm.domains"
+              :key="domain.key"
+              :prop="'domains.' + index + '.value'"
+              :rules="{required: true, message: '不能为空', trigger: 'blur'}"
+              style="float:left"
+              class="commodityGG"
+            >
+              <el-input v-model="domain.value">
+                <el-button
+                  type="danger"
+                  icon="el-icon-close"
+                  slot="append"
+                  @click.prevent="removeDomain(domain)"
+                ></el-button>
+              </el-input>
+            </div>
+          </div>
+        </el-table-column>-->
       </el-table>
-      <el-row :gutter="20">
-        <el-col :span="4" :offset="21">
-          <el-button style="margin:4% ;background:none;color:#009688;">
-            共
-            <span>1</span>条记录
-          </el-button>
-        </el-col>
-      </el-row>
+      <el-button
+        style=" background-color:#009688 ; margin-top: 1%;color:white;"
+        @click="Preservation"
+      >保存分类</el-button>
     </el-card>
- 
   </div>
 </template>
 
@@ -90,20 +91,9 @@ const defaultRole = {
 export default {
   data() {
     return {
-      fileList: [
-        {
-          url:
-            "https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"
-        }
-      ],
-      fileList1: [
-        {
-          url:
-            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
-        }
-      ],
-      dialogImageUrl: "",
-      dialogVisible: false,
+      dynamicValidateForm: {},
+      url:
+        "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
       role: Object.assign({}, defaultRole),
       routes: [],
       rolesList: [],
@@ -114,19 +104,9 @@ export default {
         children: "children",
         label: "title"
       },
-      options: [
-        {
-          value: "上架",
-          label: "上架"
-        },
-        {
-          value: "下架",
-          label: "下架"
-        }
-      ],
+
       value: "",
-      radio: "1",
-      swvalue: true
+      radio: "1"
     };
   },
   computed: {
@@ -135,7 +115,7 @@ export default {
     }
   },
   created() {
-    // Mock: get all routes and roles list from server
+    // Mock：从服务器获取所有路由和角色列表
     this.getRoutes();
     this.getRoles();
   },
@@ -150,12 +130,12 @@ export default {
       this.rolesList = res.data;
     },
 
-    // Reshape the routes structure so that it looks the same as the sidebar重塑路由结构，使其看起来与侧边栏相同
+    // 重塑路由结构，使其看起来与侧边栏相同
     generateRoutes(routes, basePath = "/") {
       const res = [];
 
       for (let route of routes) {
-        // skip some route
+        // skip some route跳过某条路线
         if (route.hidden) {
           continue;
         }
@@ -174,7 +154,7 @@ export default {
           title: route.meta && route.meta.title
         };
 
-        // recursive child routes
+        // recursive child routes递归子路由
         if (route.children) {
           data.children = this.generateRoutes(route.children, data.path);
         }
@@ -195,31 +175,50 @@ export default {
       });
       return data;
     },
+    Preservation() {
+      this.$message({
+        message: "保存成功",
+        type: "success"
+      });
+    },
     handleAddRole() {
-      this.$router.push({path:'/material/add'})
-  
+      // this.role = Object.assign({}, defaultRole);
+      // if (this.$refs.tree) {
+      //   // this.$refs.tree.setCheckedNodes([]);
+      // }
+      // this.dialogType = "new";
+      // this.dialogVisible = true;
+      // this.dynamicValidateForm.push(1);
     },
-    handleEdit() {
-         this.$router.push({path:'/material/edit'})
-  
-    },
-    handleDelete({ $index, row }) {
-      this.$confirm("确定要删除吗?", "警告", {
-        confirmButtonText: "确认",
+    handleDel(scope) {
+      // this.dialogType = "edit";
+      // this.dialogVisible = true;
+      // this.checkStrictly = true;
+      // this.role = deepClone(scope.row);
+      // this.$nextTick(() => {
+      //   const routes = this.generateRoutes(this.role.routes);
+      //   this.$refs.tree.setCheckedNodes(this.generateArr(routes));
+      //   // set checked state of a node not affects its father and child nodes
+      //   this.checkStrictly = false;
+      //    });
+      this.$confirm("确认删除此优惠券吗？", "信息", {
+        confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
       })
-        .then(async () => {
-          await deleteRole(row.key);
-          this.rolesList.splice($index, 1);
+        .then(() => {
           this.$message({
             type: "success",
-            message: "Delete succed!"
+            message: "删除成功!"
           });
         })
-        .catch(err => {
-          console.error(err);
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
         });
+      console.log(scope);
     },
     generateTree(routes, basePath = "/", checkedKeys) {
       const res = [];
@@ -304,14 +303,25 @@ export default {
     }
   }
 };
+// 1，编辑table的某一行的时候。获取哪一行的数据给编辑的表格。
+
+// handleEdit(index, row) {
+//                 this.editFormVisible = true;
+//                 this.editForm = Object.assign({}, row);
+//             },
 </script>
 
 <style lang="scss" scoped>
 .position {
   margin: 3% 0 1% 1%;
   span {
-    color: rgb(76, 153, 89);
+    font-size: 0.9em;
+    color: #009688;
   }
+}
+.el-table {
+  color: rgb(141, 138, 138);
+  font-size: 0.9em;
 }
 .app-container {
   .roles-table {
@@ -321,8 +331,9 @@ export default {
     margin-bottom: 30px;
   }
 }
-.el-button{
+.Classification {
+  padding: 1%;
+  margin-left: 3%;
   background-color: #009688;
-  color: white;
 }
 </style>

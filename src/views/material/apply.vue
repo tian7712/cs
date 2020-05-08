@@ -21,7 +21,7 @@
       </el-table>
       <el-row :gutter="20">
         <el-col :span="4" :offset="21">
-          <el-button style="margin:4%">
+          <el-button style="margin:4%;background:none;color:#009688;">
             共
             <span>1</span>条记录
           </el-button>

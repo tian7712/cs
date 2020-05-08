@@ -3,7 +3,7 @@
   <div class="app-container">
     <div class="position">
       当前位置：
-      <span>添加</span>
+      <span>添加文章</span>
     </div>
     <el-card class="box-card">
       <el-row>
@@ -17,7 +17,7 @@
               <div>
                 <tinymce :height="300" />
               </div>
-              <p>数字越大，排名越靠前</p>
+              <!-- <p>数字越大，排名越靠前</p> -->
             </el-form-item>
             <el-form-item label="状态">
               <el-radio-group v-model="form.state">

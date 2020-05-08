@@ -193,10 +193,7 @@ export default {
       ]
     };
   },
-   created() {
-    
-    this.activePath = window.sessionStorage.getItem('token')
-  },
+   
   methods: {
     selectImg(index) {
       this.dialogVisible = false;
@@ -219,7 +216,7 @@ export default {
     },
     del() {
       this.hide = false;
-      console.log(this.activePath);
+
     }
   }
 };

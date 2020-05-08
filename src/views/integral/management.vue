@@ -12,11 +12,11 @@
           </el-select>
         </el-col>
         <el-col :span="2">
-          <el-button type="success" icon="el-icon-search">搜索</el-button>
+          <el-button  icon="el-icon-search">搜索</el-button>
         </el-col>
 
         <el-col :span="2" :offset="12">
-          <el-button type="primary" @click="handleAddRole">添加</el-button>
+          <el-button icon="el-icon-plus" @click="handleAddRole">添加</el-button>
         </el-col>
       </el-row>
 
@@ -53,45 +53,22 @@
         </el-table-column>
         <el-table-column align="center" label="操作">
           <!-- <template slot-scope="scope">  </template> -->
-            <el-button type="primary" size="small" @click="handleEdit">修改</el-button>
-            <el-button type="danger" size="small" @click="handleDelete(scope)">删除</el-button>
+            <el-button icon="el-icon-edit" size="small" @click="handleEdit">修改</el-button>
+            <el-button icon="el-icon-delete"  size="small" @click="handleDelete(scope)">删除</el-button>
         
         </el-table-column>
       </el-table>
 
       <el-row :gutter="20">
         <el-col :span="4" :offset="21">
-          <el-button style="margin:4%">
+          <el-button style="margin:4%;background:none;color:#009688;">
             共
             <span>1</span>条记录
           </el-button>
         </el-col>
       </el-row>
     </el-card>
-    <!-- <el-dialog :visible.sync="dialogVisible" :title="dialogType==='edit'?'修改':'添加'">
-      <el-form :model="role" label-width="80px" label-position="left">
-        <el-form-item label="物资名称">
-          <el-input v-model="role.name" placeholder="物资名称" />
-        </el-form-item>
-        <el-form-item label="物资图片">
-          <el-input v-model="role.description" placeholder="物资图片">
-            <el-button slot="append" autofocus>选择图片</el-button>
-          </el-input>
-        </el-form-item>
-        <el-form-item label="物资规格">
-          <el-input v-model="role.description" placeholder="物资规格" />
-          <p>多规格之间用 / 分隔</p>
-        </el-form-item>
-        <el-form-item label="物资状态">
-          <el-radio v-model="radio" label="1">上架</el-radio>
-          <el-radio v-model="radio" label="2">下架</el-radio>
-        </el-form-item>
-      </el-form>
-      <div style="text-align:right;">
-        <el-button type="primary" @click="confirmRole">确认</el-button>
-        <el-button type="danger" @click="dialogVisible=false">取消</el-button>
-      </div>
-    </el-dialog> -->
+
   </div>
 </template>
 
@@ -346,5 +323,9 @@ export default {
   .permission-tree {
     margin-bottom: 30px;
   }
+}
+.el-button{
+  background-color: #009688;
+  color: white;
 }
 </style>

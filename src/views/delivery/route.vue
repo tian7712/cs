@@ -15,8 +15,8 @@
           <el-button @click="del" style="background-color: #009688;color:white;">搜索</el-button>
         </el-col>
       </el-row>
-      <el-button style="margin:0.5%;">删除</el-button>
-      <el-button style="float:right;" @click="addRoute" icon="el-icon-plus" type="primary">添加配送路线</el-button>
+      <el-button style="margin:0.5%;" size="mini">删除</el-button>
+      <el-button style="float:right;" @click="addRoute" icon="el-icon-plus" type="primary" size="mini">添加配送路线</el-button>
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark">
         <!-- header-cell-style="width: 100%;background-color: #f2f2f2;" -->
         <!-- @selection-change="handleSelectionChange" -->

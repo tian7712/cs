@@ -17,7 +17,7 @@
 
         <tinymce :height="300" />
       </div>
-      <el-button type="primary">提交</el-button></el-col>
+      <el-button class="elbuttonStyle">提交</el-button></el-col>
 </el-row>
     </el-card>
   </div>

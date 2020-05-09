@@ -17,7 +17,7 @@
           </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" size="small">提交</el-button>
+          <el-button  class="elbuttonStyle" size="small">提交</el-button>
         </el-form-item>
       </el-form>
       <el-table :data="tableData" style="width: 100%；margin:0" header-cell-style="background-color:#F5F7FA;">
@@ -38,14 +38,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    font-size: 0.9em;
-    color: #009688;
-    
-  }
-}
+
 .el-input {
   width: 13%;
   padding: 0;

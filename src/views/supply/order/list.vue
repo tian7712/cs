@@ -118,13 +118,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 2% 0 0.5% 0.5%;
-  span{
-    font-size: 0.9em;
-    color:#009688;
-  }
-}
+
 .box-card {
   padding: 2%;
 }

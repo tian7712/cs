@@ -12,12 +12,12 @@
         </el-col>
 
         <el-col :span="2">
-          <el-button type="primary">搜索</el-button>
+          <el-button class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
         </el-col>
       </el-row>
 
       <el-button size="mini" @click="del">删除</el-button>
-      <el-button size="mini" type="primary" plain @click="dialogVisible = true" icon="el-icon-plus">添加会员等级</el-button>
+      <el-button size="mini" class="elbuttonStyle2" @click="dialogVisible = true" icon="el-icon-plus" style="float:right;">添加会员等级</el-button>
       <el-table
         ref="multipleTable"
         :data="tableData"
@@ -77,12 +77,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .text-item {
   width: 80%;
   height: 50px;
@@ -91,6 +86,7 @@
   border-radius: 10px;
   padding: 1%;
   font-size: 0.8em;
+  
 }
 .item-button {
   float: right;

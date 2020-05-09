@@ -34,8 +34,8 @@
           <el-input placeholder="申请订单id"></el-input>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary">搜索</el-button>
-          <el-button type="primary">导出</el-button>
+          <el-button class="elbuttonStyle2">搜索</el-button>
+          <el-button class="elbuttonStyle2">导出</el-button>
         </el-col>
       </el-row>
       <div style="margin:1% 0 0 0.7%">

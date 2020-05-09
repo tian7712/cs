@@ -8,7 +8,7 @@
           <el-input v-model="input" placeholder="请输入内容"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-button type="primary" icon="el-icon-search">搜索</el-button>
+          <el-button  class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
         </el-col>
       </el-row>
 
@@ -102,12 +102,6 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
 .text-item {
   width: 80%;
   height: 50px;

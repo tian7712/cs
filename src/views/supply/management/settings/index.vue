@@ -24,8 +24,8 @@
         </el-col>
         <el-col :span="6">
           <el-button-group>
-            <el-button type="primary" size="small">搜索</el-button>
-            <el-button type="success" size="small">导出</el-button>
+            <el-button class="elbuttonStyle" size="small">搜索</el-button>
+            <el-button class="elbuttonStyle2" size="small">导出</el-button>
           </el-button-group>
         </el-col>
       </el-row>
@@ -94,7 +94,7 @@
         </el-table-column>
 
         <el-table-column prop="operation" label="操作" show-overflow-tooltip>
-          <el-button type="primary">编辑</el-button>
+          <el-button class="elbuttonStyle2">编辑</el-button>
         </el-table-column>
       </el-table>
 
@@ -110,13 +110,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 2% 0 0.5% 0.5%;
-  span {
-    font-size: 0.9em;
-    color: #009688;
-  }
-}
+
 .box-card {
   padding: 2%;
   margin: 1%;

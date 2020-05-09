@@ -1,6 +1,8 @@
 <template>
   <div>
-      <div class="position">当前位置：添加商品
+      <div class="position">当前位置：
+        <span>添加商品</span>
+        
           
           
       </div>
@@ -86,10 +88,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position{
-  margin:2% 0 1% 1%;
 
-}
 .box-card {
   margin: 1%;
   margin-top: 1%;

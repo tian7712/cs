@@ -4,6 +4,32 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
+.app-main {
+  background-color:#F2F2F2;
+}
+.position {
+  margin: 2% 0 1% 1%;
+  span {
+    color: #009688;
+    font-size: 0.95em;
+  }
+}
+.elbuttonStyle {
+  background-color: #3071A9;
+  color: white;
+}
+.elbuttonStyle:hover {
+  background-color: #285E8E;
+  color: white;
+}
+.elbuttonStyle2 {
+  background-color: #009688;
+  color: white;
+}
+.elbuttonStyle2:hover {
+  background-color: #55B9AF;
+  color: white;
+}
 
 body {
   height: 100%;

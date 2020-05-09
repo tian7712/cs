@@ -11,11 +11,11 @@
         </el-col>
 
         <el-col :span="2">
-          <el-button type="success" icon="el-icon-search">搜索</el-button>
+          <el-button  icon="el-icon-search" class="elbuttonStyle2" >搜索</el-button>
         </el-col>
 
-        <el-col :span="2" :offset="12">
-          <el-button type="primary" @click="dianji">添加</el-button>
+        <el-col :span="2" :offset="14" >
+          <el-button  @click="dianji" class="elbuttonStyle2" icon="el-icon-plus">添加虚拟会员</el-button>
           <!-- handleAddRole -->
         </el-col>
       </el-row>
@@ -86,8 +86,8 @@
 
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
-            <el-button type="primary" size="small" @click="handleEdit">修改</el-button>
-            <el-button type="danger" size="small" @click="handleDelete(scope)">删除</el-button>
+            <el-button icon="el-icon-edit" size="mini" @click="handleEdit" class="elbuttonStyle2">修改</el-button>
+            <el-button icon="el-icon-delete" size="mini" @click="handleDelete(scope)" class="elbuttonStyle2">删除</el-button>
           </template>
         </el-table-column>
 
@@ -351,12 +351,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .app-container {
   .roles-table {
     margin-top: 30px;

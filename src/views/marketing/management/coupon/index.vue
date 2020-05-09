@@ -29,7 +29,7 @@
         </el-col>
 
         <el-col :span="6">
-          <el-button type="primary" size="small">搜索</el-button>
+          <el-button  class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
       </el-row>
       <el-row :gutter="20">
@@ -38,9 +38,10 @@
         </el-col>
         <el-button
           icon="el-icon-plus"
-          type="primary"
+          
           @click="commanderAdd"
           style="float:right"
+           class="elbuttonStyle2"
         >添加优惠券</el-button>
         <!-- <el-col :span="4" :offset="14"></el-col>  -->
       </el-row>
@@ -110,7 +111,7 @@
         <el-table-column label="操作">
           <!-- <template slot-scope="scope"></template> -->
 
-          <el-button size="mini" @click="commanderEdit" type="primary" plain icon="el-icon-edit">编辑</el-button>
+          <el-button size="mini" @click="commanderEdit"  class="elbuttonStyle" plain icon="el-icon-edit">编辑</el-button>
           <el-button size="mini" @click="del" type="danger" plain icon="el-icon-delete">删除  </el-button>
           <el-button size="mini" @click="open" type="success" plain icon="el-icon-share">赠送</el-button>
 
@@ -134,13 +135,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-   
-  }
-}
+
 .text-item {
   width: 80%;
   height: 50px;

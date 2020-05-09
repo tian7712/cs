@@ -72,12 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .app-container {
   .roles-table {
     margin-top: 30px;

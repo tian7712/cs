@@ -24,20 +24,14 @@
         
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">提交</el-button>
+          <el-button  class="elbuttonStyle">提交</el-button>
         </el-form-item>
       </el-form>
     </el-card>
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    font-size: 0.9em;
-    color: #009688;
-  }
-}
+
 .el-input{
 width:13%;
 padding: 0;

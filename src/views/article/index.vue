@@ -18,7 +18,7 @@
           <el-input v-model="input" placeholder="输入关键词回车"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-button type="primary" icon="el-icon-search">搜索</el-button>
+          <el-button  class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
         </el-col>
       </el-row>
 <el-button-group>
@@ -27,7 +27,7 @@
       <el-button size="mini" @click="Prohibit">删除</el-button>
 
 </el-button-group>
-      <el-button style="float: right;" icon="el-icon-plus" type="primary" @click="add">添加文章</el-button>
+      <el-button style="float: right;" icon="el-icon-plus"  class="elbuttonStyle2" @click="add">添加文章</el-button>
 
    
       <el-table
@@ -56,8 +56,8 @@
          <el-table-column prop="num" label="排序" width="420"></el-table-column>
          
         <el-table-column label="操作" align="center">
-          <el-button size="mini" @click="see"  type="primary" plain>查看</el-button>
-          <el-button size="mini" @click="del"  type="primary" plain>删除</el-button>
+          <el-button size="mini" @click="see"   class="elbuttonStyle2" >查看</el-button>
+          <el-button size="mini" @click="del"   class="elbuttonStyle2" >删除</el-button>
      
         </el-table-column>
       </el-table>

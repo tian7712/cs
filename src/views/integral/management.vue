@@ -309,13 +309,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 2% 0 1% 1%;
-  font-size: 1em;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .app-container {
   .roles-table {
     margin-top: 30px;
@@ -324,8 +318,8 @@ export default {
     margin-bottom: 30px;
   }
 }
-.el-button{
-  background-color: #009688;
-  color: white;
-}
+  .el-button{
+    background-color: #009688;
+    color: white;
+  }
 </style>

@@ -124,12 +124,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: #009688;
-  }
-}
+
 .statebutton {
   .el-button {
     background-color: #009688;

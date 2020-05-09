@@ -162,16 +162,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.position{
-  margin: 3% 0 1% 1%;
-  span{
-    color:#009688;
-  
-  }
 
-}
 p {
   font-size: 0.8em;
+  margin: 1%;
   
 }
 .p-last {

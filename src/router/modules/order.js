@@ -18,6 +18,12 @@ const orderRouter = {
       name: '订单列表',
       component: () => import('@/views/order/order/list'),
       meta: { title: '订单列表' }
+    },{
+      path: 'details',
+      name: '订单详情',
+      hidden:true,
+      component: () => import('@/views/order/order/details'),
+      meta: { title: '订单详情' }
     },
     {
       path: 'Deliver',

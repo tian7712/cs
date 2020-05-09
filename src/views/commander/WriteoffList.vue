@@ -8,7 +8,7 @@
           <el-input v-model="input" placeholder="会员名称"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-button type="primary" icon="el-icon-search">搜索</el-button>
+          <el-button  icon="el-icon-search" class="elbuttonStyle2">搜索</el-button>
         </el-col>
       </el-row>
 <el-button-group>
@@ -59,12 +59,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .text-item {
   width: 80%;
   height: 50px;

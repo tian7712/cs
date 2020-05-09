@@ -8,7 +8,7 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4" :offset="22">
-          <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAddRole">添加分类</el-button>
+          <el-button  class="elbuttonStyle2" icon="el-icon-plus" size="mini" @click="handleAddRole">添加分类</el-button>
         </el-col>
       </el-row>
 
@@ -32,11 +32,11 @@
             ></el-switch>
             <!-- <el-button type="primary" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button> -->
             <el-button
-              type="primary"
+              class="elbuttonStyle2 Classification"
               icon="el-icon-delete"
               size="mini"
               @click="handleDel(scope)"
-              class="Classification"
+      
             >删除</el-button>
           </template>
         </el-table-column>

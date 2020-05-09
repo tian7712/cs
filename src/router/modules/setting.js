@@ -24,9 +24,9 @@ const setupRouter = {
       name: '图片设置',
       meta: { title: '图片设置' }
     },
-    {
+    { 
         path: 'Applet',
-        component: () => import('@/views/setting/imgSettings'), // Parent router-view
+        component: () => import('@/views/setting/Applet/index'), // Parent router-view
         name: '小程序设置',
         meta: { title: '小程序设置' },
         redirect: '/setting/Applet/Parameter',
@@ -62,7 +62,7 @@ const setupRouter = {
       },
       {
         path: 'indexSetting',
-        component: () => import('@/views/setting/imgSettings'), // Parent router-view父路由器视图
+        component: () => import('@/views/setting/indexSetting/index'), // Parent router-view父路由器视图
         name: '首页设置',
         meta: { title: '首页设置' },
         redirect: '/setting/imgSettings/slide',
@@ -72,6 +72,20 @@ const setupRouter = {
             component: () => import('@/views/setting/indexSetting/slide'),
             name: '幻灯片',
             meta: { title: '幻灯片' }
+          },
+          {
+            path: 'addslide',
+            component: () => import('@/views/setting/indexSetting/addslide'),
+            hidden:true,
+            name: '添加幻灯片',
+            meta: { title: '添加幻灯片' }
+          },
+          {
+            path: 'editslide',
+            component: () => import('@/views/setting/indexSetting/editslide'),
+            hidden:true,
+            name: '编辑幻灯片',
+            meta: { title: '编辑幻灯片' }
           },
           {
             path: 'Notice',

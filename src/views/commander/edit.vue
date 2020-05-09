@@ -223,13 +223,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 2% 0 1% 1%;
-  font-size: 1em;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .bm-view {
   width: 50%;
   height: 300px;

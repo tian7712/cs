@@ -1,7 +1,7 @@
 
 <template>
   <div class="app-container">
-    <div class="position">当前位置：商品设置</div>
+    <div class="position">当前位置：<span>商品设置</span> </div>
     <el-card class="box-card">
       <el-row>
         <el-col :span="24">
@@ -50,7 +50,7 @@
               </div>-->
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="onSubmit">提交</el-button>
+              <el-button  class="elbuttonStyle" @click="onSubmit">提交</el-button>
             </el-form-item>
           </el-form>
         </el-col>
@@ -59,9 +59,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-}
+
 </style>  
 <script>
 // import ArticleDetail from './components/ArticleDetail'

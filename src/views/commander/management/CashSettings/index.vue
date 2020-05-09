@@ -24,11 +24,13 @@
           <el-radio v-model="form.xxRadio" label="1">开启</el-radio>
           <p>只适用提现到微信的申请</p>
         </el-form-item>
-        
+        <el-form-item >
+         <el-button class="elbuttonStyle2">提交</el-button>
+        </el-form-item>
       </el-form>
-<el-row :gutter="20">
-  <el-col :span="4" :offset="2"><el-button type="primary">提交</el-button></el-col>
-</el-row>
+
+
+
       <!-- <template slot-scope="scope">
         
       </template>-->

@@ -24,16 +24,14 @@
       </el-row>
       <el-row :gutter="20">
         <el-col :span="6" :offset="6">
-          <el-button type="primary" size="medium">提交</el-button>
+          <el-button  class="elbuttonStyle" size="medium">提交</el-button>
         </el-col>
       </el-row>
     </el-card>
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-}
+
 .box-card{
     .filter-time{
         height: 40px;

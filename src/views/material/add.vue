@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container" style=" background-color:#F2F2F2;">
     <div class="position"> <span>当前位置：物资管理</span> </div>
     <el-card class="box-card">
      <el-form ref="form" :model="form" label-width="80px">
@@ -208,12 +208,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 // .app-container {
 //   .roles-table {
 //     margin-top: 30px;

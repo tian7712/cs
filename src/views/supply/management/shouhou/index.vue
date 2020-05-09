@@ -32,10 +32,12 @@
       <el-radio v-model="radio4" label="2">关闭</el-radio>
   <el-radio v-model="radio4" label="1">开启</el-radio>
   </el-form-item>
+  <el-form-item >
+     <el-button class="elbuttonStyle">提交</el-button>
+  </el-form-item>
   
-  <el-row :gutter="20">
-  <el-col :span="4" :offset="2"><el-button type="primary">提交</el-button></el-col>
-</el-row>
+
+
 </el-form>
 
 

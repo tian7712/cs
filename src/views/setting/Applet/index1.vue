@@ -1,62 +1,72 @@
 
-    
-
-     <template>
+<template>
   <div class="app-container">
     <div class="position">
       当前位置：
-      <span>团长等级</span>
+      <span>优惠券分类</span>
     </div>
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4" :offset="22">
-          <el-button  icon="el-icon-plus" size="mini" @click="handleAddRole" class="elbuttonStyle">添加新等级</el-button>
+          <el-button type="primary" icon="el-icon-plus" size="mini" @click="handleAddRole">添加分类</el-button>
         </el-col>
       </el-row>
 
       <el-table :data="rolesList" style="width: 100%;margin-top:30px;" stripe>
-        <el-table-column align="center" label="等级名称" width="250">
-          <template slot-scope="scope">{{ scope.row.dengjiname }}</template>
+        <el-table-column align="header-center" label="ID" width="150">
+          <template slot-scope="scope">{{ scope.row.id }}</template>
         </el-table-column>
-      
-        <el-table-column align="header-center" label="团长提成金额" width="650">
-          <template slot-scope="scope">{{ scope.row.money }}</template>
-        </el-table-column>
-      
-      
-        
-        
-        <el-table-column align="center" label="操作">
+        <el-table-column label="分类名称">
           <template slot-scope="scope">
-            <el-button class="elbuttonStyle" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button>
-    
+            <!-- width="250" -->
+            <el-input v-model="scope.row.ClassificationName"></el-input>
           </template>
         </el-table-column>
-      </el-table>
 
- 
+        <el-table-column align="center">
+          <template slot-scope="scope">
+            <el-switch
+              v-model="scope.row.ClassificationNameValue"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            ></el-switch>
+            <!-- <el-button type="primary" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button> -->
+            <el-button
+              type="primary"
+              icon="el-icon-delete"
+              size="mini"
+              @click="handleDel(scope)"
+              class="Classification"
+            >删除</el-button>
+          </template>
+        </el-table-column>
+        <!-- <el-table-column>
+          <div :model="dynamicValidateForm" ref="dynamicValidateForm" label-width="100%">
+            <div
+              v-for="(domain, index) in dynamicValidateForm.domains"
+              :key="domain.key"
+              :prop="'domains.' + index + '.value'"
+              :rules="{required: true, message: '不能为空', trigger: 'blur'}"
+              style="float:left"
+              class="commodityGG"
+            >
+              <el-input v-model="domain.value">
+                <el-button
+                  type="danger"
+                  icon="el-icon-close"
+                  slot="append"
+                  @click.prevent="removeDomain(domain)"
+                ></el-button>
+              </el-input>
+            </div>
+          </div>
+        </el-table-column>-->
+      </el-table>
+      <el-button
+        style=" background-color:#009688 ; margin-top: 1%;color:white;"
+        @click="Preservation"
+      >保存分类</el-button>
     </el-card>
-    <el-dialog :visible.sync="dialogVisible" :title="dialogType==='edit'?'编辑团长等级':'添加团长等级'" width="35%">
-      <el-form :model="role" label-width="120px" label-position="left" >
-        <p style="color:red;"> 此操作将启用等级全局提成，原商品比例失效，可到商品编辑“等级/分销”单独设置</p>
-       
-        <el-form-item label="等级名称">
-          <el-input v-model="role.dengjiname" placeholder="等级名称" />
-        </el-form-item>
-        
-        <el-form-item label="团长提成金额">
-          <el-input v-model="role.money" placeholder="团长提成金额" >
-             <template slot="append">元</template>
-          </el-input>
-       
-        </el-form-item>
-        
-      </el-form>
-      <div style="text-align:right;">
-        <el-button type="primary" @click="confirmRole">确认</el-button>
-        <el-button  @click="dialogVisible=false">取消</el-button>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
@@ -81,6 +91,7 @@ const defaultRole = {
 export default {
   data() {
     return {
+      dynamicValidateForm: {},
       url:
         "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
       role: Object.assign({}, defaultRole),
@@ -93,9 +104,9 @@ export default {
         children: "children",
         label: "title"
       },
-     
+
       value: "",
-      radio: "1",
+      radio: "1"
     };
   },
   computed: {
@@ -104,9 +115,7 @@ export default {
     }
   },
   created() {
-    
-
-   // Mock：从服务器获取所有路由和角色列表
+    // Mock：从服务器获取所有路由和角色列表
     this.getRoutes();
     this.getRoles();
   },
@@ -121,7 +130,6 @@ export default {
       this.rolesList = res.data;
     },
 
- 
     // 重塑路由结构，使其看起来与侧边栏相同
     generateRoutes(routes, basePath = "/") {
       const res = [];
@@ -167,27 +175,51 @@ export default {
       });
       return data;
     },
-    handleAddRole() {
-      this.role = Object.assign({}, defaultRole);
-      if (this.$refs.tree) {
-        // this.$refs.tree.setCheckedNodes([]);
-      }
-      this.dialogType = "new";
-      this.dialogVisible = true;
-    },
-    handleEdit(scope) {
-      this.dialogType = "edit";
-      this.dialogVisible = true;
-      this.checkStrictly = true;
-      this.role = deepClone(scope.row);
-      this.$nextTick(() => {
-        const routes = this.generateRoutes(this.role.routes);
-        // this.$refs.tree.setCheckedNodes(this.generateArr(routes));
-        // set checked state of a node not affects its father and child nodes
-        this.checkStrictly = false;
+    Preservation() {
+      this.$message({
+        message: "保存成功",
+        type: "success"
       });
-    }
-   ,
+    },
+    handleAddRole() {
+      // this.role = Object.assign({}, defaultRole);
+      // if (this.$refs.tree) {
+      //   // this.$refs.tree.setCheckedNodes([]);
+      // }
+      // this.dialogType = "new";
+      // this.dialogVisible = true;
+      // this.dynamicValidateForm.push(1);
+    },
+    handleDel(scope) {
+      // this.dialogType = "edit";
+      // this.dialogVisible = true;
+      // this.checkStrictly = true;
+      // this.role = deepClone(scope.row);
+      // this.$nextTick(() => {
+      //   const routes = this.generateRoutes(this.role.routes);
+      //   this.$refs.tree.setCheckedNodes(this.generateArr(routes));
+      //   // set checked state of a node not affects its father and child nodes
+      //   this.checkStrictly = false;
+      //    });
+      this.$confirm("确认删除此优惠券吗？", "信息", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$message({
+            type: "success",
+            message: "删除成功!"
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
+      console.log(scope);
+    },
     generateTree(routes, basePath = "/", checkedKeys) {
       const res = [];
 
@@ -271,6 +303,12 @@ export default {
     }
   }
 };
+// 1，编辑table的某一行的时候。获取哪一行的数据给编辑的表格。
+
+// handleEdit(index, row) {
+//                 this.editFormVisible = true;
+//                 this.editForm = Object.assign({}, row);
+//             },
 </script>
 
 <style lang="scss" scoped>
@@ -286,5 +324,10 @@ export default {
   .permission-tree {
     margin-bottom: 30px;
   }
+}
+.Classification {
+  padding: 1%;
+  margin-left: 3%;
+  background-color: #009688;
 }
 </style>

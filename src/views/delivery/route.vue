@@ -56,14 +56,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  // border-left:1px solid #009688;
-  span {
-    color: #009688;
-    font-size: 0.9em;
-  }
-}
+
 .statebutton {
   .el-button:nth-child(1) {
     background-color: #009688;

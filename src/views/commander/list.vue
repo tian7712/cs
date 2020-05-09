@@ -44,10 +44,10 @@
         </el-col>
 
         <el-col :span="6">
-          <el-button type="primary" size="small">搜索</el-button>
-          <el-button type="primary" size="small">导出</el-button>
-          <el-button type="primary" size="small">导出配货单</el-button>
-          <el-button type="primary" size="small">导出总单</el-button>
+          <el-button size="small" class="elbuttonStyle2">搜索</el-button>
+          <el-button size="small" class="elbuttonStyle2">导出</el-button>
+          <el-button size="small" class="elbuttonStyle2">导出配货单</el-button>
+          <el-button size="small" class="elbuttonStyle2">导出总单</el-button>
         </el-col>
       </el-row>
       <el-row :gutter="20">
@@ -58,8 +58,8 @@
             <el-button size="mini" @click="dialogFormVisible1 = true">修改等级</el-button>
           </el-button-group>
         </el-col>
-        <el-col :span="4" :offset="14">
-          <el-button icon="el-icon-plus" type="primary" @click="commanderAdd">添加团长</el-button>
+        <el-col >
+          <el-button icon="el-icon-plus" class="elbuttonStyle2" @click="commanderAdd" style="float:right;">添加团长</el-button>
         </el-col>
       </el-row>
 
@@ -225,12 +225,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .text-item {
   width: 80%;
   height: 50px;

@@ -32,13 +32,13 @@
           <el-button  class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
       </el-row>
-      <el-row :gutter="20">
+      <el-row :gutter="20" style="margin:1% 0 1% 0%">
         <el-col :span="6">
           <el-button size="small" @click="del" icon="el-icon-delete">删除</el-button>
         </el-col>
         <el-button
           icon="el-icon-plus"
-          
+          size="mini"
           @click="commanderAdd"
           style="float:right"
            class="elbuttonStyle2"
@@ -51,10 +51,12 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%; "
-        header-row-style="background-color:F2F2F2;"
-        header-cell-style="font-weight: 400;"
-        cell-style="color:#999999"
-        @selection-change="handleSelectionChange"
+        :unique-opened="true"
+          header-cell-style="width: 100%;background-color: #f2f2f2;font-weight: 400;"
+        cell-style="color:#999999;"
+ 
+        
+       
       >
         <el-table-column type="selection" width="55"></el-table-column>
 
@@ -111,11 +113,11 @@
         <el-table-column label="操作">
           <!-- <template slot-scope="scope"></template> -->
 
-          <el-button size="mini" @click="commanderEdit"  class="elbuttonStyle" plain icon="el-icon-edit">编辑</el-button>
-          <el-button size="mini" @click="del" type="danger" plain icon="el-icon-delete">删除  </el-button>
-          <el-button size="mini" @click="open" type="success" plain icon="el-icon-share">赠送</el-button>
+          <el-button size="mini" @click="commanderEdit"  class="elbuttonStyle"  icon="el-icon-edit">编辑</el-button>
+          <el-button size="mini" @click="del" type="danger"  icon="el-icon-delete">删除  </el-button>
+          <el-button size="mini" @click="open" type="success"  icon="el-icon-share">赠送</el-button>
 
-          <!-- <el-switch v-model="tableData.operation" active-color="#13ce66" inactive-color="#ff4949" @change="operationoff"></el-switch> -->
+      
         </el-table-column>
       </el-table>
 

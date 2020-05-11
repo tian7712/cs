@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-container">
     <div class="position">
       当前位置：
       <span>签到设置</span>
@@ -68,9 +68,9 @@ export default {
 
 <style lang="scss" scoped>
 
-.box-card {
-  margin: 1%;
-  margin-top: 1%;
-  padding: 2%;
-}
+// .box-card {
+//   margin: 1%;
+//   margin-top: 1%;
+//   padding: 2%;
+// }
 </style>

@@ -18,6 +18,12 @@ const orderRouter = {
       name: '订单列表',
       component: () => import('@/views/order/order/list'),
       meta: { title: '订单列表' }
+    },
+    {
+      path: 'list1',
+      name: '订单列表1',
+      component: () => import('@/views/order/order/list1'),
+      meta: { title: '订单列表1' }
     },{
       path: 'details',
       name: '订单详情',

@@ -23,7 +23,7 @@
         </el-col>
 
         <el-col :span="2">
-          <el-button type="primary">搜索</el-button>
+          <el-button  class="elbuttonStyle2">搜索</el-button>
         </el-col>
       </el-row>
       <el-button-group>
@@ -32,7 +32,8 @@
         <el-button size="mini">删除</el-button>
       </el-button-group>
       <el-button
-        style="float: right;  background-color: #009688;color: white;margin: 1%;"
+        style="float: right;  margin: 1%;"
+          class="elbuttonStyle2"
         icon="el-icon-plus"
         @click="add"
       >添加新角色</el-button>

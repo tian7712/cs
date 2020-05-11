@@ -27,43 +27,76 @@
             <el-form-item label="团长："></el-form-item>
             <el-form-item label="取货地址："></el-form-item>
           </el-form>
-          <!-- <div class="fromstyle">
-      <p>订单编号：<span></span></p>
-      <p>付款方式：<span></span></p>
-      <p>买 家：<span style="color: #009688;">22</span></p>
-      <p>配送方式：<span></span></p>
-      <p>收 货 人：<span></span></p>
-      <p>团长： <span></span></p>
-      <p>取货地址：<span></span></p>
-          </div>-->
+         
         </el-col>
         <el-col :span="12">
-          <div class="fromstyle">
-            <p>订单状态：</p>
-            <p>交易单号：</p>
-            <p>发货时间：</p>
-            <p>团长接货时间：</p>
-            <el-button size="mini">确认收货</el-button>
-            <p>查看备注</p>
-            <p>友情提示： 请及时关注物流状态，确保买家及时收到商品; 如果买家未收到货物或有退换货请求，请及时联系买家妥善处理</p>
-          </div>
+           <el-form ref="form" :model="form" label-width="140px" class="fromstyle" size="mini">
+            <el-form-item label="订单状态：">{{form.name}}</el-form-item>
+            <el-form-item label="交易单号："></el-form-item>
+            <el-form-item label="发货时间："></el-form-item>
+            <el-form-item label="团长接货时间："></el-form-item>
+            <el-form-item label="确认收货："></el-form-item>
+            <el-form-item label="查看备注："></el-form-item>
+               <!-- <p>友情提示： 请及时关注物流状态，确保买家及时收到商品; 如果买家未收到货物或有退换货请求，请及时联系买家妥善处理</p> -->
+          </el-form>
+         
         </el-col>
       </el-row>
 
       <h3>商品信息</h3>
       <el-table
         :data="tableData"
-        border
+       
         height="200"
         :summary-method="getSummaries"
         show-summary
         style="width: 100%; margin-top: 20px"
       >
-        <el-table-column prop="id" label="ID" width="180"></el-table-column>
-        <el-table-column prop="name" label="姓名"></el-table-column>
-        <el-table-column prop="amount1" label="数值 1（元）"></el-table-column>
-        <el-table-column prop="amount2" label="数值 2（元）"></el-table-column>
-        <el-table-column prop="amount3" label="数值 3（元）"></el-table-column>
+        <el-table-column prop="title" label="商品标题	" width="250">
+          <template slot-scope="scope">
+            <el-image style="width: 50px; height: 50px" :src="scope.row.img"></el-image>
+            <span style=" text-align: center;">{{scope.row.title}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="num" label="规格、编号">
+          <template slot-scope="scope">
+            <p>规格：无{{scope.row.xj}}</p>
+            <p>编码：无</p>
+          </template>
+        </el-table-column>
+        <el-table-column prop="amount1" label="基数">
+           <template slot-scope="scope">
+            <p>商品小计{{scope.row.xj}}</p>
+            <p>- 满减：</p>
+            <p>- 优惠券：</p>
+            <p>= 基数</p>
+          </template>
+        </el-table-column>
+        <el-table-column prop="amount2" label="团长佣金">
+<p>
+          团长：  佣金： ￥</p>  
+        </el-table-column>
+        <el-table-column prop="amount3" label="下级分佣"></el-table-column>
+        <el-table-column prop="amount1" label="供应商"></el-table-column>
+        <el-table-column prop="amount2" label="单价">
+            <template slot-scope="scope">
+            <p>¥{{scope.row.xj}}</p>
+           
+          </template>
+        </el-table-column>
+        <el-table-column prop="" label="数量" >
+           <template slot-scope="scope">
+            <p>{{scope.row.xj}}个</p>
+           
+          </template>
+        </el-table-column>
+        <el-table-column prop="xj" label="价格">
+           <template slot-scope="scope">
+            <p>¥{{scope.row.xj}}</p>
+           
+          </template>
+        </el-table-column>
+        
       </el-table>
     </el-card>
   </div>
@@ -102,41 +135,53 @@ export default {
       ],
       tableData: [
         {
-          id: "12987122",
+          title: "无抗鸡蛋（10个/盒）",
+          img:
+            "http://img.xmduobanjin.com/Uploads/image/goods/2020-03-22/5e770978791f2.jpg",
           name: "王小虎",
           amount1: "234",
           amount2: "3.2",
-          amount3: 10
+          xj: 10
         }
       ]
     };
   },
-  methods:{
+  methods: {
+  getSummaries(param) {
+        const { columns, data } = param;
+        const sums = [];
+         const values1='11e'
+        columns.forEach((column, index) => {
+          if (index <= 6) {
+            sums[index] = '';
+            return;
+          }
+          const values = data.map(item => Number(item[column.property]));
       
-          getSummaries(param) {
-//         const { columns, data } = param;
-//         const sums = [];
-// //         columns.forEach((column, index) => {
-// //           if (index === 0) {
-//             sums[index] = '1';
-//             return;
-//           }
-//           const values = data.map(item => Number(item[column.property]));
-//           if (!values.every(value => isNaN(value))) {
-//             sums[index] = values.reduce((prev, curr) => {
-//               const value = Number(curr);
-//               if (!isNaN(value)) {
-//                 return prev + curr;
-//               } else {
-//                 return prev;
-//               }
-//             }, 0);
-//             ' 元' +=sums[index] ;
-//           } 
-//         });
-// // console.log(sums[index])
-//         return sums;
-      }
+          if (!values.every(value => isNaN(value))) {
+            sums[index] = values.reduce((prev, curr) => {
+              const value = Number(curr);
+              if (!isNaN(value)) {
+                return prev + curr;
+                
+              } else {
+                return prev;
+
+              }
+            }, 0);
+            sums[index];
+            console.log( sums)
+          } 
+          else {
+            console.log(sums[index])
+            sums[index] = '运费￥'+"   "+'商品小计：￥'+'实付款：￥';
+        
+         
+          }
+        });
+
+        return sums;
+    }
   }
 };
 </script>
@@ -176,5 +221,19 @@ export default {
 el-form-item {
   padding: 0;
   margin: 0;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+.el-form{
+  padding: 2% 1%;
+}
+.el-table .cell {
+
+    /*text-align: center;*/
+
+    white-space: pre-line;/*保留换行符*/
+
 }
 </style>

@@ -8,7 +8,10 @@
   background-color:#F2F2F2;
 }
 .position {
-  margin: 2% 0 1% 1%;
+  border-left: 4px solid #009688;
+  margin: 2% 0 1% 0%;
+  padding-left: 1%;
+  // height: 20px;
   span {
     color: #009688;
     font-size: 0.95em;
@@ -18,7 +21,7 @@
   background-color: #3071A9;
   color: white;
 }
-.elbuttonStyle:hover {
+.elbuttonStyle:hover,.elbuttonStyle:active,.elbuttonStyle:focus{
   background-color: #285E8E;
   color: white;
 }
@@ -26,11 +29,25 @@
   background-color: #009688;
   color: white;
 }
-.elbuttonStyle2:hover {
+.elbuttonStyle2:hover,.elbuttonStyle2:active,.elbuttonStyle2:focus{
   background-color: #55B9AF;
   color: white;
 }
-
+.elbuttonPo{
+  float: right;
+  margin: 1%;
+}
+.pstyle1{
+margin: 0;
+padding: 0;
+color:#98999A ;
+}
+.pstyle2{
+  margin: 0;
+  padding: 0;
+  color:#98999A ;
+  font-size: 0.95em;
+  }
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;

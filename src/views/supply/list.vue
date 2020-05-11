@@ -1,13 +1,13 @@
 
 <template>
- <!-- class="app-container" -->
-  <div>
-    <div class="position">当前位置：
+  <!-- class="app-container" -->
+  <div class="app-container">
+    <div class="position">
+      当前位置：
       <span>供应商列表</span>
-      </div>
+    </div>
     <el-card class="box-card">
       <el-row :gutter="5">
-        
         <el-col :span="4">
           <el-select v-model="selectvalue" placeholder="状态">
             <el-option
@@ -23,77 +23,81 @@
           <el-input placeholder="店铺姓名/手机号/供应商名称"></el-input>
         </el-col>
         <el-col :span="6">
-    
           <el-button-group>
-  <el-button class="elbuttonStyle" size="small">搜索</el-button>
-          <el-button class="elbuttonStyle2" size="small">导出</el-button>
-</el-button-group>
+            <el-button style="background-color:#46A6FF;color:white;" size="small">搜索</el-button>
+            <el-button class="elbuttonStyle2" size="small">导出</el-button>
+          </el-button-group>
         </el-col>
       </el-row>
-      
-      
-<div style="margin:0.5% 0 0 0.7%">
-       <el-row :gutter="20">
-  <el-col :span="4">
 
-    
-        <!-- <el-checkbox v-model="checked"></el-checkbox> -->
+      <div style="margin:1% 0% 0.5% 0.2%">
+        <el-row :gutter="20">
+          <el-col :span="4">
+            <!-- <el-checkbox v-model="checked"></el-checkbox> -->
 
-        <el-button-group>
-          <el-button size="mini">审核通过</el-button>
-          <el-button size="mini">取消审核</el-button>
-        </el-button-group>
-      
-  </el-col>
-  <el-col :span="4" :offset="16"> <el-button size="mini" icon="el-icon-plus" class="elbuttonStyle2">添加供应商</el-button></el-col>
-</el-row>
-</div>
-      <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+            <el-button-group>
+              <el-button size="mini">审核通过</el-button>
+              <el-button size="mini">取消审核</el-button>
+            </el-button-group>
+          </el-col>
+          <el-col :span="20">
+            <el-button
+              size="mini"
+              icon="el-icon-plus"
+              class="elbuttonStyle2"
+              @click="add"
+              style="float:right;"
+            >添加供应商</el-button>
+          </el-col>
+        </el-row>
+      </div>
+      <el-table
+        ref="multipleTable"
+        :data="tableData"
+        tooltip-effect="dark"
+        header-cell-style="width: 100%;background-color: #f2f2f2;"
+      >
         <el-table-column type="selection" width="55"></el-table-column>
 
         <el-table-column label="ID" width="120">
           <template slot-scope="scope">{{ scope.row.id }}</template>
         </el-table-column>
-             <el-table-column prop="type" label="供应商类型" width="120"></el-table-column>
+        <el-table-column prop="type" label="供应商类型" width="120"></el-table-column>
         <el-table-column prop="name" label="供应商名称" width="120"></el-table-column>
-   
-        <el-table-column  label="供应商标志" width="150">
-  <template slot-scope="scope">
-    <el-image
-      style="width: 70px; height: 70px"
-      :src="scope.row.logo"
-      :fit="fit"></el-image>
-      </template>
 
-
+        <el-table-column label="供应商标志" width="150">
+          <template slot-scope="scope">
+            <el-image style="width: 70px; height: 70px" :src="scope.row.logo"></el-image>
+          </template>
         </el-table-column>
         <el-table-column label="供应商联系人" width="250">
           <template slot-scope="scope">
             <div class="bankdata">
-              <p>{{ scope.row. contact }}</p>
-           
+              <p class="pstyle1">{{ scope.row. contact }}</p>
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="联系方式" width="120" >
+        <el-table-column label="联系方式" width="120">
           <template slot-scope="scope">
             <div class="bankdata">
-              <p>{{ scope.row.phone }}</p>
-
-           
+              <p class="pstyle1">{{ scope.row.phone }}</p>
             </div>
           </template>
         </el-table-column>
         <el-table-column label="商品数量" width="120">
           <template slot-scope="scope">
             <div class="bankdata">
-              <p>{{ scope.row.quantity }}</p>
-
-           
+              <p class="pstyle1">{{ scope.row.quantity }}</p>
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="time" label="申请时间/审核时间" width="220" :render-header="renderheader" align="center">
+        <el-table-column
+          prop="time"
+          label="申请时间/审核时间"
+          width="220"
+          :render-header="renderheader"
+          align="center"
+        >
           <template slot-scope="scope">
             <div>
               <p>{{ scope.row.appiytime }}</p>
@@ -103,7 +107,6 @@
         </el-table-column>
         <el-table-column label="状态" width="120">
           <template slot-scope="scope">
-          
             <el-switch
               v-model="scope.row.stateswitch"
               active-color="#13ce66"
@@ -111,15 +114,13 @@
               @change="stateopen()"
               v-if="STswitch"
             ></el-switch>
-           
 
             <p style="color:#a94442;" v-if="statedata">{{ scope.row.state }}</p>
           </template>
         </el-table-column>
 
         <el-table-column prop="operation" label="操作" show-overflow-tooltip>
-          <el-button class="elbuttonStyle2">编辑</el-button>
-  
+          <el-button class="elbuttonStyle2" @click="edit" size="mini" icon="el-icon-edit">编辑</el-button>
         </el-table-column>
       </el-table>
 
@@ -135,15 +136,6 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
-.box-card {
-  padding: 2%;
-  margin: 1%;
-}
-p {
-  color: rgb(163, 161, 161);
-  margin: 0;
-}
 .bankdata {
   p:nth-child(2) {
     color: #009688;
@@ -213,14 +205,13 @@ export default {
           type: "平台供应商",
           phone: 18059892299,
           contact: "黄志杰",
-      
-          logo:"https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+
+          logo:
+            "http://dev.xmduobanjin.com/Common/resource/images/nopic-107.png",
           quantity: "0",
-          
+
           appiytime: "2020-03-24 07:26:04 ",
           examine: "2020-03-25 18:19:34"
-     
-       
         },
         {
           id: 92,
@@ -229,10 +220,11 @@ export default {
           type: "平台供应商",
           phone: 18059892299,
           contact: "王照福",
-      
-          logo:"https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+
+          logo:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
           quantity: "0",
-          
+
           appiytime: "2020-03-24 07:26:04 ",
           examine: "2020-03-25 18:19:34"
         }
@@ -250,7 +242,12 @@ export default {
         h("span", {}, column.label.split("/")[2])
       ]);
     }, // lable 换行
-
+    add() {
+      this.$router.push({ path: "/supply/addlist" });
+    },
+    edit() {
+      this.$router.push({ path: "/supply/editlist" });
+    }
     // stateopen() {
     //   // console.log(this)
 

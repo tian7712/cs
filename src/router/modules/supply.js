@@ -19,6 +19,20 @@ const supplyRouter = {
       meta: { title: '供应商列表' }
     },
     {
+      path: 'addlist',
+      name: '添加供应商',
+      component: () => import('@/views/supply/addlist'),
+      hidden:true,
+      meta: { title: '添加供应商' }
+    },
+    {
+      path: 'editlist',
+      name: '编辑供应商',
+      component: () => import('@/views/supply/editlist'),
+      hidden:true,
+      meta: { title: '编辑供应商' }
+    },
+    {
       path: 'dd-settings',
       component: () => import('@/views/supply/management/settings'),
       name: '提现申请',

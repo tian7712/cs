@@ -1,13 +1,13 @@
 <template>
-  <div class="app-container" style=" background-color:#F2F2F2;">
-    <div class="position"> <span>当前位置：物资管理</span> </div>
+  <div class="app-container">
+    <div class="position"> <span>当前位置：编辑供应商</span> </div>
     <el-card class="box-card">
-     <el-form ref="form" :model="form" label-width="80px">
-<el-form-item label="物资名称">
+     <el-form ref="form" :model="form" label-width="120px">
+<el-form-item label="供应商名称">
     <el-input v-model="form.name"></el-input>
   </el-form-item>
   
-     <el-form-item label="付款后分享图片">
+     <el-form-item label="供应商标志">
               <el-input placeholder="请输入内容" v-model="input2">
                 <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
               </el-input>
@@ -26,13 +26,41 @@
               </el-dialog>
 
             </el-form-item>
-            <el-form-item label="物资规格">
+            <el-form-item label="供应商联系人">
     <el-input v-model="form.name"></el-input>
-    <p>多规格之间用 / 分隔</p>
+  
   </el-form-item>
-  <el-form-item label="物资状态">
-        <el-radio v-model="radio" label="1">上架</el-radio>
-  <el-radio v-model="radio" label="2">下架</el-radio>
+  <el-form-item label="供应商手机号">
+    <el-input v-model="form.name"></el-input>
+  
+  </el-form-item>
+  <el-form-item label="是否审核">
+        <el-radio v-model="radio" label="1">是</el-radio>
+  <el-radio v-model="radio" label="2">否</el-radio>
+  </el-form-item>
+   <el-form-item label="供应商类型">
+        <el-radio v-model="radio" label="1">平台供应商</el-radio>
+  <el-radio v-model="radio" label="2">独立供应商</el-radio>
+  </el-form-item>
+    <el-form-item label="技术服务费">
+    <el-input v-model="form.name"></el-input>
+    <p class="pstyle1">请填写百分比,例如：6 那么平台抽成是6%。实付金额的百分比，扣除此比例 再扣除团长佣金，剩余货款归供应商</p>
+  
+  </el-form-item>
+  <!-- <el-form-item > </el-form-item>  -->
+    <div class="loginstyle">  登录信息</div>
+
+ 
+ 
+  <el-form-item label="登录账户">
+    <el-input v-model="form.name"></el-input>
+  
+  
+  </el-form-item>
+  <el-form-item label="登录密码">
+    <el-input v-model="form.name"></el-input>
+    <p class="pstyle1">留空则不修改密码</p>
+  
   </el-form-item>
   <el-form-item >
  <el-button class="elbuttonStyle">提交</el-button>
@@ -178,7 +206,7 @@ export default {
         fileList: [
         {
           url:
-            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
+            "http://dev.xmduobanjin.com/static/images/default-pic.jpg"
         }
       ],
       dialogImageUrl: "",
@@ -233,6 +261,7 @@ export default {
     font-weight: 200;
     font-size: 1.3em;
   }
+ 
   .inner {
     width: 50%;
     .el-button {
@@ -242,4 +271,13 @@ export default {
     }
   }
 }
+ .loginstyle{
+      width: 98%;
+      height: 50px;
+      line-height: 50px;
+      background-color: #F2F2F2;
+      border-left:6px solid #009688 ;
+      padding-left: 1%;
+      margin:1%  2%;
+  }
 </style>

@@ -94,7 +94,34 @@ const setupRouter = {
             //  hidden: true, // 不在侧边栏线上
             meta: { title: '公告' }
           },
-        
+          {
+            path: 'addNotice',
+            component: () => import('@/views/setting/indexSetting/addNotice'),
+            name: '添加公告',
+             hidden: true, // 不在侧边栏线上
+            meta: { title: '添加公告' }
+          },
+          {
+            path: 'editNotice',
+            component: () => import('@/views/setting/indexSetting/editNotice'),
+            name: '编辑公告',
+             hidden: true, // 不在侧边栏线上
+            meta: { title: '编辑公告' }
+          },
+          {
+            path: 'addDHicon',
+            component: () => import('@/views/setting/indexSetting/addDHicon'),
+            name: '添加导航图标',
+            hidden:true,  
+            meta: { title: '添加导航图标' }
+          },
+          {
+            path: 'editDHicon',
+            component: () => import('@/views/setting/indexSetting/editDHicon'),
+            name: '编辑导航图标',
+            hidden:true,
+            meta: { title: '编辑导航图标' }
+          },
           {
             path: 'DHicon',
             component: () => import('@/views/setting/indexSetting/DHicon'),
@@ -119,6 +146,27 @@ const setupRouter = {
             meta: { title: '运费模板'}
           },
           {
+            path: 'addFreightTemplate',
+            component: () => import('@/views/setting/LogisticsSettings/addFreightTemplate'),
+            name: '添加运费模板',
+            hidden: true,
+            meta: { title: '添加运费模板'}
+          },
+          {
+            path: 'editFreightTemplate',
+            component: () => import('@/views/setting/LogisticsSettings/editFreightTemplate'),
+            hidden: true,
+            name: '编辑运费模板',
+            meta: { title: '编辑运费模板'}
+          },
+          
+          {
+            path: 'interface',
+            component: () => import('@/views/setting/LogisticsSettings/interface'),
+            name: '物流接口',
+            meta: { title: '物流接口' }
+          },
+          {
             path: 'delivery',
             component: () => import('@/views/setting/LogisticsSettings/delivery'),
             name: '快递方式',
@@ -126,11 +174,25 @@ const setupRouter = {
             meta: { title: '快递方式' }
           },
           {
+            path: 'addDelivery',
+            component: () => import('@/views/setting/LogisticsSettings/addDelivery'),
+            name: '添加快递',
+             hidden: true, // 不在侧边栏线上
+            meta: { title: '添加快递' }
+          },
+          {
+            path: 'editDelivery',
+            component: () => import('@/views/setting/LogisticsSettings/editDelivery'),
+            name: '编辑快递',
+             hidden: true, // 不在侧边栏线上
+            meta: { title: '编辑快递' }
+          },
+          {
             path: 'Delivery2',
             component: () => import('@/views/setting/LogisticsSettings/Delivery2'),
-            name: '配送方式',
+            name: '配送方式设置',
      
-            meta: { title: '配送方式' }
+            meta: { title: '配送方式设置' }
           }
          
         ]
@@ -140,25 +202,55 @@ const setupRouter = {
         component: () => import('@/views/marketing/management/index'), // Parent router-view
         name: '个人中心',
         meta: { title: '个人中心' },
-        redirect: '/setting/Center/copyright',
+        redirect: '/marketing/CouponManagement/coupon',
         children: [
-          // {
-          //   path: 'copyright',
-          //   component: () => import('@views/setting/Center/copyright'),
-          //   name: '版权',
-          //   meta: { title: '版权' }
-          // },
-          // {
-          //   path: 'About',
-          //   component: () => import('@views/setting/Center/About'),
-          //   name: '关于我们',
-          //   //  hidden: true, // 不在侧边栏线上
-          //   meta: { title: '关于我们' }
-          // }
+          {
+            path: 'copyright',
+            component: () => import('@/views/setting/Center/copyright'),
+            name: '版权',
+            meta: { title: '版权'}
+          },
+        
+         
           
+          {
+            path: 'About',
+            component: () => import('@/views/setting/Center/About'),
+            name: '关于我们',
+            meta: { title: '关于我们' }
+          }
+        
+         
+       
+        
          
         ]
       }
+      // {
+      //   path: 'Center',
+      //   component: () => import('@/views/marketing/management/index'), // Parent router-view
+      //   name: '个人中心',
+      //   meta: { title: '个人中心' },
+      //   redirect: '/marketing/CouponManagement/coupon',
+      //   children: [
+      //     // {
+      //     //   path: 'copyright',
+      //     //   component: () => import('@views/setting/Center/copyright'),
+      //     //   name: '版权',
+      //     //   meta: { title: '版权' }
+      //     // }
+          
+      //     // {
+      //     //   path: 'About1',
+      //     //   component: () => import('@views/setting/Center/About1'),
+      //     //   name: '关于我们',
+      //     //   //  hidden: true, // 不在侧边栏线上
+      //     //   meta: { title: '关于我们' }
+      //     // }
+          
+         
+      //   ]
+      // }
     
     
   ]

@@ -80,8 +80,8 @@
         <el-table-column label="操作" width="400" align="center">
           <div class="statebutton">
             <el-button size="mini" @click="vipdetails">会员详情</el-button>
-            <el-button size="mini" @click="edit">会员订单</el-button>
-            <el-button size="mini" @click="edit">余额流水</el-button>
+            <el-button size="mini" >会员订单</el-button>
+            <el-button size="mini" >余额流水</el-button>
 
             <el-button size="mini" @click="del">删除会员</el-button>
           </div>
@@ -90,8 +90,7 @@
       </el-table>
 
       <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+      
         :current-page="currentPage4"
         :page-sizes="[10, 20, 50, 100]"
         :page-size="20"
@@ -116,21 +115,7 @@
         <el-button @click="dialogFormVisible = false">取 消</el-button>
       </div>
     </el-dialog>
-    <!-- 表单2 -->
-    <el-dialog title="批量修改等级" :visible.sync="dialogFormVisible1">
-      <el-form :model="form1">
-        <el-form-item label="团长等级" :label-width="formLabelWidth">
-          <el-select v-model="form1.region" placeholder="普通等级">
-            <el-option label="普通等级"></el-option>
-            <!-- <el-option label="普通等级二" ></el-option> -->
-          </el-select>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dig">确 定</el-button>
-        <el-button @click="dialogFormVisible1 = false">取 消</el-button>
-      </div>
-    </el-dialog>
+   
   </div>
 </template>
 <style lang="scss" scoped>
@@ -182,22 +167,17 @@ export default {
       name: "TinymceDemo",
       components: { Tinymce },
       dialogFormVisible: false,
-      dialogFormVisible1: false,
+    
       list: false,
       vipvalue: "",
       vipvalue2: "",
       inputname: "",
-      textMap: {
-        update: "修改",
-        create: "添加"
-      },
+     
       form: {
         region: ""
       },
       formLabelWidth: "20%",
-      form1: {
-        region: ""
-      },
+     
 
       tableData: [
         {
@@ -222,12 +202,12 @@ export default {
     };
   },
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    },
+    // handleSizeChange(val) {
+    //   console.log(`每页 ${val} 条`);
+    // },
+    // handleCurrentChange(val) {
+    //   console.log(`当前页: ${val}`);
+    // },
     add() {
       this.dialogFormVisible = true;
 
@@ -239,10 +219,7 @@ export default {
       //     this.$refs["dataForm"].clearValidate();
       //   });
     },
-    edit() {
-      this.dialogFormVisible = true;
-      this.dialogStatus = "update";
-    },
+   
     del() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",

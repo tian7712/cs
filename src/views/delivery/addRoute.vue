@@ -53,7 +53,7 @@
           </div>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">提交</el-button>
+          <el-button class="elbuttonStyle">提交</el-button>
         </el-form-item>
       </el-form>
     </el-card>

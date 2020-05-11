@@ -2,22 +2,20 @@
   <div class="app-container">
     <div class="position">
       当前位置：
-      <span>版权说明</span>
+      <span>编辑快递</span>
     </div>
     <el-card class="box-card">
       <el-form ref="form" :model="form" label-width="120px">
-        <el-form-item label="底部版权说明">
-       <el-input
-  type="textarea"
-  :rows="4"
-  placeholder="请输入内容"
-  v-model="form.name">
-</el-input>
-         
+        <el-form-item label="快递名称">
+          <el-input v-model="form.name"></el-input>
+  
         </el-form-item>
-       
+        <el-form-item label="快递简码">
+          <el-input v-model="form.key"></el-input>
+        </el-form-item>
         <el-form-item >
           <el-button class="elbuttonStyle">提交</el-button>
+          <el-button @click="fanhui">返回列表</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -29,9 +27,15 @@ export default {
   data() {
     return {
         form:{
-            name:'多半斤版权所有'
+            id:'',
+            key:''
         }
     };
+  },
+  methods:{
+      fanhui(){
+           this.$router.push({ path: "/setting/LogisticsSettings/delivery" });  
+      }
   }
 };
 </script>

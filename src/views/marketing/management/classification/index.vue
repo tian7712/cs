@@ -6,11 +6,10 @@
       <span>优惠券分类</span>
     </div>
     <el-card class="box-card">
-      <el-row :gutter="20">
-        <el-col :span="4" :offset="22">
-          <el-button  class="elbuttonStyle2" icon="el-icon-plus" size="mini" @click="handleAddRole">添加分类</el-button>
-        </el-col>
-      </el-row>
+  
+     
+          <el-button  class="elbuttonStyle2" icon="el-icon-plus" size="mini" @click="handleAddRole" style="float:right">添加分类</el-button>
+       
 
       <el-table :data="rolesList" style="width: 100%;margin-top:30px;" stripe>
         <el-table-column align="header-center" label="ID" width="150">
@@ -40,30 +39,11 @@
             >删除</el-button>
           </template>
         </el-table-column>
-        <!-- <el-table-column>
-          <div :model="dynamicValidateForm" ref="dynamicValidateForm" label-width="100%">
-            <div
-              v-for="(domain, index) in dynamicValidateForm.domains"
-              :key="domain.key"
-              :prop="'domains.' + index + '.value'"
-              :rules="{required: true, message: '不能为空', trigger: 'blur'}"
-              style="float:left"
-              class="commodityGG"
-            >
-              <el-input v-model="domain.value">
-                <el-button
-                  type="danger"
-                  icon="el-icon-close"
-                  slot="append"
-                  @click.prevent="removeDomain(domain)"
-                ></el-button>
-              </el-input>
-            </div>
-          </div>
-        </el-table-column>-->
+        
       </el-table>
       <el-button
-        style=" background-color:#009688 ; margin-top: 1%;color:white;"
+        style=" margin-top: 1%;"
+        class="elbuttonStyle2"
         @click="Preservation"
       >保存分类</el-button>
     </el-card>
@@ -182,13 +162,8 @@ export default {
       });
     },
     handleAddRole() {
-      // this.role = Object.assign({}, defaultRole);
-      // if (this.$refs.tree) {
-      //   // this.$refs.tree.setCheckedNodes([]);
-      // }
-      // this.dialogType = "new";
-      // this.dialogVisible = true;
-      // this.dynamicValidateForm.push(1);
+    
+    console.log('添加数据')
     },
     handleDel(scope) {
       // this.dialogType = "edit";
@@ -312,13 +287,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    font-size: 0.9em;
-    color: #009688;
-  }
-}
+
 .el-table {
   color: rgb(141, 138, 138);
   font-size: 0.9em;

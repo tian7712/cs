@@ -124,6 +124,7 @@ export default {
   components: { UploadExcelComponent },
   data() {
     return {
+      
       activeName: "first",
       tableData: [],
       tableHeader: [],

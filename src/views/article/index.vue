@@ -35,8 +35,9 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
-        @selection-change="handleSelectionChange"
+       
       >
+       <!-- @selection-change="handleSelectionChange" -->
         <el-table-column type="selection" width="55"></el-table-column>
     
            <el-table-column prop="id" label="ID" width="70"></el-table-column>
@@ -105,7 +106,7 @@ export default {
   data() {
     return {
         selectvalue:"状态",
- 
+ input:'',
      options: [{
           value: '选项1',
           label: '状态'
@@ -163,6 +164,9 @@ export default {
             });
           }
         });
+    },
+    del(){
+      console.log('删除')
     }
   }
 };

@@ -1,7 +1,7 @@
 
 <template>
-  <!-- class="app-container" -->
-  <div>
+ 
+  <div class="app-container">
     <div class="position">
       当前位置：
       <span>提现申请</span>
@@ -30,7 +30,7 @@
         </el-col>
       </el-row>
 
-      <div style="margin:0.5% 0 0 0.7%">
+      <div style="margin:0.5% 0 0.5% 0.7%">
 
             <!-- <el-checkbox v-model="checked"></el-checkbox> -->
 
@@ -40,7 +40,7 @@
             </el-button-group>
          
       </div>
-      <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+      <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark"  header-cell-style="width: 100%;background-color: #f2f2f2;">
         <el-table-column type="selection" width="55"></el-table-column>
 
         <el-table-column label="ID" width="120">
@@ -94,10 +94,11 @@
         </el-table-column>
 
         <el-table-column prop="operation" label="操作" show-overflow-tooltip>
-          <el-button class="elbuttonStyle2">编辑</el-button>
+          <el-button class="elbuttonStyle2" icon="el-icon-edit" size="mini">编辑</el-button>
         </el-table-column>
+       
       </el-table>
-
+  <el-button class="elbuttonPo">共0条记录</el-button>
       <el-pagination
         style="margin:2%"
         :current-page="currentPage4"
@@ -111,10 +112,7 @@
 </template>
 <style lang="scss" scoped>
 
-.box-card {
-  padding: 2%;
-  margin: 1%;
-}
+
 p {
   color: rgb(163, 161, 161);
   margin: 0;

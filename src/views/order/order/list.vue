@@ -102,33 +102,29 @@
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <el-table-column type="expand" label="订单号" width="90">
-      <template slot-scope="props">
-        <el-form label-position="left" inline class="demo-table-expand">
-        
-          <el-form-item label="订单号">
-            <span>{{ props.row.ordernum }}</span>
-          </el-form-item>
-          <el-form-item label="下单时间：">
-            <span>{{ props.row.time}}</span>
-          </el-form-item>
-          <el-form-item >
-            <el-tag style="background-color:#F0AD4E ;color:white;">{{ props.row.order }}</el-tag>
-            <el-tag  style="background-color:#777777 ;color:white;">{{ props.row.state }}</el-tag>
-          </el-form-item>
-          <el-form-item >
-             <el-link :underline="false" href="https://www.baidu.com" style="color:#009688;">备注</el-link>
-              <el-link :underline="false" style="color:#009688;">打印</el-link>
-          </el-form-item>
-          
-       
-        
-        </el-form>
-      </template>
-    </el-table-column>
+          <template slot-scope="props">
+            <el-form label-position="left" inline class="demo-table-expand">
+              <el-form-item label="订单号">
+                <span>{{ props.row.ordernum }}</span>
+              </el-form-item>
+              <el-form-item label="下单时间：">
+                <span>{{ props.row.time}}</span>
+              </el-form-item>
+              <el-form-item>
+                <el-tag style="background-color:#F0AD4E ;color:white;">{{ props.row.order }}</el-tag>
+                <el-tag style="background-color:#777777 ;color:white;">{{ props.row.state }}</el-tag>
+              </el-form-item>
+              <el-form-item>
+                <el-link :underline="false" href="https://www.baidu.com" style="color:#009688;">备注</el-link>
+                <el-link :underline="false" style="color:#009688;">打印</el-link>
+              </el-form-item>
+            </el-form>
+          </template>
+        </el-table-column>
         <el-table-column prop="id" label="ID" width="60">
           <!-- <template slot-scope="scope">{{ scope.row.id }}</template> -->
         </el-table-column>
-        
+
         <el-table-column prop="name" label="商品名称" width="220">
           <template slot-scope="scope">
             <el-image style="width: 50px; height: 50px" :src="scope.row.url"></el-image>
@@ -199,17 +195,12 @@
         </el-table-column>
       </el-table>
 
-
-      <!-- . -->
-         
-      <!-- 
-      <pagination
-        v-show="total>0"
-        :total="total"
-        :page.sync="listQuery.page"
-        :limit.sync="listQuery.limit"
-        @pagination="getList"
-      />-->
+      <el-pagination
+        background
+        style="margin:1%; float:right;"
+        layout="total,prev, pager, next, jumper"
+        :total="100"
+      ></el-pagination>
     </el-card>
   </div>
 </template>
@@ -230,20 +221,22 @@ export default {
     return {
       activeName: "",
       PaymentSuccess: "",
-       tableData1: [{
-          id: '12987122',
-          name: '好滋好味鸡蛋仔',
-          category: '江浙小吃、小吃零食',
-          desc: '荷兰优质淡奶，奶香浓而不腻',
-          address: '上海市普陀区真北路',
-          shop: '王小虎夫妻店',
-          shopId: '10333'
-        }],
+      tableData1: [
+        {
+          id: "12987122",
+          name: "好滋好味鸡蛋仔",
+          category: "江浙小吃、小吃零食",
+          desc: "荷兰优质淡奶，奶香浓而不腻",
+          address: "上海市普陀区真北路",
+          shop: "王小虎夫妻店",
+          shopId: "10333"
+        }
+      ],
       tableData: [
         {
           id: 52692,
-          order:'普通订单',
-          ordernum: '202005111219897495497',
+          order: "普通订单",
+          ordernum: "202005111219897495497",
           url:
             "http://img.xmduobanjin.com/Uploads/image/goods/2020-03-22/5e770978791f2.jpg",
           name: "无抗鸡蛋（10个/盒)",
@@ -261,12 +254,12 @@ export default {
           Total: 10.1,
           num: "123",
           state: "待自提",
-            time:' 2020-05-12  15:56:58'
+          time: " 2020-05-12  15:56:58"
         },
         {
           id: 52692,
-          ordernum: '202005111219857975110',
-           order:'普通订单',
+          ordernum: "202005111219857975110",
+          order: "普通订单",
           url:
             "http://img.xmduobanjin.com/Uploads/image/goods/2020-03-22/5e770978791f2.jpg",
           name: "无抗鸡蛋（10个/盒)",
@@ -284,7 +277,7 @@ export default {
           Total: 10.1,
           num: "123",
           state: "交易已取消",
-          time:' 2020-05-11  15:56:58'
+          time: " 2020-05-11  15:56:58"
         }
       ],
 
@@ -384,7 +377,6 @@ export default {
 
 .drop {
   border: 1px solid gainsboro;
-  
 }
 p {
   margin: 0;

@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div class="app-container">
     <!-- class="app-container" -->
     <div class="position">当前位置：
       <span> 评价设置</span>
@@ -21,7 +21,7 @@
           <el-radio v-model="form.xxRadio" label="1">需要</el-radio>
         </el-form-item>
           <el-form-item >
-           <el-button  class="elbuttonStyle">提交</el-button>
+           <el-button  class="elbuttonStyle" center>提交</el-button>
         </el-form-item>
       </el-form>
 
@@ -47,35 +47,20 @@ span {
 }
 </style>  
 <script>
-import {
-  getRoutes,
-  getRoles,
-  addRole,
-  deleteRole,
-  updateRole
-} from "@/api/role";
+
 export default {
   data() {
     return {
       form: {
-        xxRadio: 1,
-        vipRadio: 2,
-        phoneRadio: 1
+        xxRadio: '1',
+        vipRadio: '2',
+        phoneRadio: '1'
       }
     };
   },
-  created() {
-    // Mock: get all routes and roles list from server
-    this.getRoutes();
-    this.getRoles();
-  },
+  
   methods: {
-    async dianji() {
-      const res = await getRoles();
-      this.rolesList = res.data;
-
-      console.log(res);
-    }
+  
   }
 };
 </script>  

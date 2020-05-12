@@ -19,12 +19,13 @@ const orderRouter = {
       component: () => import('@/views/order/order/list'),
       meta: { title: '订单列表' }
     },
+    // {
+    //   path: 'list1',
+    //   name: '订单列表1',
+    //   component: () => import('@/views/order/order/list1'),
+    //   meta: { title: '订单列表1' }
+    // },
     {
-      path: 'list1',
-      name: '订单列表1',
-      component: () => import('@/views/order/order/list1'),
-      meta: { title: '订单列表1' }
-    },{
       path: 'details',
       name: '订单详情',
       hidden:true,
@@ -71,7 +72,20 @@ const orderRouter = {
           component: () => import('@/views/order/evaluation/Evaluationlist'),
           name: 'list',
           meta: { title: '评价列表' }
+        },{
+          path: 'addEvaluationlist',
+          component: () => import('@/views/order/evaluation/addEvaluationlist'),
+          name: 'addEvaluationlist',
+          hidden:true,
+          meta: { title: '添加评价' }
+        },{
+          path: 'editEvaluationlist',
+          component: () => import('@/views/order/evaluation/editEvaluationlist'),
+          name: 'editEvaluationlist',
+          hidden:true,
+          meta: { title: '编辑评价' }
         },
+        
         {
           path: 'evaluationSettings',
           component: () => import('@/views/order/evaluation/settings'),

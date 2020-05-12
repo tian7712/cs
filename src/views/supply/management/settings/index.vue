@@ -74,8 +74,10 @@
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.stateswitch"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
+               active-color="#5FB878" 
+              class="switch switchplus"
+              active-text="已审核"
+             inactive-text="未审核"
               @change="stateopen()"
               v-if="STswitch"
             ></el-switch>

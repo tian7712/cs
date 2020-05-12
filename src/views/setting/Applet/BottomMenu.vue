@@ -12,7 +12,7 @@
 
         <el-form-item label="未选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -33,7 +33,7 @@
         
         <el-form-item label="选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -56,7 +56,7 @@
       </el-form-item>
          <el-form-item label="未选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -75,7 +75,7 @@
         </el-form-item>
          <el-form-item label="选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -113,7 +113,7 @@
       </el-form-item>
          <el-form-item label="未选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -132,7 +132,7 @@
         </el-form-item>
          <el-form-item label="选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -167,7 +167,7 @@
         </el-form-item>
          <el-form-item label="未选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -186,7 +186,7 @@
         </el-form-item>
          <el-form-item label="选中图标">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -220,7 +220,7 @@
               <el-col :span="12" :offset="14">
                 <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
                 <el-dropdown split-button type="primary" size="small">
-                  移1动
+                  移动
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>1</el-dropdown-item>
                     <el-dropdown-item>2</el-dropdown-item>

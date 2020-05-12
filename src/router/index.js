@@ -235,11 +235,39 @@ export const constantRoutes = [
         component: () => import('@/views/commodity/classification'),
         name: 'classification',
         meta: { title: '商品分类', icon: 'documentation' }
-      }, {
+      },
+      {
+        path: 'addclassification',
+        component: () => import('@/views/commodity/addclassification'),
+        name: 'addclassification',
+        hidden:true,
+        meta: { title: '添加商品分类', icon: 'documentation' }
+      }, 
+      {
+        path: 'editclassification',
+        component: () => import('@/views/commodity/editclassification'),
+        name: 'editclassification',
+        hidden:true,
+        meta: { title: '编辑商品分类', icon: 'documentation' }
+      },  {
         path: 'specifications',
         component: () => import('@/views/commodity/specifications'),
         name: 'specifications',
         meta: { title: '商品规格', icon: 'documentation' }
+      },
+      {
+        path: 'addspecifications',
+        component: () => import('@/views/commodity/addspecifications'),
+        name: 'addspecifications',
+        hidden:true,
+        meta: { title: '添加商品规格', icon: 'documentation' }
+      },
+      {
+        path: 'editspecifications',
+        component: () => import('@/views/commodity/editspecifications'),
+        name: 'editspecifications',
+        hidden:true,
+        meta: { title: '编辑商品规格', icon: 'documentation' }
       }, {
         path: 'lable',
         component: () => import('@/views/commodity/label'),
@@ -322,6 +350,26 @@ export const asyncRoutes = [
         name: '虚拟会员',
         meta: {
           title: '虚拟会员',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'addpage',
+        component: () => import('@/views/vip/addpage'),
+        name: '添加虚拟会员',
+        idden:true,
+        meta: {
+          title: '添加虚拟会员',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'editpage',
+        component: () => import('@/views/vip/editpage'),
+        name: '编辑虚拟会员',
+        hidden:true,
+        meta: {
+          title: '编辑虚拟会员',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       },
@@ -481,20 +529,36 @@ export const asyncRoutes = [
         name: 'userManagement',
         meta: { title: '后台用户管理', icon: 'documentation' }
       },
+      {
+        path: 'adduser',
+        component: () => import('@/views/Jurisdiction/adduser'),
+        name: 'adduser',
+        hidden:true,
+        meta: { title: '添加用户', icon: 'documentation' }
+      },
+
+      {
+        path: 'edituser',
+        component: () => import('@/views/Jurisdiction/edituser'),
+        name: 'edituser',
+        hidden:true,
+        meta: { title: '编辑用户', icon: 'documentation' }
+      },
+
 
       {
         path: 'add',
         component: () => import('@/views/Jurisdiction/add'),
-        name: '添加用户',
+        name: '添加角色',
         hidden: true, 
-        meta: { title: '添加用户', icon: 'documentation' }
+        meta: { title: '添加角色', icon: 'documentation' }
       },
       {
         path: 'edit',
         component: () => import('@/views/Jurisdiction/edit'),
-        name: '编辑用户',
+        name: '编辑角色',
         hidden: true, 
-        meta: { title: '编辑用户', icon: 'documentation' }
+        meta: { title: '编辑角色', icon: 'documentation' }
       }
     ]
   },

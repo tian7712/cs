@@ -5,12 +5,12 @@
       <span>图片设置</span>
     </div>
     <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="175px" style=" padding-right:3%;">
+      <el-form ref="form" :model="form" label-width="195px" style=" padding-right:3%;">
       
 
         <el-form-item label="截团图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -30,7 +30,7 @@
         
         <el-form-item label="后台登录图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -49,7 +49,7 @@
         </el-form-item>
          <el-form-item label="XXX|管理后台图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -68,7 +68,7 @@
         </el-form-item>
          <el-form-item label="首页商品列表加载图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -87,7 +87,7 @@
         </el-form-item>
          <el-form-item label="商品详情价格区域背景图">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -106,7 +106,7 @@
         </el-form-item>
          <el-form-item label="首页分享二维码背景图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -161,7 +161,7 @@
         </el-form-item>
          <el-form-item label="首页底部图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -180,7 +180,7 @@
         </el-form-item>
          <el-form-item label="首页商品列表顶部图">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -200,7 +200,7 @@
         </el-form-item>
          <el-form-item label="商品详情页声明顶上图">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -219,7 +219,7 @@
         </el-form-item>
          <el-form-item label="首页引导加入我的小程序">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -238,7 +238,7 @@
         </el-form-item>
          <el-form-item label="页头公共背景图">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -257,7 +257,7 @@
         </el-form-item>
          <el-form-item label="授权登录背景">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"

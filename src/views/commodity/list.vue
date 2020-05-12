@@ -99,7 +99,7 @@
 
         <el-table-column label="	排序" width="55">
           <template slot-scope="scope">
-            <p>{{scope.row.sort}}</p>
+            <p style="color:#A94442;">{{scope.row.sort}}</p>
           </template>
         </el-table-column>
         <el-table-column label="商品名称" width="250">
@@ -156,29 +156,43 @@
         <el-table-column label="是否满减" width="100">
           <template slot-scope="scope">
             <el-switch
+           
               v-model="scope.row.reduction"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
+              active-color="#5FB878"
+  
+          
+                class="switch"
+              active-text="参加"
+             inactive-text="不参加"
             ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="是否上架/是否审核" width="100" :render-header="renderheader">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.Upper" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch v-model="scope.row.Upper" active-color="#5FB878" class="switch"
+              active-text="上架"
+             inactive-text="下架"></el-switch>
           </template>
         </el-table-column>
-        <el-table-column label="今日推荐" width="100">
+        <el-table-column label="今日推荐" width="150">
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.Recommend"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
+             active-color="#5FB878"
+               class="switch switchplus switchplus2"
+      
+              active-text="今日推荐"
+             inactive-text="未推荐"
             ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="置顶" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.top" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch v-model="scope.row.top" active-color="#5FB878"
+            class="switch"
+      
+              active-text="置顶"
+             inactive-text="未置顶"></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作" align="center">
@@ -188,8 +202,7 @@
       </el-table>
 
       <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+    
         :current-page="currentPage4"
         :page-sizes="[10, 20, 50, 100]"
         :page-size="20"
@@ -197,6 +210,8 @@
         :total="100"
         style="margin:1%"
       ></el-pagination>
+          <!--  @size-change="handleSizeChange"
+       @current-change="handleCurrentChange" -->
     </el-card>
 
     <!-- 表单1 -->
@@ -275,6 +290,8 @@ p {
   background-color: #009688;
   color: white;
 }
+
+
 </style>  
 <script>
 import Tinymce from "@/components/Tinymce";

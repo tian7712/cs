@@ -10,7 +10,7 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4" :offset="22">
-          <el-button  icon="el-icon-plus" size="mini" @click="handleAddRole" class="elbuttonStyle">添加新等级</el-button>
+          <el-button  icon="el-icon-plus" size="mini" @click="handleAddRole" class="elbuttonStyle2">添加新等级</el-button>
         </el-col>
       </el-row>
 
@@ -28,7 +28,7 @@
         
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
-            <el-button class="elbuttonStyle" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button>
+            <el-button class="elbuttonStyle2" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button>
     
           </template>
         </el-table-column>
@@ -53,7 +53,7 @@
         
       </el-form>
       <div style="text-align:right;">
-        <el-button type="primary" @click="confirmRole">确认</el-button>
+        <el-button class="elbuttonStyle" @click="confirmRole">确认</el-button>
         <el-button  @click="dialogVisible=false">取消</el-button>
       </div>
     </el-dialog>

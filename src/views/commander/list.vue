@@ -148,33 +148,39 @@
         </el-table-column>
         <el-table-column label="是否休息" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.rest" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch v-model="scope.row.rest" active-color="#5FB878" class="switch switchmini"
+              active-text="是"
+             inactive-text="否"></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="状态" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.state" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch v-model="scope.row.state" active-color="#5FB878" class="switch switchplus"
+              active-text="已审核"
+             inactive-text="未审核"></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="300" align="center">
           <template slot-scope="scope">
             <el-row class="buttonstyle">
-              <el-button size="mini" @click="commanderEdit" type="primary" plain>编辑</el-button>
-              <el-button size="mini" @click="edit" type="primary" plain>推广订单</el-button>
-              <el-button size="mini" @click="commanderSale" type="primary" plain>查看在售商品</el-button>
+              <el-button size="mini" @click="commanderEdit" class="elbuttonStyle2" plain>编辑</el-button>
+              <el-button size="mini" @click="edit" class="elbuttonStyle2" plain>推广订单</el-button>
+              <el-button size="mini" @click="commanderSale" class="elbuttonStyle2" plain>查看在售商品</el-button>
             </el-row>
 
             <el-row class="buttonstyle">
-              <el-button size="mini" @click="WriteoffList" type="primary" plain>查看核销人员</el-button>
+              <el-button size="mini" @click="WriteoffList" class="elbuttonStyle2" plain>查看核销人员</el-button>
 
               <el-switch
                 v-model="scope.row.operation"
-                active-color="#13ce66"
-                inactive-color="#ff4949"
+              active-color="#5FB878" 
+              class="switch switchplus switchplus1"
+              active-text="已启用"
+             inactive-text="未启用"
                 @change="operationoff"
               ></el-switch>
 
-              <el-button size="mini" @click="del" type="primary" plain>删除</el-button>
+              <el-button size="mini" @click="del" class="elbuttonStyle2" plain>删除</el-button>
             </el-row>
           </template>
           <!-- <el-switch v-model="tableData.operation" active-color="#13ce66" inactive-color="#ff4949" @change="operationoff"></el-switch> -->

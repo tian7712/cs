@@ -24,11 +24,11 @@
           </el-table>-->
           <p class="p-last">如果遇到数据重复则将进行数据更新</p>
           <el-divider></el-divider>
-          <el-button style="margin:0 0 20px 20px;" type="primary">确认导入</el-button>
+          <el-button style="margin:0 0 20px 20px;" class="elbuttonStyle">确认导入</el-button>
           <el-button
             
             style="margin:0 0 20px 20px;"
-            type="primary"
+            class="elbuttonStyle"
             icon="el-icon-document"
             
           >下载Excel模板文件</el-button>
@@ -59,11 +59,11 @@
 
           <p class="p-last">如果遇到数据重复则将进行数据更新</p>
           <el-divider></el-divider>
-          <el-button style="margin:0 0 20px 20px;" type="primary">确认导入</el-button>
+          <el-button style="margin:0 0 20px 20px;" class="elbuttonStyle">确认导入</el-button>
           <el-button
           
             style="margin:0 0 20px 20px;"
-            type="primary"
+           class="elbuttonStyle"
             icon="el-icon-document"
         
           >下载Excel模板文件</el-button>
@@ -83,10 +83,10 @@
 
           <p class="p-last">如果遇到数据重复则将进行数据更新</p>
             <el-divider></el-divider>
-          <el-button style="margin:0 0 20px 20px;" type="primary">
+          <el-button style="margin:0 0 20px 20px;" class="elbuttonStyle">
         确认导入
       </el-button>
-          <el-button style="margin:0 0 20px 20px;" type="primary" icon="el-icon-document">
+          <el-button style="margin:0 0 20px 20px;" class="elbuttonStyle" icon="el-icon-document">
         下载Excel模板文件
       </el-button>
   
@@ -106,10 +106,10 @@
 
           <p class="p-last">如果遇到数据重复则将进行数据更新</p>
             <el-divider></el-divider>
-          <el-button style="margin:0 0 20px 20px;" type="primary">
+          <el-button style="margin:0 0 20px 20px;" class="elbuttonStyle">
         确认导入
       </el-button>
-          <el-button  style="margin:0 0 20px 20px;" type="primary" icon="el-icon-document">
+          <el-button  style="margin:0 0 20px 20px;" class="elbuttonStyle" icon="el-icon-document">
         下载Excel模板文件
       </el-button>
         </el-tab-pane>

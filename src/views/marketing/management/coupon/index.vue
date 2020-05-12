@@ -71,8 +71,8 @@
 
         <el-table-column label="优惠券名称" width="250">
           <template slot-scope="scope">
-            <p>{{scope.row.name}}</p>
-            <el-tag type="success" v-if="scope.row.namestate">购物</el-tag>
+            <p >{{scope.row.name}}</p>
+            <el-tag type="success" style="" v-if="scope.row.namestate">购物</el-tag>
           </template>
         </el-table-column>
 
@@ -102,7 +102,10 @@
 
         <el-table-column label="首页领券" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.state" active-color="#13ce66" inactive-color="#ff4949" @change="Coupon"></el-switch>
+            <el-switch v-model="scope.row.state"  active-color="#5FB878" 
+              class="switch"
+              active-text="显示"
+             inactive-text="隐藏" @change="Coupon"></el-switch>
           </template>
         </el-table-column>
         <el-table-column prop="time" label="创建时间" width="150">
@@ -168,6 +171,7 @@ p {
   color: #999999;
   span {
     color: #009688;
+ 
   }
 }
 .buttonstyle {

@@ -3,7 +3,8 @@
   <div class="app-container">
     <div class="position">当前位置：<span>商品规格</span> </div>
     <el-card class="box-card">
-      <el-button style="float: right; padding: 3px 0" type="text" @click="add">添加分类</el-button>
+      
+      <el-button style="float: right;" class="elbuttonStyle2" @click="add" ><svg-icon icon-class="jiahao" style="margin-right:1%"/> 添加商品规格</el-button>
 
       
       <el-table
@@ -11,7 +12,7 @@
     :data="tableData"
     tooltip-effect="dark"
     style="width: 100%"
-    @selection-change="handleSelectionChange">
+   >
     <el-table-column
       type="selection"
       width="55">
@@ -35,81 +36,13 @@
     <el-table-column
       label="操作"
       width="200">
-      <el-button size="mini" @click="edit">修改</el-button>
-       <el-button size="mini" @click="del">删除</el-button>
+      <el-button size="mini" @click="edit" class="elbuttonStyle2" icon="el-icon-edit">修改</el-button>
+       <el-button size="mini" @click="del" class="elbuttonStyle2" icon="el-icon-delete">删除</el-button>
       <!-- show-overflow-tooltip -->
     </el-table-column>
   </el-table>
 
-      <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-          <el-form-item label="分类名称" :label-width="formLabelWidth">
-            <el-input v-model="form.name" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="分类排序" :label-width="formLabelWidth">
-            <el-input v-model="form.id" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="是否显示" :label-width="formLabelWidth">
-            <el-radio v-model="form.radio" label="true">是</el-radio>
-            <el-radio v-model="form.radio" label="false">否</el-radio>
-          </el-form-item>
-          <el-form-item label="分类图" :label-width="formLabelWidth">
-            <!-- <div :id="id" :ref="id" :action="url" class="dropzone drop-div">
-              <input type="file" name="file" />
-              <el-image style="width: 70px; height: 70px" :src="url"></el-image>
-            </div> -->
-            <el-upload
-              class="upload-demo"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              :file-list="fileList"
-              list-type="picture"
-            >
-              <!--:on-preview="handlePreview" :on-remove="handleRemove" -->
-              <el-button size="small" type="primary">点击上传</el-button>
-              <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-            </el-upload>
-
-
-<!-- / -->
-<!-- <el-dialog :title="textMap" @click="openUP">
-      
-        <div slot="footer" class="dialog-footer">
-          <el-button type="primary" @click="dialogFormVisible = true">确 定</el-button>
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-        </div>
-      </el-dialog> -->
-<!-- / -->
-
-
-
-
-
-
-
-          </el-form-item>
-          <el-form-item label="LOGO" :label-width="formLabelWidth">
-            <!-- <div :id="id" :ref="id" :action="url" class="dropzone drop-div">
-              <input type="file" name="file" />
-              <el-image style="width: 70px; height: 70px" :src="url"></el-image>
-            </div> -->
-            <el-upload
-              class="upload-demo"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              :file-list="fileList"
-              list-type="picture"
-            >
-              <!--:on-preview="handlePreview" :on-remove="handleRemove" -->
-              <el-button size="small" type="primary">点击上传</el-button>
-              <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-            </el-upload>
-          </el-form-item>
-       
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-          <el-button type="primary" @click="dialogFormVisible = true">确 定</el-button>
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-        </div>
-      </el-dialog>
+   
     </el-card>
   </div>
 </template>
@@ -135,17 +68,16 @@
   align-items: center;
   padding: 1%;
 }
-.upload-demo{
-  width: 50%;
-}
+
 </style>  
 <script>
-import Tinymce from "@/components/Tinymce";
+
 export default {
   data() {
     return {
-      name: "TinymceDemo",
-      components: { Tinymce },
+      dialogStatus:'',
+    
+     
       fileList: [
         {
           name: "默认图片.jpeg",
@@ -154,12 +86,8 @@ export default {
         }
       ],
       list: false,
-      dialogTableVisible: false,
-      dialogFormVisible: false,
-      textMap: {
-        update: "修改",
-        create: "添加"
-      },
+    
+      
       form: {
         name: "全部商品",
         radio: true,
@@ -179,24 +107,12 @@ export default {
     };
   },
   methods: {
-      add(){
-           this.dialogFormVisible = true;
-         
-    //   this.dialogStatus = create;
-      this.dialogStatus = "create";
-    //    this.resetTemp();
-        
-    //   this.$nextTick(() => {
-    //     this.$refs["dataForm"].clearValidate();
-    //   });
-
-      },
-      
-      edit(){
-          this.dialogFormVisible = true;
-          this.dialogStatus = "update";
-
-      },
+      add() {
+      this.$router.push({ path: "/commodity/addspecifications" });
+    },
+    edit() {
+      this.$router.push({ path: "/commodity/editspecifications" });
+    },
       del() {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',

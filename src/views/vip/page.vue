@@ -14,45 +14,18 @@
           <el-button  icon="el-icon-search" class="elbuttonStyle2" >搜索</el-button>
         </el-col>
 
-        <el-col :span="2" :offset="14" >
-          <el-button  @click="dianji" class="elbuttonStyle2" icon="el-icon-plus">添加虚拟会员</el-button>
+        <el-col :span="2"  ></el-col>
+ 
           <!-- handleAddRole -->
-        </el-col>
+        
       </el-row>
-
-      <!-- <el-table
-        :data="rolesList"
-        ref="multipleTable"
-        tooltip-effect="dark"
-        style="width: 100%;margin-top:30px;"
-      >
-        <el-table-column align="center" label="ID" width="50">
-          <template slot-scope="scope">{{ scope.row.id }}</template>
-        </el-table-column>
-
-        <el-table-column align="header-center" label="虚拟会员名">
-          <template slot-scope="scope">{{ scope.row.name }}</template>
-        </el-table-column>
-        <el-table-column align="center" label="头像" width="200">
-          <template slot-scope="scope">
-            <el-image :src="scope.row.img" style="width: 60px; height:60px;">
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
-          </template>
-        </el-table-column>
-        <el-table-column align="header-center" label="手机号">
-          <template slot-scope="scope">{{ scope.row.phone}}</template>
-        </el-table-column>
-
-        <el-table-column align="center" label="操作">
-          <template slot-scope="scope">
-            <el-button type="primary" size="small" @click="handleEdit">修改</el-button>
-            <el-button type="danger" size="small" @click="handleDelete(scope)">删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table> -->
+      
+         <el-button  @click="add" class="elbuttonStyle2" icon="el-icon-plus" style="float:right;">添加虚拟会员</el-button>
+   <div style="margin-top:1%; ">
+      <el-button size="mini">删除</el-button>
+   </div>
+      
+        
  <el-table
     ref="multipleTable"
   :data="rolesList"
@@ -68,12 +41,12 @@
           <template slot-scope="scope">{{ scope.row.id }}</template>
         </el-table-column>
 
-        <el-table-column align="header-center" label="虚拟会员名">
+        <el-table-column align="header-center" label="虚拟会员名" width="150">
           <template slot-scope="scope">{{ scope.row.name }}</template>
         </el-table-column>
-        <el-table-column align="center" label="头像" width="200">
+        <el-table-column align="left" label="头像" width="700">
           <template slot-scope="scope">
-            <el-image :src="scope.row.img" style="width: 60px; height:60px;">
+            <el-image :src="scope.row.img" style="width: 50px; height:50px;">
               <div slot="error" class="image-slot">
                 <i class="el-icon-picture-outline"></i>
               </div>
@@ -86,7 +59,7 @@
 
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
-            <el-button icon="el-icon-edit" size="mini" @click="handleEdit" class="elbuttonStyle2">修改</el-button>
+            <el-button icon="el-icon-edit" size="mini" @click="edit" class="elbuttonStyle2">修改</el-button>
             <el-button icon="el-icon-delete" size="mini" @click="handleDelete(scope)" class="elbuttonStyle2">删除</el-button>
           </template>
         </el-table-column>
@@ -137,6 +110,7 @@ const defaultRole = {
 export default {
   data() {
     return {
+      checked:'',
       fileList: [
         {
           url:
@@ -188,11 +162,12 @@ export default {
       const res = await getRoles();
       this.rolesList = res.data;
     },
-    async dianji() {
-      const res = await getRoles();
-      this.rolesList = res.data;
-
-      console.log(res.data[0].id);
+    add() {
+ this.$router.push({ path: "/vip/addpage" });
+ 
+    },
+    edit() {
+ this.$router.push({ path: "/vip/editpage" });
     },
 
     // Reshape the routes structure so that it looks the same as the sidebar重塑路由结构，使其看起来与侧边栏相同

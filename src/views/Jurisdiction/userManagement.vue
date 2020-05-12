@@ -3,7 +3,7 @@
   <div class="app-container">
     <div class="position">
       当前位置：
-      <span>角色管理</span>
+      <span>后台用户管理</span>
     </div>
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
@@ -41,7 +41,7 @@
         style="float: right;  background-color: #009688;color: white;margin: 1%;"
         icon="el-icon-plus"
         @click="add"
-      >添加新角色</el-button>
+      >添加后台管理</el-button>
 
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" header-cell-style="width: 100%;background-color: #f2f2f2;">
         <!-- @selection-change="handleSelectionChange" -->
@@ -51,13 +51,17 @@
       
       >
     </el-table-column>
-        <el-table-column prop="role" label="角色名称	" width="120"></el-table-column>
+        <el-table-column prop="role" label="登录ID	" width="120"></el-table-column>
 
-        <el-table-column prop="num" label="	操作员数量" width></el-table-column>
-
+        <el-table-column prop="num" label="	角色  " width></el-table-column>
+<el-table-column prop="num" label="	用户名  " width></el-table-column>
+<el-table-column prop="num" label="	手机  " width></el-table-column>
         <el-table-column label="	状态" prop="state">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.state" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch v-model="scope.row.state" active-color="#5FB878" 
+              class="switch"
+              active-text="启用"
+             inactive-text="禁用"></el-switch>
           </template>
         </el-table-column>
 
@@ -161,10 +165,10 @@ export default {
   },
   methods: {
     add() {
-      this.$router.push({ path: "/Jurisdiction/add" });
+      this.$router.push({ path: "/Jurisdiction/adduser" });
     },
     edit() {
-      this.$router.push({ path: "/Jurisdiction/edit" });
+      this.$router.push({ path: "/Jurisdiction/edituser" });
     },
     del() {
       this.$confirm("确定要删除吗, 是否继续?", "信息", {

@@ -48,7 +48,11 @@
 
         </el-table-column>
         <el-table-column align="header-center" label="是否上架">
-             <template slot-scope="scope"> <el-switch v-model="scope.row.shelf" active-color="#13ce66" inactive-color="#ff4949"></el-switch></template>
+             <template slot-scope="scope"> <el-switch v-model="scope.row.shelf"   active-color="#5FB878"
+               class="switch"
+      
+              active-text="上架"
+             inactive-text="下架"></el-switch></template>
           <!-- <el-switch v-model="off" active-color="#13ce66" inactive-color="#ff4949"></el-switch> -->
         </el-table-column>
         <el-table-column align="center" label="操作">

@@ -11,10 +11,11 @@
           <el-button  class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
         </el-col>
       </el-row>
-
+<el-button-group>
       <el-button size="mini" @click="del">启用</el-button>
       <el-button size="mini" @click="del">禁用</el-button>
       <el-button size="mini" @click="del">删除</el-button>
+      </el-button-group>
       <el-button style="float: right; padding: 3px 0" type="text" @click="add">添加分类</el-button>
 
       <!-- <div v-for="item in 5" :key="item" class="text-item">
@@ -30,7 +31,7 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
-        @selection-change="handleSelectionChange"
+     
       >
         <el-table-column type="selection" width="55"></el-table-column>
         <!-- <el-table-column
@@ -42,11 +43,20 @@
 
         <el-table-column prop="zhi" label="标签内容" width="420"></el-table-column>
         <el-table-column prop="state" label="状态">
-          <el-switch v-model="delivery"></el-switch>
+          <template slot-scope="scope">
+             <el-switch v-model="scope.row.delivery"
+              active-color="#5FB878"
+  
+           class="switch"
+              active-text="启用"
+             inactive-text="禁用"
+          ></el-switch>
+          </template>
+         
         </el-table-column>
         <el-table-column label="操作" width="200">
-          <el-button size="mini" @click="edit">编辑</el-button>
-          <el-button size="mini" @click="del">删除</el-button>
+          <el-button size="mini" @click="edit" class="elbuttonStyle2" icon="el-icon-edit" >编辑</el-button>
+          <el-button size="mini" @click="del" class="elbuttonStyle2" icon="el-icon-delete">删除</el-button>
           <!-- show-overflow-tooltip -->
         </el-table-column>
       </el-table>

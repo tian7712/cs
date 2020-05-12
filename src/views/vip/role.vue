@@ -48,7 +48,7 @@
         </el-table-column>
       </el-table>
     </el-card>
-    <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
+    <el-dialog title="添加标签组" :visible.sync="dialogVisible" width="30%">
       <el-form ref="form" :model="form" label-width="120px">
         <el-form-item label="等级">
           <el-select v-model="value" placeholder="请选择">
@@ -69,7 +69,7 @@
       </el-form>
 
       <span slot="footer" class="dialog-footer">
-                <el-button type="primary" @click="dialogVisible = false">提交</el-button>
+                <el-button class="elbuttonStyle" @click="dialogVisible = false" >提交</el-button>
         <el-button @click="dialogVisible = false">取 消</el-button>
 
       </span>

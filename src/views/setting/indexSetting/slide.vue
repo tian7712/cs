@@ -58,7 +58,10 @@
 <el-table-column prop="link" label="链接" width></el-table-column>
         <el-table-column label="状态" prop="state">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.state" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+            <el-switch v-model="scope.row.state" active-color="#5FB878" 
+              class="switch "
+              active-text="显示"
+             inactive-text="隐藏"></el-switch>
           </template>
         </el-table-column>
  <el-table-column label="排序" prop="sort">

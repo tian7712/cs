@@ -16,7 +16,7 @@
         </el-col>
       </el-row>
       <el-button style="margin:0.5%;" size="mini">删除</el-button>
-      <el-button style="float:right;" @click="addRoute" icon="el-icon-plus" type="primary" size="mini">添加配送路线</el-button>
+      <el-button style="float:right;" @click="addRoute" class="elbuttonStyle2" size="mini"><svg-icon icon-class="jiahao" style="margin-right:1%"/>添加配送路线</el-button>
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark">
         <!-- header-cell-style="width: 100%;background-color: #f2f2f2;" -->
         <!-- @selection-change="handleSelectionChange" -->

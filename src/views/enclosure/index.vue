@@ -72,7 +72,7 @@
             </el-form-item>
 
             <el-form-item>
-              <el-button type="primary" @click="onSubmit">提交</el-button>
+              <el-button class="elbuttonStyle"  @click="onSubmit">提交</el-button>
             </el-form-item>
           </el-form>
         </el-col>

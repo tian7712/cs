@@ -20,7 +20,7 @@
 
         <el-form-item label="商城LOGO">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -46,7 +46,7 @@
         </el-form-item>
         <el-form-item label="首页分享图片">
           <el-input v-model="input2">
-            <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+            <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
           </el-input>
           <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"

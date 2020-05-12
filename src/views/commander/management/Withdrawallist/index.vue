@@ -84,12 +84,13 @@
         </el-table-column>
         <el-table-column label="状态" width="120">
           <template slot-scope="scope">
-            <!-- v-model="tableData.stateswitch" -->
-            <!-- <p>{{ scope.row.state }}</p> -->
+            
             <el-switch
               v-model="scope.row.stateswitch"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
+               active-color="#5FB878" 
+              class="switch switchplus"
+              active-text="已启用"
+             inactive-text="未启用"
               @change="stateopen()"
               v-if="STswitch"
             ></el-switch>
@@ -100,7 +101,7 @@
           </template>
         </el-table-column>
 
-        <el-table-column prop="operation" label="操作" show-overflow-tooltip>
+        <el-table-column prop="operation" label="操作" show-overflow-tooltip align="center">
           <el-button type="text">推广订单</el-button>
           <el-button type="text">查看在售商品</el-button>
         </el-table-column>

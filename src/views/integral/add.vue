@@ -20,7 +20,7 @@
             :model="temp"
             label-position="left"
             label-width="100px"
-            style="width: 90%; margin:5%;"
+            style="width: 90%; margin:2% 5%;"
           >
             <el-form-item label="商品名称 " prop="title">
               <el-input v-model="temp.title" />
@@ -46,13 +46,14 @@
               <el-date-picker
                 v-model="temp.timestamp"
                 type="datetime"
-                placeholder="Please pick a date"
+                placeholder="请选择一个日期"
               />
             </el-form-item>
             <el-form-item label="商品简介">
               <el-input
                 v-model="temp.remark"
-                :autosize="{ minRows: 2, maxRows: 4}"
+              
+                :rows="4"
                 type="textarea"
                 placeholder="长度请控制在100字以内"
               />
@@ -729,7 +730,8 @@ export default {
   },
   data() {
     return {
-      month: "",
+      pvalue:'',
+        month: "",
       dialogVisible: false,
       searchInput: "",
       url: "http://dev.xmduobanjin.com/static/images/default-pic.jpg",
@@ -943,7 +945,7 @@ export default {
           {
             type: "date",
             required: true,
-            message: "timestamp is required",
+            message: "需要时间",
             trigger: "change"
           }
         ],

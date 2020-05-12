@@ -20,7 +20,11 @@
         <el-table-column prop="state" label="状态"></el-table-column>
         <el-table-column prop="state" label="是否通过" align="center">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.value1" active-text="通过" inactive-text="未通过"></el-switch>
+            <el-switch v-model="scope.row.value1"   active-color="#5FB878"
+               class="switch switchplus switchplus1"
+      
+              active-text="通过"
+             inactive-text="未通过"></el-switch>
           </template>
         </el-table-column>
       </el-table>

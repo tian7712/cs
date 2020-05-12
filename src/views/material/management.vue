@@ -44,15 +44,19 @@
           <template>1</template>
         </el-table-column>
         <el-table-column align="header-center" label="是否上架" width="100">
- <template slot-scope="scope"> <el-switch v-model="scope.row.shelf" active-color="#13ce66" inactive-color="#ff4949"></el-switch></template>
+ <template slot-scope="scope"> <el-switch v-model="scope.row.shelf"   active-color="#5FB878"
+               class="switch"
+      
+              active-text="上架"
+             inactive-text="下架"></el-switch></template>
 
          
       
         </el-table-column>
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
-            <el-button icon="el-icon-edit" size="small" @click="handleEdit">修改</el-button>
-            <el-button icon="el-icon-delete" size="small" @click="handleDelete(scope)">删除</el-button>
+            <el-button icon="el-icon-edit" size="mini" @click="handleEdit">修改</el-button>
+            <el-button icon="el-icon-delete" size="mini" @click="handleDelete(scope)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>

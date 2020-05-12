@@ -41,7 +41,7 @@
         <el-table-column type="selection" width="55"></el-table-column>
     
            <el-table-column prop="id" label="ID" width="70"></el-table-column>
-        <el-table-column prop="name" label="标题" width="320"></el-table-column>
+        <el-table-column prop="name" label="标题" width="820"></el-table-column>
 
        
         <el-table-column  label="状态">
@@ -49,12 +49,14 @@
           <template slot-scope="scope">
           <el-switch
   v-model="scope.row.state"
-  active-color="#13ce66"
-  inactive-color="#ff4949">
+   active-color="#5FB878" 
+              class="switch"
+              active-text="显示"
+             inactive-text="隐藏">
 </el-switch>
           </template>
         </el-table-column>
-         <el-table-column prop="num" label="排序" width="420"></el-table-column>
+         <el-table-column prop="num" label="排序"></el-table-column>
          
         <el-table-column label="操作" align="center">
           <el-button size="mini" @click="see"   class="elbuttonStyle2" >查看</el-button>

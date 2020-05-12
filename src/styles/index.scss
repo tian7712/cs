@@ -18,20 +18,28 @@
   }
 }
 .elbuttonStyle {
-  background-color: #3071A9;
-  color: white;
+  background-color: #428BCA !important;
+  color: white !important;
+}
+.elbuttonred {
+  background-color: #C9302C !important;
+  color: white !important;
+}
+.elbuttonwhite {
+  background-color: white !important;
+  color: black !important;
 }
 .elbuttonStyle:hover,.elbuttonStyle:active,.elbuttonStyle:focus{
-  background-color: #285E8E;
-  color: white;
+  background-color: #285E8E !important;
+  color: white !important;
 }
 .elbuttonStyle2 {
-  background-color: #009688;
+  background-color: #009688 ;
   color: white;
 }
 .elbuttonStyle2:hover,.elbuttonStyle2:active,.elbuttonStyle2:focus{
-  background-color: #55B9AF;
-  color: white;
+  background-color: #55B9AF !important;
+  color: white !important;
 }
 .elbuttonPo{
   float: right;
@@ -48,6 +56,89 @@ color:#98999A ;
   color:#98999A ;
   font-size: 0.95em;
   }
+/* switch按钮样式 */
+.switch .el-switch__label {
+  position: absolute;
+  display: none;
+  color: #fff !important;
+  
+}
+/*打开时文字位置设置*/
+.switch .el-switch__label--right {
+  z-index: 1;
+}
+
+/* 调整打开时文字的显示位子 */
+.switch .el-switch__label--right span{
+  margin-left: 10px;
+  font-size: 0.7em;
+}
+/*关闭时文字位置设置*/
+.switch .el-switch__label--left {
+  z-index: 1;
+}
+/* 调整关闭时文字的显示位子 */
+.switch .el-switch__label--left span{
+  margin-left: 20px;
+  // color:#D2D2D2;
+  // border-color: #D2D2D2;
+  font-size: 0.7em;
+}
+/*显示文字*/
+.switch .el-switch__label.is-active {
+  display: block;
+}
+/* 调整按钮的宽度 */
+.switch.el-switch .el-switch__core,
+.el-switch .el-switch__label {
+   width: 60px !important;
+  //  border-color: #D2D2D2 !important;
+   margin: 0;
+   
+}
+// .switch .el-switch__core{
+//   border-color: #D2D2D2;
+//   background-color: #FFFFFF;
+// }
+
+.switchplus .el-switch__label--right span{
+  // margin-left: 5px;
+  // margin-right: 2px;
+  padding: 1px 2px;
+  font-size: 0.7em;
+}
+.switchplus1 .el-switch__label--right span{
+
+  margin-right: 19px;
+ 
+}
+.switchplus2 .el-switch__label--right span{
+
+  margin: 0;
+ 
+}
+// el-switch__label el-switch__label--right
+.switchplus.el-switch .el-switch__core,
+.switchplus .el-switch__label {
+  width:70px !important;
+
+  margin: 0;
+  
+}
+.switchmini .el-switch__label--right span{
+  margin-left: 5px;
+  padding: 1px 2px;
+  font-size: 0.7em;
+}
+// el-switch__label el-switch__label--right
+.switchmini.el-switch .el-switch__core,
+.switchmini .el-switch__label {
+  width:45px !important;
+
+  margin: 0;
+  
+}
+
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;

@@ -6,7 +6,7 @@
     <el-card class="box-card">
       <el-form ref="form" :model="form" label-width="10%">
         <el-form-item label="最小提现金额">
-           <el-input placeholder="请输入内容" v-model="input2">
+           <el-input  v-model="input2">
     <template slot="append">元</template>
   </el-input>
           <p class="pstyle2">分销商的佣金达到此额度才能提现，最低0.01元</p>
@@ -14,7 +14,7 @@
 
         <el-form-item label="提现手续费">
 
-            <el-input placeholder="请输入内容" v-model="input2">
+            <el-input  v-model="input2">
     <template slot="append">%</template>
   </el-input>
           <p class="pstyle2">团长提现手续费比例 </p>
@@ -25,7 +25,7 @@
           <p class="pstyle2">只适用提现到微信的申请</p>
         </el-form-item>
         <el-form-item >
-         <el-button class="elbuttonStyle2">提交</el-button>
+         <el-button class="elbuttonStyle">提交</el-button>
         </el-form-item>
       </el-form>
 

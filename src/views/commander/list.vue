@@ -9,7 +9,7 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="2">
-          <el-select v-model="vipvalue" placeholder="状态">
+          <el-select v-model="vipvalue" placeholder="状态" size="small">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -20,18 +20,19 @@
           </el-select>
         </el-col>
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="会员昵称/团长姓名/手机号"></el-input>
+          <el-input v-model="inputname" placeholder="会员昵称/团长姓名/手机号" size="small"></el-input>
         </el-col>
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="搜索区域"></el-input>
+          <el-input v-model="inputname" placeholder="搜索区域" size="small"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-select v-model="vipvalue2" placeholder="团长等级">
+          <el-select v-model="vipvalue2" placeholder="团长等级" size="small">
             <el-option :key="1" :label="团长等级" :value="1"></el-option>
           </el-select>
         </el-col>
         <el-col :span="6">
           <el-date-picker
+          size="small"
             v-model="value2"
             type="daterange"
             align="right"
@@ -59,7 +60,8 @@
           </el-button-group>
         </el-col>
         <el-col >
-          <el-button icon="el-icon-plus" class="elbuttonStyle2" @click="commanderAdd" style="float:right;">添加团长</el-button>
+          <el-button size="mini" class="elbuttonStyle2" @click="commanderAdd" style="float:right;">
+            <svg-icon icon-class="jiahao" style="margin-right:1%"/>添加团长</el-button>
         </el-col>
       </el-row>
 
@@ -164,7 +166,7 @@
           <template slot-scope="scope">
             <el-row class="buttonstyle">
               <el-button size="mini" @click="commanderEdit" class="elbuttonStyle2" plain>编辑</el-button>
-              <el-button size="mini" @click="edit" class="elbuttonStyle2" plain>推广订单</el-button>
+              <el-button size="mini"  class="elbuttonStyle2" plain>推广订单</el-button>
               <el-button size="mini" @click="commanderSale" class="elbuttonStyle2" plain>查看在售商品</el-button>
             </el-row>
 
@@ -280,7 +282,7 @@ p {
 </style>  
 <script>
 import Tinymce from "@/components/Tinymce";
-
+import { fetchList } from '@/api/article';
 
 export default {
   data() {
@@ -335,36 +337,8 @@ export default {
           consumedNumber: 0,
           amount: 893.14,
           grade: ""
-        },
-         {
-          id: "12212",
-
-          CellName: "软件园二区",
-          SuperiorLeader: "暂无上级",
-          phone: 15659123951,
-          Quantityofgoods: 397,
-          confirmed: 369.4,
-          commanderimg:
-            "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKBrqTKvvrFictbhPvRb5nQ1saesHU4ic6cxS9lNwGoKic25dKGENWEO3H9gnB462icwOMtQpocYcdjJg/132",
-          Withdrawable: 0.0,
-          Paid: 0.0,
-          Withdrawing: 0.0,
-          revenue: 0,
-          address: "福建省厦门市思明区观日路4号软件园二期",
-          ApplicationTime: "2020-03-25 15:38:46",
-          AuditTime: "2020-03-30 11:55:39",
-          rest: true,
-          state: false,
-          operation: true,
-          commanderID: 0,
-          commanderName: "林晓晖",
-          commanderNickname: "火焰VS天堂",
-          currentMembersNumber: 1,
-          invitationsNumber: 1,
-          consumedNumber: 0,
-          amount: 893.14,
-          grade: ""
         }
+        
       ],
       multipleSelection: [],
       delivery: "",

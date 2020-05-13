@@ -7,12 +7,12 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4" :offset="21">
-          <el-button type="text" @click="create">提交</el-button>
-          <el-button type="text" @click="fanhui">返回列表</el-button>
+          <el-button class="elbuttonStyle" @click="create">提交</el-button>
+          <el-button  @click="fanhui">返回列表</el-button>
         </el-col>
       </el-row>
 
-      <el-tabs v-model="activeName" @tab-click="handleClick">
+      <el-tabs v-model="activeName">
         <el-tab-pane label="基本信息" name="first">
           <el-form
             ref="dataForm"
@@ -20,7 +20,7 @@
             :model="temp"
             label-position="left"
             label-width="100px"
-            style="width: 90%; margin:5%;"
+            style="width: 90%; margin:2% 5%;"
           >
             <el-form-item label="商品名称 " prop="title">
               <el-input v-model="temp.title" />
@@ -46,21 +46,22 @@
               <el-date-picker
                 v-model="temp.timestamp"
                 type="datetime"
-                placeholder="Please pick a date"
+                placeholder="请选择一个日期"
               />
             </el-form-item>
             <el-form-item label="商品简介">
               <el-input
                 v-model="temp.remark"
-                :autosize="{ minRows: 2, maxRows: 4}"
+              
+                :rows="4"
                 type="textarea"
                 placeholder="长度请控制在100字以内"
               />
-              <span>副标题的长度请控制在100字以内</span>
+              <p>副标题的长度请控制在100字以内</p>
             </el-form-item>
             <el-form-item label="商品简短标题">
               <el-input v-model="temp.title" />
-              <span>小票打印机使用，请控制字数，未填写默认截取商品标题(无须打印的可以不填写</span>
+              <p>小票打印机使用，请控制字数，未填写默认截取商品标题(无须打印的可以不填写</p>
             </el-form-item>
             <!-- </el-form-item> -->
             <el-form-item label="首页商品图片（1）" prop>
@@ -71,13 +72,13 @@
                 action="https://jsonplaceholder.typicode.com/posts/"
                 list-type="picture-card"
                 :file-list="fileList1"
-                :on-preview="handlePictureCardPreview"
-                :on-remove="handleRemove"
                 style="margin:1%"
               >
+                <!-- :on-remove="handleRemove" -->
+                <!-- :on-preview="handlePictureCardPreview" -->
                 <i class="el-icon-plus"></i>
               </el-upload>
-              <span>此图为首页商品大图模式封面图，最佳尺寸:680*380</span>
+              <p>此图为首页商品大图模式封面图，最佳尺寸:680*380</p>
             </el-form-item>
             <el-form-item label="首页商品图片（2）" prop>
               <el-input placeholder="请输入内容" v-model="input2">
@@ -87,20 +88,20 @@
                 action="https://jsonplaceholder.typicode.com/posts/"
                 list-type="picture-card"
                 :file-list="fileList1"
-                :on-preview="handlePictureCardPreview"
-                :on-remove="handleRemove"
                 style="margin:1%"
               >
+                <!-- :on-remove="handleRemove" -->
+                <!-- :on-preview="handlePictureCardPreview" -->
                 <i class="el-icon-plus"></i>
               </el-upload>
 
-              <span>此图为首页商品大图模式封面图，最佳尺寸:680*380</span>
+              <p>此图为首页商品大图模式封面图，最佳尺寸:680*380</p>
             </el-form-item>
             <el-form-item label="商品图片">
               <el-input :disabled="true" placeholder="批量上传图片">
                 <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
               </el-input>
-              <span>第一张为缩略图，建议为正方型图片，其他为详情页面图片，尺寸建议宽度为640，并保持图片大小一致</span>
+              <p>第一张为缩略图，建议为正方型图片，其他为详情页面图片，尺寸建议宽度为640，并保持图片大小一致</p>
             </el-form-item>
             <el-form-item label="分享标题 " prop>
               <el-input v-model="temp.title" />
@@ -113,13 +114,13 @@
                 action="https://jsonplaceholder.typicode.com/posts/"
                 list-type="picture-card"
                 :file-list="fileList1"
-                :on-preview="handlePictureCardPreview"
-                :on-remove="handleRemove"
                 style="margin:1%"
               >
+                <!-- :on-remove="handleRemove" -->
+                <!-- :on-preview="handlePictureCardPreview" -->
                 <i class="el-icon-plus"></i>
               </el-upload>
-              <span>此图为商品详情页分享图片（比例为长宽比5:4）</span>
+              <p>此图为商品详情页分享图片（比例为长宽比5:4）</p>
             </el-form-item>
             <el-form-item label="商品状态 " prop>
               <el-radio v-model="sxstate" label="1">上架</el-radio>
@@ -209,9 +210,23 @@
             </el-form-item>
 
             <el-form-item label="选择供应商">
-              <el-input v-model="temp.title" :disabled="true">
-                <el-button slot="append">选择供应商</el-button>
+              <el-input v-model="pvalue" :disabled="true">
+                <el-button slot="append" @click="dialogVisible = true">选择供应商</el-button>
               </el-input>
+              <div v-if="hide">
+                <el-image
+                  style="width: 100px; height: 100px; margin:1% 0 0 0;position: relative;border:1px solid #F2F2F2"
+                  :src="url"
+                ></el-image>
+                <div class="p-value">{{pvalue}}</div>
+                <el-button
+                  type="danger"
+                  icon="el-icon-delete"
+                  style="background-color: #009688;border:none;position: absolute;bottom: 25%; margin-left:0.3%"
+                  size="mini"
+                  @click="del"
+                ></el-button>
+              </div>
             </el-form-item>
           </el-form>
         </el-tab-pane>
@@ -224,29 +239,37 @@
             label-width="100px"
             style="width: 90%; margin:5%;"
           >
-            <span>规格库存</span>
-            <el-form-item label="商品编码" prop>
-              <el-input v-model="temp.title" />
-            </el-form-item>
-            <p>商品编码 用部分商家用于统计</p>
-            <el-form-item label="重量">
-              <el-input v-model="temp.title" :disabled="off">
-                <template slot="append">克</template>
-              </el-input>
-            </el-form-item>
-            <el-form-item label="库存" prop>
-              <el-input v-model="temp.title" :disabled="off" />
-              <p>商品的剩余数量, 如启用多规格，则此处设置无效.</p>
-            </el-form-item>
+            <el-row :gutter="20">
+              <el-col :span="2">
+                <span style="color:black;">规格库存</span>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="商品编码" prop>
+                  <el-input v-model="temp.title" />
+                  <p>商品编码 用部分商家用于统计</p>
+                </el-form-item>
+
+                <el-form-item label="重量">
+                  <el-input v-model="temp.title" :disabled="off">
+                    <template slot="append">克</template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="库存" prop>
+                  <el-input v-model="temp.title" :disabled="off" />
+                  <p>商品的剩余数量, 如启用多规格，则此处设置无效.</p>
+                </el-form-item>
+              </el-col>
+            </el-row>
+
             <el-form-item label="规格" prop>
               <el-checkbox v-model="checked" @change="boxChange">启用商品规格</el-checkbox>
               <p>
                 <span>启用商品规格后，商品的价格及库存以商品规格为准,库存设置为0则会到”已售罄“中，手机也不会显示, -1为不限制</span>
               </p>
-              <el-card class="box-card GGweight">
-                <el-input placeholder="重量" v-model="input1">
-                  <!-- <el-checkbox v-model="checked1" label slot="prepend"></el-checkbox> -->
+              <!-- 、/ -->
 
+              <el-card class="box-card GGweight" v-if="specifications">
+                <el-input placeholder="重量" v-model="weightinput">
                   <el-button
                     type="primary"
                     icon="el-icon-plus"
@@ -282,22 +305,161 @@
                   </div>
                 </div>
               </el-card>
+
+              <!-- 量词 -->
+              <el-card class="box-card GGweight" v-if="specifications1">
+                <el-input placeholder="量词">
+                  <!-- v-model="classifier" -->
+                  <el-button
+                    type="primary"
+                    icon="el-icon-plus"
+                    slot="append"
+                    style="background-color: skyblue;color:white;"
+                    @click="addDomain1"
+                  >添加规格项</el-button>
+                  <el-button
+                    type="danger"
+                    icon="el-icon-close"
+                    slot="append"
+                    @click="delGG"
+                    style="background-color: red;color:white;"
+                  ></el-button>
+                </el-input>
+                <div :model="dynamicValidateForm1" ref="dynamicValidateForm1" label-width="100%">
+                  <div
+                    v-for="(domain, index) in dynamicValidateForm1.domains"
+                    :key="domain.key"
+                    :prop="'domains.' + index + '.value'"
+                    :rules="{required: true, message: '不能为空', trigger: 'blur'}"
+                    style="float:left"
+                    class="commodityGG"
+                  >
+                    <el-input placeholder="自定义" v-model="domain.value">
+                      <el-button
+                        type="danger"
+                        icon="el-icon-close"
+                        slot="append"
+                        @click.prevent="removeDomain1(domain)"
+                      ></el-button>
+                    </el-input>
+                  </div>
+                </div>
+              </el-card>
+
+              <!-- /、 -->
+
               <div v-if="GGinput">
-                <el-divider></el-divider>
-                <el-form-item label="选择规格" prop>
-                  <el-select v-model="value1" multiple placeholder="请选择">
+                <!-- <el-divider></el-divider> -->
+                <el-form-item label="选择规格" prop style="margin:1%">
+                  <el-select v-model="value1" multiple placeholder="请选择" @change="Specifications">
                     <el-option
                       v-for="item in options"
                       :key="item.value"
                       :label="item.label"
                       :value="item.value"
                     ></el-option>
-                    <!-- @change="ZLchange" -->
-                    <!-- @click="ZLchange" -->
                   </el-select>
                 </el-form-item>
                 <el-divider></el-divider>
-                <el-button>添加规格</el-button>
+                <el-button class="elbuttonStyle" icon="el-icon-plus" style="margin:1%">添加规格</el-button>
+                <!-- tab表格 -->
+                <el-table :data="tableData" style="width: 100%" v-if="specifications1">
+                  <el-table-column prop="classifier" label="量词" width="50"></el-table-column>
+                  <el-table-column label="库存">
+                    <el-table-column prop="stock" >
+                      <template slot="header" slot-scope="scope">
+                        <el-input v-model="gobb" size="mini">
+                          <el-button slot="append" @click="assignment">
+                            <svg-icon icon-class="down1" class-name="down1" />
+                          </el-button>
+                        </el-input>
+                      </template>
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                      </template>
+
+                    
+                    </el-table-column>
+                    <!-- <el-input
+                      v-for="item in tableData"
+                      :key="item.value"
+                      :label="item.classifier"
+                      :value="item.value"
+                    ></el-input>-->
+                  </el-table-column>
+                  <el-table-column label="现价">
+                    <el-table-column prop="XJprice" label="现价">
+                      <template slot="header" slot-scope="scope">
+                        <el-input v-model="search" size="mini">
+                          <el-button slot="append">
+                            <svg-icon icon-class="down1" class-name="down1" />
+                          </el-button>
+                        </el-input>
+                      </template>
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                      </template>
+                    </el-table-column>
+                  </el-table-column>
+
+                  <el-table-column label="原价">
+                    <el-table-column label="原价" prop="YJprice">
+                      <template slot="header" slot-scope="scope">
+                        <el-input v-model="search" size="mini">
+                          <el-button slot="append">
+                            <svg-icon icon-class="down1" class-name="down1" />
+                          </el-button>
+                        </el-input>
+                      </template>
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                      </template>
+                    </el-table-column>
+                  </el-table-column>
+                  <el-table-column label="成本价">
+                    <el-table-column label="成本价" prop="CBJprice">
+                      <template slot="header" slot-scope="scope">
+                        <el-input v-model="search" size="mini">
+                          <el-button slot="append">
+                            <svg-icon icon-class="down1" class-name="down1" />
+                          </el-button>
+                        </el-input>
+                      </template>
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                      </template>
+                    </el-table-column>
+                  </el-table-column>
+                  <el-table-column label="编码">
+                    <el-table-column label="编码" prop="code">
+                      <template slot="header" slot-scope="scope">
+                        <el-input v-model="search" size="mini">
+                          <el-button slot="append" @click="assignment">
+                            <svg-icon icon-class="down1" class-name="down1" />
+                          </el-button>
+                        </el-input>
+                      </template>
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                      </template>
+                    </el-table-column>
+                  </el-table-column>
+                  <el-table-column label="重量（克）">
+                    <el-table-column label="重量（克）" prop="weight">
+                      <template slot="header" slot-scope="scope">
+                        <el-input v-model="search" size="mini">
+                          <el-button slot="append">
+                            <svg-icon icon-class="down1" class-name="down1" />
+                          </el-button>
+                        </el-input>
+                      </template>
+                      <template slot-scope="scope">
+                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                      </template>
+                    </el-table-column>
+                    <!-- <el-input v-model="search" size="mini"></el-input> -->
+                  </el-table-column>
+                </el-table>
               </div>
             </el-form-item>
           </el-form>
@@ -327,8 +489,8 @@
                 </el-col>
                 <el-col :span="14" :offset="4">
                   <el-checkbox v-model="checked1" @change="TZChange">启用独立团长提成</el-checkbox>
-                  <p>
-                    <span>默认使用团长等级提成设置，启用独立团长提成设置，此商品拥有独自的团长提成比例,不受团长等级比例及默认设置限制</span>
+                  <p > 
+                默认使用团长等级提成设置，启用独立团长提成设置，此商品拥有独自的团长提成比例,不受团长等级比例及默认设置限制
                   </p>
 
                   <div v-if="dataA" style="margin-bottom:2%">
@@ -345,21 +507,18 @@
       </el-tabs>
       <el-row :gutter="20">
         <el-col :span="6" :offset="20">
-          <el-button type="primary" @click="create">确认</el-button>
+          <el-button class="elbuttonStyle" @click="create">确认</el-button>
           <el-button @click="dialogFormVisible = false">取消</el-button>
         </el-col>
       </el-row>
 
-      <!-- <div slot="footer" class="dialog-footer">
-      
-      </div>-->
       <el-dialog title="图片" :visible.sync="dialogFormVisible">
-        <el-tabs v-model="activeName1" @tab-click="handleClick1">
+        <el-tabs v-model="activeName1">
           <el-tab-pane label="平台" name="first1">
             <el-row :gutter="10">
               <el-col :span="8" offset="16">
                 <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
-                <el-dropdown split-button type="primary" @click="handleClick1" size="small">
+                <el-dropdown split-button type="primary" size="small">
                   移动
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>1</el-dropdown-item>
@@ -373,53 +532,41 @@
               <el-col :span="24" :offset="2">
                 <el-upload
                   class="upload-demo"
-                  :on-change="handleChange"
                   :file-list="fileList"
                   list-type="picture-card"
                   action="https://jsonplaceholder.typicode.com/posts/"
                 >
                   <i slot="default" class="el-icon-plus"></i>
-                  <!-- <p> 上传图片</p> -->
+                  <!-- :on-change="handleChange" -->
                 </el-upload>
               </el-col>
             </el-row>
             <el-row :gutter="20">
               <el-col :span="12" :offset="6">
                 <el-pagination
-                  @size-change="handleSizeChange"
-                  @current-change="handleCurrentChange"
                   :current-page.sync="currentPage3"
                   :page-size="100"
                   layout="prev, pager, next, jumper"
                   :total="1000"
                 ></el-pagination>
+                <!-- @current-change="handleCurrentChange" -->
               </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane label="本地服务器" name="second2">
             <el-row :gutter="10">
               <el-col :span="16">
-                <el-select v-model="value" placeholder="不限年份">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
+                <el-select v-model="month" placeholder="不限年份">
+                  <el-option v-for="item in options1" :key="item" :label="item" :value="item"></el-option>
                 </el-select>
-                <el-select v-model="value1" placeholder="不限月份">
-                  <el-option
-                    v-for="item in options1"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  ></el-option>
+                <el-select v-model="month" placeholder="不限月份">
+                  <el-option v-for="item in options1" :key="item" :label="item" :value="item"></el-option>
                 </el-select>
                 <el-button icon="el-icon-search"></el-button>
               </el-col>
               <el-col :span="8">
                 <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
-                <el-dropdown split-button type="primary" @click="handleClick1" size="small">
+                <el-dropdown split-button type="primary" size="small">
                   移动
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>1</el-dropdown-item>
@@ -435,11 +582,11 @@
               <el-col :span="24" :offset="2">
                 <el-upload
                   class="upload-demo"
-                  :on-change="handleChange"
                   :file-list="fileList"
                   list-type="picture-card"
                   action="https://jsonplaceholder.typicode.com/posts/"
                 >
+                  <!-- :on-change="handleChange" -->
                   <i slot="default" class="el-icon-plus"></i>
                 </el-upload>
               </el-col>
@@ -447,13 +594,13 @@
             <el-row :gutter="20">
               <el-col :span="12" :offset="6">
                 <el-pagination
-                  @size-change="handleSizeChange"
-                  @current-change="handleCurrentChange"
                   :current-page.sync="currentPage3"
                   :page-size="100"
                   layout="prev, pager, next, jumper"
                   :total="1000"
                 ></el-pagination>
+                <!-- @current-change="handleCurrentChange"
+                -->
               </el-col>
             </el-row>
           </el-tab-pane>
@@ -468,12 +615,31 @@
             </div>
           </el-tab-pane>
         </el-tabs>
+      </el-dialog>
+      <el-dialog title="信息" :visible.sync="dialogVisible" width="30%">
+        <el-input placeholder="请输入昵称进行搜索" v-model="searchInput" class="input-with-select">
+          <el-button slot="append" icon="el-icon-search"></el-button>
+        </el-input>
+        <el-table :data="tableData1" style="width: 100%">
+          <el-table-column>
+            <template slot-scope="scope">
+              <el-image style="width: 40px; height: 40px" :src="scope.row.img"></el-image>
+            </template>
+          </el-table-column>
+          <el-table-column>
+            <template slot-scope="scope">{{scope.row.name}}</template>
+          </el-table-column>
+          <el-table-column align="right">
+            <template slot-scope="scope">
+              <el-button size="mini" @click="Selectsupplier(scope.row)">选择</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
 
-        <!-- <el-row :gutter="20">
-  <el-col :span="6" :offset="12"> <el-button type="primary" @click="dialogFormVisible = false" >确 定</el-button>
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
-   </el-col>
-        </el-row>-->
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="Selectsupplier(scope.row)">确 定</el-button>
+          <el-button @click="dialogVisible = false">取 消</el-button>
+        </span>
       </el-dialog>
     </el-card>
   </div>
@@ -514,6 +680,39 @@ export default {
   // name: "ComplexTable",
   // components: { Pagination },
   name: "TinymceDemo",
+  namee: "",
+  search: "",
+  tableinput: [
+    {
+      classifier: "个",
+      stock: "g1"
+    },
+    {
+      classifier: "盒",
+      stock: "h1"
+    },
+    {
+      classifier: "箱",
+      stock: "x1"
+      // XJprice:'x2' ,
+      // YJprice: 'x3',
+      // CBJprice:,
+      // code:,
+      // weight:
+    },
+    {
+      classifier: "件",
+      stock: "j1"
+    },
+    {
+      classifier: "包",
+      stock: "b1"
+    },
+    {
+      classifier: "袋",
+      stock: "d1"
+    }
+  ],
   components: { Tinymce },
   directives: { waves },
   filters: {
@@ -531,6 +730,59 @@ export default {
   },
   data() {
     return {
+      pvalue:'',
+        month: "",
+      dialogVisible: false,
+      searchInput: "",
+      url: "http://dev.xmduobanjin.com/static/images/default-pic.jpg",
+      pValue: "",
+      hide: false,
+      search: "",
+      gobb:'',
+      tableData1: [
+        {
+          img:
+            "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+          name: "王照福"
+        },
+        {
+          img:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          name: "王照福1"
+        }
+      ],
+      tableData: [
+        {
+          classifier: "个",
+          stock: "g1"
+        },
+        {
+          classifier: "盒",
+          stock: "h1"
+        },
+        {
+          classifier: "箱",
+          stock: "x1"
+          // XJprice:'x2' ,
+          // YJprice: 'x3',
+          // CBJprice:,
+          // code:,
+          // weight:
+        },
+        {
+          classifier: "件"
+        },
+        {
+          classifier: "包"
+        },
+        {
+          classifier: "袋"
+        }
+      ],
+      classifier: "",
+      weightinput: "",
+      specifications: false,
+      specifications1: false,
       dialoginformation: false,
       fileList: [
         {
@@ -563,16 +815,55 @@ export default {
       TGtime: "",
       category: "1",
       dialogImageUrl: "",
-      dialogVisible: false,
+      // dialogVisible: false,
       disabled: false,
       currentPage3: 2,
       dynamicValidateForm: {
         domains: [
           {
-            value: ""
+            value: "400g"
+          },
+          {
+            value: "500g"
+          },
+          {
+            value: "1kg"
+          },
+          {
+            value: "1.5kg"
+          },
+          {
+            value: "2kg"
+          },
+          {
+            value: "2.5g"
+          },
+          {
+            value: "3kg"
           }
-        ],
-        email: ""
+        ]
+      },
+      dynamicValidateForm1: {
+        domains: [
+          {
+            value: "个"
+          },
+          {
+            value: "盒"
+          },
+          {
+            value: "箱"
+          },
+          {
+            value: "件"
+          },
+          {
+            value: "包"
+          },
+          {
+            value: "袋"
+          }
+        ]
       },
 
       homestate: "1",
@@ -594,11 +885,14 @@ export default {
           label: "量词"
         }
       ],
+      options1: [1, 2, 3],
+
       input1: "",
       input2: "",
       input3: "",
       input4: "",
       value1: [],
+
       activeName: "first",
       activeName1: "first1",
       item1: "",
@@ -652,7 +946,7 @@ export default {
           {
             type: "date",
             required: true,
-            message: "timestamp is required",
+            message: "需要时间",
             trigger: "change"
           }
         ],
@@ -699,6 +993,10 @@ export default {
     this.getList();
   },
   methods: {
+    assignment() {
+      // this.search = this.scope.row.namee;
+      console.log(this);
+    },
     addGG() {
       this.items.push("");
     },
@@ -709,6 +1007,29 @@ export default {
         key: Date.now()
       });
     },
+    addDomain1() {
+      this.dynamicValidateForm1.domains.push({
+        value: "",
+        key: Date.now()
+      });
+    },
+    Specifications() {
+      if (this.value1 == "选项1") {
+        this.specifications = true;
+        this.specifications1 = false;
+      } else if (this.value1 == "选项2") {
+        this.specifications = false;
+        this.specifications1 = true;
+      } else if (this.value1 == "选项1,选项2" || this.value1 == "选项2,选项1") {
+        this.specifications = true;
+        this.specifications1 = true;
+      } else {
+        this.specifications = false;
+        this.specifications1 = false;
+      }
+
+      console.log(this.value1);
+    },
     removeDomain(items) {
       var index = this.dynamicValidateForm.domains.indexOf(items);
       console.log(index);
@@ -716,7 +1037,13 @@ export default {
         this.dynamicValidateForm.domains.splice(index, 1);
       }
     },
-
+    removeDomain1(items) {
+      var index = this.dynamicValidateForm1.domains.indexOf(items);
+      console.log(index);
+      if (index !== -1) {
+        this.dynamicValidateForm1.domains.splice(index, 1);
+      }
+    },
     TZChange() {
       this.dataA = !this.dataA;
       console.log(this.dataA);
@@ -741,10 +1068,14 @@ export default {
           });
         });
     },
+
     boxChange() {
       // alert("checked");
       this.off = !this.off;
       this.GGinput = !this.GGinput;
+      this.specifications = false;
+      this.specifications1 = false;
+      this.value1 = "";
     },
 
     getList() {
@@ -911,26 +1242,50 @@ export default {
     getSortClass: function(key) {
       const sort = this.listQuery.sort;
       return sort === `+${key}` ? "ascending" : "descending";
+    },
+    Selectsupplier(row) {
+      this.hide = true;
+      this.dialogVisible = false;
+
+      this.url = row.img;
+      this.vipValue = row.id;
+      this.pvalue = row.name;
+      console.log(row.img);
+    },
+    del() {
+      this.hide = false;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.p-value {
+  background-color: #009688;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: white;
+
+  position: absolute;
+  bottom: 5%;
+}
 
 .GGweight {
   border: 1px solid gainsboro;
   border-radius: 2px;
   padding: 1%;
   box-shadow: none;
+  margin-top: 1%;
 }
 .drop {
   border: 1px solid gainsboro;
 }
-span {
-  color: rgb(177, 175, 175);
-  font-size: 0.8em;
-}
+// span {
+//   color: rgb(177, 175, 175);
+//   font-size: 0.8em;
+// }
 .commodityGG {
   width: 20%;
   margin: 1%;
@@ -966,10 +1321,10 @@ p {
 }
 .grid-content {
   p {
-    color: rgb(19, 18, 18);
+    color:#98999A ;
+  
     margin: 2% 0;
     font-size: 0.9em;
-   
   }
 }
 </style>

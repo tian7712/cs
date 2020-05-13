@@ -8,7 +8,7 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="3">
-          <el-select v-model="vipvalue" placeholder="不按时间">
+          <el-select v-model="vipvalue" placeholder="不按时间" size="small">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -30,17 +30,18 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             :picker-options="pickerOptions"
+            size="small"
           ></el-date-picker>
         </el-col>
         <el-col :span="3">
-          <el-input placeholder="输入编号/团长姓名"></el-input>
+          <el-input placeholder="输入编号/团长姓名" size="small"></el-input>
         </el-col>
 
         <el-col :span="6">
           <el-button-group>
-            <el-button @click="del" style="background-color: #009688;color:white;">搜索</el-button>
-            <el-button>导出商品总单</el-button>
-            <el-button>导出配送总单</el-button>
+            <el-button @click="del" style="background-color: #009688;color:white;" size="small">搜索</el-button>
+            <el-button size="small">导出商品总单</el-button>
+            <el-button size="small">导出配送总单</el-button>
           </el-button-group>
         </el-col>
       </el-row>
@@ -94,7 +95,7 @@
           </template>
         </el-table-column>
 
-        <el-table-column label="操作" width="500" align="right">
+        <el-table-column label="操作" width="500" align="center">
           <div class="statebutton">
             <el-tooltip class="item" effect="dark" content="点击配送" placement="top">
               <el-button size="mini" @click="deliver">点击配送</el-button>

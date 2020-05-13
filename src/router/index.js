@@ -15,6 +15,7 @@ import commanderRouter from './modules/commander'
 import supplyRouter from './modules/supply'
 import marketingRouter from './modules/marketing'
 import settingRouter from './modules/setting'
+import commodityRouter from './modules/commodity'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -91,8 +92,8 @@ export const constantRoutes = [
       {
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
-        name: '首页',
-        meta: { title: '首页', icon: 'dashboard', affix: true }
+        name: 'dashboard',
+        meta: { title: '首页', icon: 'fangzi', affix: true }
       }
     ]
   },
@@ -153,26 +154,26 @@ export const constantRoutes = [
         path: 'Commodity-management',
         component: () => import('@/views/integral/management'),
         name: 'Documentation1',
-        meta: { title: '商品管理', icon: 'documentation' }
+        meta: { title: '商品管理'}
       }, {
         path: 'index',
         component: () => import('@/views/integral/index'),
         name: 'Documentation2',
-        meta: { title: '签到设置', icon: 'documentation' }
+        meta: { title: '签到设置' }
       },
       {
         path: 'add',
         component: () => import('@/views/integral/add'),
         name: '添加',
         hidden: true, 
-        meta: { title: '添加商品', icon: 'documentation' }
+        meta: { title: '添加商品'}
       },
       {
         path: 'edit',
         component: () => import('@/views/integral/edit'),
         name: '修改',
         hidden: true, 
-        meta: { title: '修改商品', icon: 'documentation' }
+        meta: { title: '修改商品'}
       }
     ]
   },
@@ -183,7 +184,7 @@ export const constantRoutes = [
     name: '物资',
     meta: {
       title: '物资',
-      icon: 'wuzi',
+      icon: 'wuzi1',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
     children: [
@@ -191,112 +192,30 @@ export const constantRoutes = [
         path: 'management',
         component: () => import('@/views/material/management'),
         name: 'management',
-        meta: { title: '物资管理', icon: 'documentation' }
+        meta: { title: '物资管理'}
       }, {
         path: 'apply',
         component: () => import('@/views/material/apply'),
         name: 'apply',
-        meta: { title: '物资申请', icon: 'documentation' }
+        meta: { title: '物资申请'}
       },
       {
         path: 'add',
         component: () => import('@/views/material/add'),
         name: 'add',
         hidden: true, 
-        meta: { title: '物资添加', icon: 'documentation' }
+        meta: { title: '物资添加' }
       },
       {
         path: 'edit',
         component: () => import('@/views/material/edit'),
         hidden: true, 
         name: 'edit',
-        meta: { title: '物资修改', icon: 'documentation' }
+        meta: { title: '物资修改' }
       }
     ]
   },
-  {
-    path: '/commodity',
-    component: Layout,
-    redirect: '/commodity/list',
-    name: '商品',
-    meta: {
-      title: '商品',
-      icon: 'shangpin',
-      roles: ['admin', 'editor'] // you can set roles in root nav
-    },
-    children: [
-      {
-        path: 'list',
-        component: () => import('@/views/commodity/list'),
-        name: '商品列表',
-        meta: { title: '商品列表', icon: 'documentation' }
-      }, {
-        path: 'classification',
-        component: () => import('@/views/commodity/classification'),
-        name: 'classification',
-        meta: { title: '商品分类', icon: 'documentation' }
-      },
-      {
-        path: 'addclassification',
-        component: () => import('@/views/commodity/addclassification'),
-        name: 'addclassification',
-        hidden:true,
-        meta: { title: '添加商品分类', icon: 'documentation' }
-      }, 
-      {
-        path: 'editclassification',
-        component: () => import('@/views/commodity/editclassification'),
-        name: 'editclassification',
-        hidden:true,
-        meta: { title: '编辑商品分类', icon: 'documentation' }
-      },  {
-        path: 'specifications',
-        component: () => import('@/views/commodity/specifications'),
-        name: 'specifications',
-        meta: { title: '商品规格', icon: 'documentation' }
-      },
-      {
-        path: 'addspecifications',
-        component: () => import('@/views/commodity/addspecifications'),
-        name: 'addspecifications',
-        hidden:true,
-        meta: { title: '添加商品规格', icon: 'documentation' }
-      },
-      {
-        path: 'editspecifications',
-        component: () => import('@/views/commodity/editspecifications'),
-        name: 'editspecifications',
-        hidden:true,
-        meta: { title: '编辑商品规格', icon: 'documentation' }
-      }, {
-        path: 'lable',
-        component: () => import('@/views/commodity/label'),
-        name: 'label',
-        meta: { title: '商品标签', icon: 'documentation' }
-      }, {
-        path: 'setup',
-        component: () => import('@/views/commodity/setup/index'),
-        name: 'seetup',
-        meta: { title: '商品设置', icon: 'documentation' },
-        children: [
-          {
-            path: 'setup',
-            component: () => import('@/views/commodity/setup/sz'),
-            name: 'setup',
-            meta: { title: '基本设置', icon: 'documentation' }
-          },
-          {
-            path: 'time',
-            component: () => import('@/views/commodity/setup/time'),
-            name: 'time',
-            meta: { title: '统一时间', icon: 'documentation' }
-          }
-        ]
-      }
-
-
-    ]
-  },
+  commodityRouter,
   {
     path: '/profile',
     component: Layout,
@@ -331,14 +250,14 @@ export const asyncRoutes = [
     name: '会员',
     meta: {
       title: '会员',
-      icon: 'lock',
+      icon: 'vip',
       roles: ['admin', 'editor'] 
     },
     children: [
       {
         path: 'viplist',
         component: () => import('@/views/vip/list'),
-        name: '会员列表',
+        name: 'viplist',
         meta: {
           title: '会员列表',
           roles: ['admin'] // or you can only set roles in sub nav
@@ -347,7 +266,7 @@ export const asyncRoutes = [
       {
         path: 'page',
         component: () => import('@/views/vip/page'),
-        name: '虚拟会员',
+        name: 'page',
         meta: {
           title: '虚拟会员',
           roles: ['admin'] // or you can only set roles in sub nav
@@ -356,8 +275,8 @@ export const asyncRoutes = [
       {
         path: 'addpage',
         component: () => import('@/views/vip/addpage'),
-        name: '添加虚拟会员',
-        idden:true,
+        name: 'addpage',
+        hidden:true,
         meta: {
           title: '添加虚拟会员',
           roles: ['admin'] // or you can only set roles in sub nav
@@ -366,7 +285,7 @@ export const asyncRoutes = [
       {
         path: 'editpage',
         component: () => import('@/views/vip/editpage'),
-        name: '编辑虚拟会员',
+        name: 'editpage',
         hidden:true,
         meta: {
           title: '编辑虚拟会员',
@@ -376,7 +295,7 @@ export const asyncRoutes = [
       {
         path: 'directive',
         component: () => import('@/views/vip/directive'),
-        name: '会员设置',
+        name: 'directive',
         meta: { 
           title: '会员设置'
           // if do not set roles, means: this page does not require permission
@@ -385,7 +304,7 @@ export const asyncRoutes = [
       {
         path: 'role',
         component: () => import('@/views/vip/role'),
-        name: '会员等级',
+        name: 'role',
         meta: {
           title: '会员等级',
           roles: ['admin']
@@ -393,7 +312,7 @@ export const asyncRoutes = [
       }, {
         path: 'vipdetails',
         component: () => import('@/views/vip/vipdetails'),
-        name: '会员详情',
+        name: 'vipdetails',
         hidden: true,
         meta: {
           title: '会员详情',
@@ -411,7 +330,7 @@ export const asyncRoutes = [
   name: 'article',
   meta: {
     title: '文章列表',
-    icon: 'wuzi',
+    icon: 'wenzhang',
     roles: ['admin', 'editor'] // you can set roles in root nav
   },
   children: [
@@ -419,14 +338,14 @@ export const asyncRoutes = [
       path: 'index',
       component: () => import('@/views/article/index'),
       name: 'index',
-      meta: { title: '文章', icon: 'documentation' }
+      meta: { title: '文章'}
     }
     , {
       path: 'articleadd',
       component: () => import('@/views/article/add'),
       name: 'articleadd',
       hidden:true,
-      meta: { title: '添加文章', icon: 'documentation' }
+      meta: { title: '添加文章', }
     }
   ]
 },
@@ -459,7 +378,7 @@ export const asyncRoutes = [
     name: '配送',
     meta: {
       title: '配送',
-      icon: 'jifen',
+      icon: 'delivery',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
     children: [
@@ -467,41 +386,41 @@ export const asyncRoutes = [
         path: 'delivery-management',
         component: () => import('@/views/delivery/management'),
         name: 'deliveryManagement',
-        meta: { title: '配送单管理', icon: 'documentation' }
+        meta: { title: '配送单管理'}
       }, {
         path: 'Delivery-note',
         component: () => import('@/views/delivery/note'),
         name: 'DeliveryNote',
-        meta: { title: '生成配送单', icon: 'documentation' }
+        meta: { title: '生成配送单'}
       },
       {
         path: 'delivery-route',
         component: () => import('@/views/delivery/route'),
         name: 'route',
-        meta: { title: '配送路线', icon: 'documentation' }
+        meta: { title: '配送路线'}
       }, {
         path: 'delivery-personnel',
         component: () => import('@/views/delivery/personnel'),
         name: 'deliveryPersonnel',
-        meta: { title: '配送人员', icon: 'documentation' }
+        meta: { title: '配送人员'}
       }, {
         path: 'delivery-managementList',
         component: () => import('@/views/delivery/managementList'),
         name: ' managementList',
         hidden:true,
-        meta: { title: '配送单商品管理', icon: 'documentation' }
+        meta: { title: '配送单商品管理' }
       }, {
         path: 'delivery-addRoute',
         component: () => import('@/views/delivery/addRoute'),
         name: 'addRoute',
         hidden:true,
-        meta: { title: '添加路线', icon: 'documentation' }
+        meta: { title: '添加路线' }
       }, {
         path: 'delivery-addPersonnel',
         component: () => import('@/views/delivery/addPersonnel'),
         name: 'addPersonnel',
         hidden:true,
-        meta: { title: '添加配送人员', icon: 'documentation' }
+        meta: { title: '添加配送人员' }
       }
       
     ]
@@ -514,7 +433,7 @@ export const asyncRoutes = [
     name: '权限',
     meta: {
       title: '权限',
-      icon: 'jifen',
+      icon: 'jurisdiction',
       roles: ['admin'] // you can set roles in root nav
     },
     children: [
@@ -522,19 +441,19 @@ export const asyncRoutes = [
         path: 'roleManagement',
         component: () => import('@/views/Jurisdiction/roleManagement'),
         name: 'roleManagement',
-        meta: { title: '角色管理', icon: 'documentation' }
+        meta: { title: '角色管理'}
       }, {
         path: 'userManagement',
         component: () => import('@/views/Jurisdiction/userManagement'),
         name: 'userManagement',
-        meta: { title: '后台用户管理', icon: 'documentation' }
+        meta: { title: '后台用户管理' }
       },
       {
         path: 'adduser',
         component: () => import('@/views/Jurisdiction/adduser'),
         name: 'adduser',
         hidden:true,
-        meta: { title: '添加用户', icon: 'documentation' }
+        meta: { title: '添加用户' }
       },
 
       {
@@ -542,7 +461,7 @@ export const asyncRoutes = [
         component: () => import('@/views/Jurisdiction/edituser'),
         name: 'edituser',
         hidden:true,
-        meta: { title: '编辑用户', icon: 'documentation' }
+        meta: { title: '编辑用户' }
       },
 
 
@@ -551,14 +470,14 @@ export const asyncRoutes = [
         component: () => import('@/views/Jurisdiction/add'),
         name: '添加角色',
         hidden: true, 
-        meta: { title: '添加角色', icon: 'documentation' }
+        meta: { title: '添加角色' }
       },
       {
         path: 'edit',
         component: () => import('@/views/Jurisdiction/edit'),
         name: '编辑角色',
         hidden: true, 
-        meta: { title: '编辑角色', icon: 'documentation' }
+        meta: { title: '编辑角色'}
       }
     ]
   },
@@ -569,7 +488,7 @@ export const asyncRoutes = [
     name: 'enclosure',
     meta: {
       title: '附件',
-      icon: 'wuzi',
+      icon: 'enclosure',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
     children: [
@@ -577,7 +496,7 @@ export const asyncRoutes = [
         path: 'index',
         component: () => import('@/views/enclosure/index'),
         name: 'index',
-        meta: { title: '附件设置', icon: 'documentation' }
+        meta: { title: '附件设置' }
       }
      
     ]

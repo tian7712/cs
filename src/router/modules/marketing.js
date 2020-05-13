@@ -9,7 +9,7 @@ const marketingRouter = {
   name: 'marketing',
   meta: {
     title: '营销',
-    icon: 'nested'
+    icon: 'marketing'
   },
   children: [
     {

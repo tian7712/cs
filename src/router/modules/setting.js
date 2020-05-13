@@ -9,7 +9,7 @@ const setupRouter = {
   name: 'marketing',
   meta: {
     title: '设置',
-    icon: 'nested'
+    icon: 'shezhi1'
   },
   children: [
     {

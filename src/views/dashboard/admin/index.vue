@@ -329,13 +329,10 @@ export default {
     padding: 10% 5%;
 
     float: left;
-    // width: 70px;
-    // height: 70px;
-    // background-color: red;
-    // border-radius:50%;
+ 
   }
   .card-1-div {
-    // margin-left: 5%;
+   
     padding: 7% 5%;
     span {
       font-size: 1.5em;

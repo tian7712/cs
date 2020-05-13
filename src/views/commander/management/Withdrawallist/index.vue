@@ -17,10 +17,11 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             :picker-options="pickerOptions"
+            size="small"
           ></el-date-picker>
         </el-col>
         <el-col :span="4">
-          <el-select v-model="selectvalue" placeholder="状态">
+          <el-select v-model="selectvalue" placeholder="状态" size="small">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -31,11 +32,11 @@
         </el-col>
 
         <el-col :span="4">
-          <el-input placeholder="申请订单id"></el-input>
+          <el-input placeholder="申请订单id" size="small"></el-input>
         </el-col>
         <el-col :span="6">
-          <el-button class="elbuttonStyle2">搜索</el-button>
-          <el-button class="elbuttonStyle2">导出</el-button>
+          <el-button class="elbuttonStyle2" size="small">搜索</el-button>
+          <el-button class="elbuttonStyle2" size="small">导出</el-button>
         </el-col>
       </el-row>
       <div style="margin:1% 0 0 0.7%">
@@ -101,9 +102,9 @@
           </template>
         </el-table-column>
 
-        <el-table-column prop="operation" label="操作" show-overflow-tooltip align="center">
-          <el-button type="text">推广订单</el-button>
-          <el-button type="text">查看在售商品</el-button>
+        <el-table-column prop="operation" label="操作" show-overflow-tooltip align="center" >
+          <el-button type="text" style="color:black;">推广订单</el-button>
+          <el-button type="text" style="color:black;">查看在售商品</el-button>
         </el-table-column>
       </el-table>
 

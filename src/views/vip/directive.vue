@@ -21,7 +21,7 @@
           <el-radio v-model="form.xxRadio" label="1">需要</el-radio>
         </el-form-item>
           <el-form-item >
-           <el-button  class="elbuttonStyle" center>提交</el-button>
+           <el-button  class="elbuttonStyle" >提交</el-button>
         </el-form-item>
       </el-form>
 

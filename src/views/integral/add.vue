@@ -366,9 +366,9 @@
                 <el-table :data="tableData" style="width: 100%" v-if="specifications1">
                   <el-table-column prop="classifier" label="量词" width="50"></el-table-column>
                   <el-table-column label="库存">
-                    <el-table-column prop="stock" label="库存">
+                    <el-table-column prop="stock" >
                       <template slot="header" slot-scope="scope">
-                        <el-input v-model="search" size="mini">
+                        <el-input v-model="gobb" size="mini">
                           <el-button slot="append" @click="assignment">
                             <svg-icon icon-class="down1" class-name="down1" />
                           </el-button>
@@ -378,7 +378,7 @@
                         <el-input v-model="scope.row.namee" class="edit-input" size="small" />
                       </template>
 
-                      <!-- <el-input v-model="tableData.stock" class="edit-input" size="small" /> -->
+                    
                     </el-table-column>
                     <!-- <el-input
                       v-for="item in tableData"
@@ -738,6 +738,7 @@ export default {
       pValue: "",
       hide: false,
       search: "",
+      gobb:'',
       tableData1: [
         {
           img:

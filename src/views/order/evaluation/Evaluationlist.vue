@@ -8,7 +8,7 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="4">
-          <el-input v-model="inputenter" placeholder="输入关键词回车"></el-input>
+          <el-input v-model="inputenter" placeholder="输入关键词回车" size="mini"></el-input>
         </el-col>
         <el-col :span="2">
           <el-button size="mini" class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
@@ -19,7 +19,9 @@
         <el-button size="mini" @click="del">禁用</el-button>
         <el-button size="mini" @click="del">删除</el-button>
       </el-button-group>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="add">添加虚拟评价</el-button>
+      <el-button style="float: right;" class="elbuttonStyle2" @click="add" size="mini">
+        <svg-icon icon-class="jiahao" style="margin-right:1%" />添加虚拟评价
+      </el-button>
 
       <!-- <div v-for="item in 5" :key="item" class="text-item">
         {{'[ID: ' + item +']'}} 全部商品
@@ -45,11 +47,14 @@
 
         <el-table-column prop="state" label="审核状态">
           <template slot-scope="scope">
-<el-switch v-model="scope.row.delivery" class="switch" active-color="#5FB878" active-text="通过"   
-  inactive-text="不通过"></el-switch>
-
+            <el-switch
+              v-model="scope.row.delivery"
+              class="switch"
+              active-color="#5FB878"
+              active-text="通过"
+              inactive-text="不通过"
+            ></el-switch>
           </template>
-          
         </el-table-column>
         <el-table-column label="操作" width="200">
           <el-button size="mini" @click="edit" class="elbuttonStyle2">编辑</el-button>
@@ -126,11 +131,15 @@ export default {
     };
   },
   methods: {
-  add() {
-      this.$router.push({ path: "/order/EvaluationManagement/addEvaluationlist" });
+    add() {
+      this.$router.push({
+        path: "/order/EvaluationManagement/addEvaluationlist"
+      });
     },
     edit() {
-      this.$router.push({ path: "/order/EvaluationManagement/editEvaluationlist" });
+      this.$router.push({
+        path: "/order/EvaluationManagement/editEvaluationlist"
+      });
     },
     del() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {

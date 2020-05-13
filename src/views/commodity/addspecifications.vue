@@ -36,7 +36,7 @@
   </el-form-item>
    <el-form-item >
     <el-button class="elbuttonStyle">提交</el-button>
-    <el-button >返回列表</el-button>
+    <el-button @click="fanhui">返回列表</el-button>
   </el-form-item>
      </el-form>
     </el-card>
@@ -73,6 +73,9 @@ export default {
       if (index !== -1) {
         this.dynamicValidateForm.domains.splice(index, 1);
       }
+    },
+    fanhui(){
+       this.$router.push({ path: "/commodity/specifications" });
     }
     }
 };

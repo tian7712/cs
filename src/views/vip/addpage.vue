@@ -16,7 +16,7 @@
         <el-form-item label="头像">
           <el-input v-model="pvalue" :disabled="true">
             <template slot="append">
-              <el-button @click="dialogTableVisible = true">选择图片</el-button>
+              <el-button @click="dialogTableVisible = true" class="elbuttonStyle">选择图片</el-button>
             </template>
           </el-input>
           <div v-if="hide">
@@ -47,7 +47,7 @@
           <el-tab-pane label="平台" name="first">
             <el-row :gutter="10">
               <el-col :span="8" :offset="18">
-                <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
+                <el-button type="danger" icon="el-icon-delete" style="margin:2%;border:none;" class="elbuttonred" size="small">删除</el-button>
                 <el-dropdown split-button type="primary"  size="small">
                   移动
                   <el-dropdown-menu slot="dropdown">
@@ -88,26 +88,22 @@
               
               <!-- 1 -->
             <el-col :span="5">
-              <el-select v-model="yearValue" placeholder="不限年份">
+              <el-select v-model="yearValue" placeholder="不限年份" size="mini">
                 <el-option label="不限年份" value="item"></el-option>
                 <el-option v-for="item of list" :key="item" :label="item" :value="item"></el-option>
               </el-select>
             </el-col>
             <el-col :span="5">
-              <el-select v-model="monthValue" placeholder="不限月份">
+              <el-select v-model="monthValue" placeholder="不限月份" size="mini">
                 <el-option label="不限月份" value="item"></el-option>
                 <el-option v-for="item of list" :key="item" :label="item" :value="item"></el-option>
               </el-select>
             </el-col>
-            <!-- <el-col :span="6" :offset="8">
-              <el-button type="danger" size="mini">删除</el-button>
-              <el-button type="primary" size="mini">移动</el-button>
-              <el-button type="primary" size="mini">上传</el-button>
-            </el-col> -->
+         
        
 
               <el-col :span="8" :offset="6">
-                <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
+                <el-button type="danger" icon="el-icon-delete" style="margin:2%;border:none;" size="small" class="elbuttonred">删除</el-button>
                 <el-dropdown split-button type="primary" size="small">
                   移动
                   <el-dropdown-menu slot="dropdown">
@@ -117,7 +113,7 @@
                   </el-dropdown-menu>
                 </el-dropdown>
 
-                <el-button size="small" type="primary">点击上传</el-button>
+                <el-button size="small" class="elbuttonStyle">点击上传</el-button>
                  <!-- :on-change="handleChange" -->
               </el-col>
             </el-row>

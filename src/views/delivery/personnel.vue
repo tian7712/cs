@@ -8,11 +8,11 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="3">
-          <el-input placeholder="输入关键词然后回车"></el-input>
+          <el-input placeholder="输入关键词然后回车" size="mini"></el-input>
         </el-col>
 
         <el-col :span="6">
-          <el-button @click="del" style="background-color: #009688;color:white;">搜索</el-button>
+          <el-button @click="del" type="success" size="mini">搜索</el-button>
         </el-col>
       </el-row>
       <el-button style="margin:0.5%;" size="mini">删除</el-button>

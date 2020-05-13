@@ -8,10 +8,10 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="4">
-          <el-input v-model="input" placeholder="请输入内容"></el-input>
+          <el-input v-model="input" placeholder="请输入内容" size="small"></el-input>
         </el-col>
         <el-col :span="4">
-          <el-select v-model="value" placeholder="请选择">
+          <el-select v-model="value" placeholder="请选择" size="small">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -22,7 +22,7 @@
         </el-col>
 
         <el-col :span="4">
-          <el-button type="primary" icon="el-icon-search">搜索</el-button>
+          <el-button class="elbuttonStyle" icon="el-icon-search" size="small">搜索</el-button>
         </el-col>
       </el-row>
       <el-button size="mini" @click="del">取消售卖</el-button>
@@ -60,17 +60,13 @@
         :page-size="10"
         layout="total, sizes, prev, pager, next, jumper"
         :total="10"
+        style="margin:1%;"
       ></el-pagination>
     </el-card>
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .text-item {
   width: 80%;
   height: 50px;

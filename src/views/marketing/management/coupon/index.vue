@@ -8,7 +8,7 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin-bottom:1%">
         <el-col :span="2">
-          <el-select v-model="vipvalue" placeholder="首页显示">
+          <el-select v-model="vipvalue" placeholder="首页显示" size="small">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -20,12 +20,12 @@
         </el-col>
 
         <el-col :span="2">
-          <el-select v-model="vipvalue2" placeholder="分类">
+          <el-select v-model="vipvalue2" placeholder="分类" size="small">
             <el-option label="团长等级" value="1"></el-option>
           </el-select>
         </el-col>
         <el-col :span="4">
-          <el-input placeholder="优惠券名称" />
+          <el-input placeholder="优惠券名称"  size="small"/>
         </el-col>
 
         <el-col :span="6">
@@ -34,16 +34,18 @@
       </el-row>
       <el-row :gutter="20" style="margin:1% 0 1% 0%">
         <el-col :span="6">
-          <el-button size="small" @click="del" icon="el-icon-delete">删除</el-button>
+          <el-button size="small" @click="del" icon="el-icon-delete" >删除</el-button>
         </el-col>
         <el-button
-          icon="el-icon-plus"
+        
           size="mini"
           @click="commanderAdd"
           style="float:right"
-           class="elbuttonStyle2"
-        >添加优惠券</el-button>
-        <!-- <el-col :span="4" :offset="14"></el-col>  -->
+          type="success"
+        >
+         <svg-icon icon-class="jiahao" style="margin-right:1%" />
+        添加优惠券</el-button>
+   
       </el-row>
 
       <el-table
@@ -72,7 +74,7 @@
         <el-table-column label="优惠券名称" width="250">
           <template slot-scope="scope">
             <p >{{scope.row.name}}</p>
-            <el-tag type="success" style="" v-if="scope.row.namestate">购物</el-tag>
+            <el-tag type="success" style=" background-color: #009688;color:white;" v-if="scope.row.namestate">购物</el-tag>
           </template>
         </el-table-column>
 
@@ -116,9 +118,9 @@
         <el-table-column label="操作">
           <!-- <template slot-scope="scope"></template> -->
 
-          <el-button size="mini" @click="commanderEdit"  class="elbuttonStyle"  icon="el-icon-edit">编辑</el-button>
+          <el-button size="mini" @click="commanderEdit"  type="primary" icon="el-icon-edit">编辑</el-button>
           <el-button size="mini" @click="del" type="danger"  icon="el-icon-delete">删除  </el-button>
-          <el-button size="mini" @click="open" type="success"  icon="el-icon-share">赠送</el-button>
+          <el-button size="mini" @click="open" type="warning"  icon="el-icon-share">赠送</el-button>
 
       
         </el-table-column>
@@ -176,6 +178,7 @@ p {
 }
 .buttonstyle {
   .el-button {
+   
     margin: 1% 0;
     padding: 2%;
   }

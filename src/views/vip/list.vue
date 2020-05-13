@@ -8,10 +8,10 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="请输入昵称"></el-input>
+          <el-input v-model="inputname" placeholder="请输入昵称" size="mini"></el-input>
         </el-col>
         <el-col :span="3">
-          <el-select v-model="vipvalue" placeholder="会员等级">
+          <el-select v-model="vipvalue" placeholder="会员等级" size="mini">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -22,13 +22,13 @@
           </el-select>
         </el-col>
         <el-col :span="3">
-          <el-select v-model="vipvalue2" placeholder="会员分组">
+          <el-select v-model="vipvalue2" placeholder="会员分组" size="mini">
             <el-option label="会员分组" value="1"></el-option>
           </el-select>
         </el-col>
 
         <el-col :span="2">
-          <el-button type="primary">搜索</el-button>
+          <el-button class="elbuttonStyle2" size="mini">搜索</el-button>
         </el-col>
       </el-row>
       <el-button-group>
@@ -52,7 +52,7 @@
         <el-table-column prop="Invited" label="	邀请人" width="150"></el-table-column>
         <el-table-column label="等级/分组" width="150">
           <template slot-scope="scope">
-            <!-- <el-image style="width: 40px; height: 40px" :src="scope.row.img"></el-image> -->
+      
             <p>{{scope.row.Grade}}</p>
 
             <p>{{scope.row.group}}</p>
@@ -79,9 +79,11 @@
 
         <el-table-column label="操作" width="400" align="center">
           <div class="statebutton">
-            <el-button size="mini" @click="vipdetails">会员详情</el-button>
-            <el-button size="mini" >会员订单</el-button>
-            <el-button size="mini" >余额流水</el-button>
+            <el-tooltip class="item" effect="dark" content="会员详情" placement="top-start">
+              <el-button size="mini" @click="vipdetails">会员详情</el-button>
+            </el-tooltip>
+            <el-button size="mini">会员订单</el-button>
+            <el-button size="mini">余额流水</el-button>
 
             <el-button size="mini" @click="del">删除会员</el-button>
           </div>
@@ -90,7 +92,6 @@
       </el-table>
 
       <el-pagination
-      
         :current-page="currentPage4"
         :page-sizes="[10, 20, 50, 100]"
         :page-size="20"
@@ -115,11 +116,9 @@
         <el-button @click="dialogFormVisible = false">取 消</el-button>
       </div>
     </el-dialog>
-   
   </div>
 </template>
 <style lang="scss" scoped>
-
 .statebutton {
   .el-button {
     background-color: #009688;
@@ -167,17 +166,16 @@ export default {
       name: "TinymceDemo",
       components: { Tinymce },
       dialogFormVisible: false,
-    
+
       list: false,
       vipvalue: "",
       vipvalue2: "",
       inputname: "",
-     
+
       form: {
         region: ""
       },
       formLabelWidth: "20%",
-     
 
       tableData: [
         {
@@ -219,7 +217,7 @@ export default {
       //     this.$refs["dataForm"].clearValidate();
       //   });
     },
-   
+
     del() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",

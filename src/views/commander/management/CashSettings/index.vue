@@ -50,16 +50,11 @@ span {
 // }
 </style>  
 <script>
-import {
-  getRoutes,
-  getRoles,
-  addRole,
-  deleteRole,
-  updateRole
-} from "@/api/role";
+
 export default {
   data() {
     return {
+      input2:'',
       form: {
         xxRadio: 1,
         vipRadio: 2,
@@ -67,18 +62,8 @@ export default {
       }
     };
   },
-  created() {
-    // Mock: get all routes and roles list from server
-    this.getRoutes();
-    this.getRoles();
-  },
   methods: {
-    async dianji() {
-      const res = await getRoles();
-      this.rolesList = res.data;
-
-      console.log(res);
-    }
+    
   }
 };
 </script>  

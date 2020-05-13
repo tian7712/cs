@@ -18,10 +18,10 @@
       </el-tabs>
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="输入商品编码或者名称"></el-input>
+          <el-input v-model="inputname" placeholder="输入商品编码或者名称" size="small"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-select v-model="vipvalue" placeholder="不按时间">
+          <el-select v-model="vipvalue" placeholder="不按时间" size="small">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -33,6 +33,7 @@
         </el-col>
         <el-col :span="5.5">
           <el-date-picker
+          size="small"
             v-model="value2"
             type="daterange"
             align="right"
@@ -44,12 +45,12 @@
         </el-col>
 
         <el-col :span="2">
-          <el-select v-model="vipvalue2" placeholder="商品分类">
+          <el-select v-model="vipvalue2" placeholder="商品分类" size="small">
             <el-option label="水果蔬菜" value="1"></el-option>
           </el-select>
         </el-col>
         <el-col :span="2">
-          <el-select v-model="vipvalue2" placeholder="全部商品">
+          <el-select v-model="vipvalue2" placeholder="全部商品" size="small">
             <el-option label="普通商品" value="1"></el-option>
           </el-select>
         </el-col>
@@ -72,12 +73,9 @@
           </el-button-group>
         </el-col>
         <!-- <el-col :span="4" :offset="6"></el-col> -->
-        <el-button
-          icon="el-icon-plus"
-          @click="commanderAdd"
-          style="float:right"
-          class="buttonStyle"
-        >添加商品</el-button>
+        <el-button @click="commanderAdd" style="float:right" size="mini" class="buttonStyle">
+          <svg-icon icon-class="jiahao" style="margin-right:1%" />添加商品
+        </el-button>
       </el-row>
 
       <el-table
@@ -156,43 +154,45 @@
         <el-table-column label="是否满减" width="100">
           <template slot-scope="scope">
             <el-switch
-           
               v-model="scope.row.reduction"
               active-color="#5FB878"
-  
-          
-                class="switch"
+              class="switch"
               active-text="参加"
-             inactive-text="不参加"
+              inactive-text="不参加"
             ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="是否上架/是否审核" width="100" :render-header="renderheader">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.Upper" active-color="#5FB878" class="switch"
+            <el-switch
+              v-model="scope.row.Upper"
+              active-color="#5FB878"
+              class="switch"
               active-text="上架"
-             inactive-text="下架"></el-switch>
+              inactive-text="下架"
+            ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="今日推荐" width="150">
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.Recommend"
-             active-color="#5FB878"
-               class="switch switchplus switchplus2"
-      
+              active-color="#5FB878"
+              class="switch switchplus switchplus2"
               active-text="今日推荐"
-             inactive-text="未推荐"
+              inactive-text="未推荐"
             ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="置顶" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.top" active-color="#5FB878"
-            class="switch"
-      
+            <el-switch
+              v-model="scope.row.top"
+              active-color="#5FB878"
+              class="switch"
               active-text="置顶"
-             inactive-text="未置顶"></el-switch>
+              inactive-text="未置顶"
+            ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作" align="center">
@@ -202,7 +202,6 @@
       </el-table>
 
       <el-pagination
-    
         :current-page="currentPage4"
         :page-sizes="[10, 20, 50, 100]"
         :page-size="20"
@@ -210,8 +209,8 @@
         :total="100"
         style="margin:1%"
       ></el-pagination>
-          <!--  @size-change="handleSizeChange"
-       @current-change="handleCurrentChange" -->
+      <!--  @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"-->
     </el-card>
 
     <!-- 表单1 -->
@@ -245,7 +244,6 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
 .text-item {
   width: 80%;
   height: 50px;
@@ -290,8 +288,6 @@ p {
   background-color: #009688;
   color: white;
 }
-
-
 </style>  
 <script>
 import Tinymce from "@/components/Tinymce";

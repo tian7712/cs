@@ -54,8 +54,12 @@
         <el-form-item label="备注">
           <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
         </el-form-item>
-        <el-button type="primary">提交</el-button>
+
+        <el-form-item>  
+          <el-button class="elbuttonStyle">提交</el-button>
         <el-button>返回列表</el-button>
+        </el-form-item>
+      
       </el-form>
     </el-card>
   </div>

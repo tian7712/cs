@@ -8,7 +8,7 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="3">
-          <el-select v-model="vipvalue" placeholder="状态">
+          <el-select v-model="vipvalue" placeholder="状态" size="small">
             <!-- <el-option
               v-for="item in options"
               :key="item.value"
@@ -19,11 +19,11 @@
           </el-select>
         </el-col>
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="请输入关键词"></el-input>
+          <el-input v-model="inputname" placeholder="请输入关键词" size="small"></el-input>
         </el-col>
 
         <el-col :span="2">
-          <el-button class="elbuttonStyle2">搜索</el-button>
+          <el-button class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
       </el-row>
       <el-button-group>
@@ -32,10 +32,12 @@
         <el-button size="mini">删除</el-button>
       </el-button-group>
       <el-button
-        style="float: right;  background-color: #009688;color: white;margin: 1%;"
-        icon="el-icon-plus"
+        style="float: right;margin: 1%;"
+      size="small"
+      type="success"
         @click="add"
-      >添加幻灯片</el-button>
+      >
+       <svg-icon icon-class="jiahao" style="margin-right:1%" />添加幻灯片</el-button>
 
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%"  header-cell-style="width: 100%;background-color: #f2f2f2;">
         <!-- @selection-change="handleSelectionChange" -->
@@ -78,8 +80,7 @@
       </el-table>
 
       <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
+       
         :current-page="currentPage4"
         :page-sizes="[10, 20, 50, 100]"
         :page-size="20"

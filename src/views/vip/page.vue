@@ -7,11 +7,11 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4">
-          <el-input placeholder="请输入内容" clearable></el-input>
+          <el-input placeholder="请输入内容" clearable size="mini"></el-input>
         </el-col>
 
         <el-col :span="2">
-          <el-button  icon="el-icon-search" class="elbuttonStyle2" >搜索</el-button>
+          <el-button  icon="el-icon-search" class="elbuttonStyle2" size="mini">搜索</el-button>
         </el-col>
 
         <el-col :span="2"  ></el-col>
@@ -20,7 +20,8 @@
         
       </el-row>
       
-         <el-button  @click="add" class="elbuttonStyle2" icon="el-icon-plus" style="float:right;">添加虚拟会员</el-button>
+         <el-button  @click="add" class="elbuttonStyle2" size="mini" style="float:right;">
+           <svg-icon icon-class="jiahao" style="margin-right:1%"/>添加虚拟会员</el-button>
    <div style="margin-top:1%; ">
       <el-button size="mini">删除</el-button>
    </div>

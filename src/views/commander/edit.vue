@@ -2,13 +2,13 @@
   <div class="app-container">
     <div class="position">
       当前位置：
-      <span>编辑团长修改【林晓晖】</span>
+      <span>编辑团长修改【】</span>
     </div>
     <el-card class="box-card">
       <el-form ref="form" :model="form" label-width="100px">
         <el-form-item label="关联会员">
           <el-input v-model="vipValue" :disabled="true">
-            <el-button slot="append" @click="dialogVisible = true">选择会员</el-button>
+            <el-button slot="append" @click="dialogVisible = true" class="elbuttonwhite">选择会员</el-button>
           </el-input>
           <div v-if="hide">
             <el-image
@@ -30,7 +30,7 @@
         </el-form-item>
         <el-form-item label="上级团长">
           <el-input v-model="form.name" :disabled="true">
-            <el-button slot="append">选择团长</el-button>
+            <el-button slot="append" class="elbuttonwhite">选择团长</el-button>
           </el-input>
         </el-form-item>
         <el-form-item label="团长名称">

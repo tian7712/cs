@@ -72,7 +72,7 @@
             </el-form-item>
             <el-form-item label="付款后分享图片">
               <el-input v-model="Shareimg">
-                <el-button slot="append" @click="dialogFormVisible = true">选择图片</el-button>
+                <el-button slot="append" @click="dialogFormVisible = true" class="elbuttonStyle">选择图片</el-button>
               </el-input>
               <el-upload
                 action="https://jsonplaceholder.typicode.com/posts/"

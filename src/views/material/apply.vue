@@ -63,7 +63,7 @@ export default {
     return {
       value1: "通过",
       url:
-        "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
+        "http://img.xmduobanjin.com/Uploads/image/goods/2020-05-11/5eb9069e87b02.jpg",
       tableData: [
         {
           ID: "20",

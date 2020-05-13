@@ -8,7 +8,9 @@
     <el-card class="box-card">
   
      
-          <el-button  class="elbuttonStyle2" icon="el-icon-plus" size="mini" @click="handleAddRole" style="float:right">添加分类</el-button>
+          <el-button  type="success"  size="mini" @click="handleAddRole" style="float:right">
+              <svg-icon icon-class="jiahao" style="margin-right:1%" />
+            添加分类</el-button>
        
 
       <el-table :data="rolesList" style="width: 100%;margin-top:30px;" stripe>
@@ -26,10 +28,12 @@
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.ClassificationNameValue"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
+              active-color="#5FB878"
+              class="switch switchplus1"
+              active-text="显示"
+              inactive-text="隐藏"
             ></el-switch>
-            <!-- <el-button type="primary" icon="el-icon-edit" size="small" @click="handleEdit(scope)">编辑</el-button> -->
+        
             <el-button
               class="elbuttonStyle2 Classification"
               icon="el-icon-delete"

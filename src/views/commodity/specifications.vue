@@ -4,7 +4,7 @@
     <div class="position">当前位置：<span>商品规格</span> </div>
     <el-card class="box-card">
       
-      <el-button style="float: right;" class="elbuttonStyle2" @click="add" ><svg-icon icon-class="jiahao" style="margin-right:1%"/> 添加商品规格</el-button>
+      <el-button style="float: right;" class="elbuttonStyle2" @click="add" size="mini"><svg-icon icon-class="jiahao" style="margin-right:1%"/> 添加商品规格</el-button>
 
       
       <el-table
@@ -40,9 +40,10 @@
        <el-button size="mini" @click="del" class="elbuttonStyle2" icon="el-icon-delete">删除</el-button>
       <!-- show-overflow-tooltip -->
     </el-table-column>
+    
   </el-table>
 
-   
+   <el-button style="color:#009688;float:right;margin:1%">共条记录</el-button>
     </el-card>
   </div>
 </template>

@@ -6,18 +6,19 @@
       <span>会员等级</span>
     </div>
     <el-card class="box-card">
-      <el-row :gutter="20" style="margin:1% 0">
+      <el-row  style="margin:1% 0">
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="请输入昵称"></el-input>
+          <el-input v-model="inputname" placeholder="输入关键词然后回车" size="mini"></el-input>
         </el-col>
 
         <el-col :span="2">
-          <el-button class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
+          <el-button class="elbuttonStyle2" icon="el-icon-search" size="mini">搜索</el-button>
         </el-col>
       </el-row>
 
       <el-button size="mini" @click="del">删除</el-button>
-      <el-button size="mini" class="elbuttonStyle2" @click="dialogVisible = true" icon="el-icon-plus" style="float:right;">添加会员等级</el-button>
+      <el-button size="mini" class="elbuttonStyle2" @click="dialogVisible = true" style="float:right;">
+        <svg-icon icon-class="jiahao" style="margin-right:1%"/>添加会员等级</el-button>
       <el-table
         ref="multipleTable"
         :data="tableData"
@@ -25,6 +26,7 @@
         style="width: 100%"
         header-cell-style="font-weight: 400"
         cell-style="color:#999999"
+        stripe
         
       >
       <!-- @selection-change="handleSelectionChange" -->

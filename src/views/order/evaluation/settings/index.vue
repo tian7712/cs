@@ -11,7 +11,7 @@
      <el-radio v-model="radio" label="1">开启</el-radio>
   <el-radio v-model="radio" label="2">关闭</el-radio>
 <p>审核：审核通过才显示。不审核，评价完成直接显示</p>
-<el-button type="primary">提交</el-button></el-col>
+<el-button class="elbuttonStyle">提交</el-button></el-col>
 </el-row>
     </el-card>
   </div>

@@ -10,7 +10,7 @@ const orderRouter = {
   name: 'Nested',
   meta: {
     title: '订单',
-    icon: 'nested'
+    icon: 'documentation'
   },
   children: [
     {

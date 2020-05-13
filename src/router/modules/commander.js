@@ -9,7 +9,7 @@ const commanderRouter = {
   name: 'commander',
   meta: {
     title: '团长',
-    icon: 'nested'
+    icon: 'hg'
   },
   children: [
     {

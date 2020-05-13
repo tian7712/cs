@@ -9,11 +9,11 @@
       <el-row :gutter="20" style="margin:1% 0">
        
         <el-col :span="3">
-          <el-input v-model="inputname" placeholder="请输入关键词"></el-input>
+          <el-input v-model="inputname" placeholder="请输入关键词" size="small"></el-input>
         </el-col>
 
         <el-col :span="2">
-          <el-button class="elbuttonStyle2">搜索</el-button>
+          <el-button class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
       </el-row>
 
@@ -23,9 +23,10 @@
       <el-button
         style="float: right;margin: 1%;"
         class="elbuttonStyle2"
-        icon="el-icon-plus"
+       size="small"
         @click="add"
-      >添加运费模板</el-button>
+      >
+       <svg-icon icon-class="jiahao" style="margin-right:1%" />添加运费模板</el-button>
 
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%"  header-cell-style="width: 100%;background-color: #f2f2f2;">
         <!-- @selection-change="handleSelectionChange" -->

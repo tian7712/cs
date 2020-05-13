@@ -9,7 +9,7 @@ const supplyRouter = {
   name: 'supply',
   meta: {
     title: '供应',
-    icon: 'nested'
+    icon: 'supply'
   },
   children: [
     {

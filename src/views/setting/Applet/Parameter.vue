@@ -4,8 +4,8 @@
       当前位置：
       <span>小程序设置</span>
     </div>
-    <el-card class="box-card">
-        <el-form ref="form" :model="form" label-width="120px" style=" padding-right:3%;">
+    <el-card class="box-card cardStyle">
+        <el-form ref="form" :model="form" label-width="120px" label-position="left">
   <el-form-item label="小程序APPID">
     <el-input v-model="form.appid"></el-input>
     <p>mp.weixin.qq.com 开发-开发配置</p>
@@ -50,11 +50,9 @@
   }
 }
 </script>
-<style lang="scss" >
+<style lang="scss" scoped>
 p{
 margin: 0;
 }
-.el-form-item__label {
-  padding-right: 3%;
-}
+
 </style>

@@ -38,7 +38,7 @@
 
         <el-table-column label="操作" align="center">
           <div class="statebutton">
-            <el-button size="mini" @click="deliver" icon="el-icon-edit">编辑</el-button>
+            <el-button size="mini" @click="editRoute" icon="el-icon-edit">编辑</el-button>
             <el-button size="mini" @click="deliver" type="danger" icon="el-icon-delete">删除</el-button>
             <!-- <el-button size="mini" @click="seelist">查看商品清单</el-button>
             <el-button size="mini" @click="edit">导出配送清单</el-button>
@@ -195,7 +195,9 @@ export default {
     addRoute() {
       this.$router.push({ path: "/delivery/delivery-addRoute" });
     },
-    
+    editRoute() {
+      this.$router.push({ path: "/delivery/delivery-editRoute" });
+    }
   }
 };
 </script>  

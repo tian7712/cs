@@ -4,8 +4,8 @@
       当前位置：
       <span>物流接口</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="120px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="150px" label-position="left">
         <el-form-item label="快递鸟商户ID">
           <el-input v-model="form.name"></el-input>
           <p style="margin:0;">用于获取物流信息， <el-link style="color:#009688;" :underline="false">快递鸟接口申请</el-link></p>

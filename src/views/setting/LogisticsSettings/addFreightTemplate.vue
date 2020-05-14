@@ -5,8 +5,8 @@
       当前位置：
       <span>添加运费模板</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="150px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="150px" label-position="left">
         <el-form-item label="配送方式名称">
           <el-input v-model="form.name"></el-input>
         </el-form-item>

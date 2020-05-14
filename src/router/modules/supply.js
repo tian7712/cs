@@ -5,7 +5,7 @@ import Layout from '@/layout'
 const supplyRouter = {
   path: '/supply',
   component: Layout,
-  redirect: '/supply/list',
+  redirect: '/supply/supplylist',
   name: 'supply',
   meta: {
     title: '供应',
@@ -13,48 +13,48 @@ const supplyRouter = {
   },
   children: [
     {
-      path: 'list',
-      name: '供应商列表',
-      component: () => import('@/views/supply/list'),
+      path: 'supplylist',
+      name: 'supplylist',
+      component: () => import('@/views/supply/supplyList'),
       meta: { title: '供应商列表' }
     },
     {
-      path: 'addlist',
-      name: '添加供应商',
+      path: 'addsupplylist',
+      name: 'addsupplylist',
       component: () => import('@/views/supply/addlist'),
       hidden:true,
       meta: { title: '添加供应商' }
     },
     {
-      path: 'editlist',
-      name: '编辑供应商',
+      path: 'editsupplylist',
+      name: 'editsupplylist',
       component: () => import('@/views/supply/editlist'),
       hidden:true,
       meta: { title: '编辑供应商' }
     },
     {
-      path: 'dd-settings',
-      component: () => import('@/views/supply/management/settings'),
-      name: '提现申请',
+      path: 'supplyApplication',
+      component: () => import('@/views/supply/supplyApplication'),
+      name: 'supplyApplication',
       meta: { title: '提现申请' }
     },
     {
-      path: 'menu1',
-      component: () => import('@/views/supply/management/index'), // Parent router-view
-      name: 'Menu1',
+      path: 'supplySettings',
+      component: () => import('@/views/supply/supplySettings/index'), // Parent router-view
+      name: 'supplySettings',
       meta: { title: '供应商设置' },
-      redirect: '/supply/management/menu1-1',
+      redirect: '/supply/supplySettings/basicsupplySettings',
       children: [
         {
-          path: 'sh-order',
-          component: () => import('@/views/supply/management/shouhou'),
+          path: 'basicsupplySettings',
+          component: () => import('@/views/supply/supplySettings/basicsupplySettings'),
           name: '基本设置',
           meta: { title: '基本设置' }
         },
         {
-          path: 'dd-settings1',
-          component: () => import('@/views/supply/management/settings1'),
-          name: 'dd-settings1',
+          path: 'pageContent',
+          component: () => import('@/views/supply/supplySettings/pageContent'),
+          name: 'pageContent',
           //  hidden: true, // 不在侧边栏线上
           meta: { title: '申请页面内容' }
         }

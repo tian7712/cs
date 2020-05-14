@@ -50,8 +50,8 @@
         </el-table-column>
       </el-table>
     </el-card>
-    <el-dialog title="添加标签组" :visible.sync="dialogVisible" width="30%">
-      <el-form ref="form" :model="form" label-width="120px">
+    <el-dialog title="添加标签组" :visible.sync="dialogVisible" width="30%" >
+      <el-form ref="form" :model="form" label-width="100px" label-position="left"  class="cardStyle">
         <el-form-item label="等级">
           <el-select v-model="value" placeholder="请选择">
             <el-option v-for="item in 10" :key="item" :label="item" :value="item"></el-option>

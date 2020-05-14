@@ -4,8 +4,8 @@
       当前位置：
       <span>添加优惠券</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="100px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="130px" label-position="left">
         <el-form-item label="排序">
           <el-input v-model="form.name"></el-input>
           <p>数字越大，排名越靠前</p>
@@ -97,8 +97,6 @@
         <el-button slot="append" icon="el-icon-search"></el-button>
       </el-input>
       <el-table :data="tableData" style="width: 100%">
-        <!-- .filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase())) -->
-
         <el-table-column>
           <template slot-scope="scope">
             <el-image style="width: 40px; height: 40px" :src="scope.row.img"></el-image>
@@ -126,10 +124,10 @@ export default {
     return {
       input2: "",
       radio: "",
-      conditionRadio:"1",
-      homeRadio:"1",
-      reductionRadio:"1",
-      commodityRadio:"1",
+      conditionRadio: "1",
+      homeRadio: "1",
+      reductionRadio: "1",
+      commodityRadio: "1",
       disabled: false,
       url: "http://dev.xmduobanjin.com/static/images/default-pic.jpg",
       dialogVisible: false,
@@ -182,8 +180,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 p {
   padding: 0;
   margin: 0;

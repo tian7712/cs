@@ -5,11 +5,11 @@
       <span>商品管理</span>
     </div>
     <el-card class="box-card">
-      <el-row :gutter="20">
+      <el-row :gutter="10">
         <el-col :span="4">
           <el-input placeholder="请输入内容" clearable size="small"></el-input>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="3">
           <el-select v-model="value" placeholder="请选择" size="small">
             <el-option v-for="item in options" :key="item.value" :value="item.value"></el-option>
           </el-select>
@@ -18,9 +18,9 @@
           <el-button icon="el-icon-search" size="small">搜索</el-button>
         </el-col>
 
-        <el-col :span="2" :offset="12">
+        <el-col :span="2" :offset="13">
           <el-button size="small" @click="handleAddRole">
-            <svg-icon icon-class="jiahao" style="margin-right:1%" />添加
+            <svg-icon icon-class="jiahao" style="margin-right:1%;" />添加
           </el-button>
         </el-col>
       </el-row>

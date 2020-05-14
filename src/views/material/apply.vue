@@ -1,11 +1,11 @@
 <template>
-  <div class="app-container">
+  <div class="app-container app-container1">
     <div class="position">
       当前位置：
       <span>物资申请</span>
     </div>
     <el-card class="box-card">
-      <el-table :data="tableData" style="width: 100%">
+      <el-table :data="tableData" style="width: 100%" >
         <el-table-column prop="ID" label="ID" width="50"></el-table-column>
         <el-table-column prop="img" label="图片" width="130">
           <el-image style="width: 70px; height: 70px" :src="url"></el-image>
@@ -84,6 +84,8 @@ export default {
 
 <style lang="scss" scoped>
 .app-container {
+  
+  
   .roles-table {
     margin-top: 30px;
   }

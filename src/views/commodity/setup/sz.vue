@@ -2,7 +2,7 @@
 <template>
   <div class="app-container">
     <div class="position">当前位置：<span>商品设置</span> </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
           <el-form ref="form" :model="form" label-width="120px" :label-position="labelPosition">
@@ -76,11 +76,11 @@ export default {
 
       form: {
         name: "20",
-        record: "",
-        evaluate: "",
-        down: "",
-        volume: "",
-        vip: ""
+        record: "显示",
+        evaluate: "显示",
+        down: "不显示",
+        volume: "显示",
+        vip: "不显示"
       }
     };
   },

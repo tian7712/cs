@@ -5,10 +5,10 @@
       当前位置：
       <span>添加文章</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
-          <el-form ref="form" :model="form" label-width="10%" :label-position="labelPosition">
+          <el-form ref="form" :model="form" label-width="100px" label-position="left">
             <el-form-item label="文章标题">
               <el-input v-model="form.name" />
             </el-form-item>
@@ -26,7 +26,7 @@
               </el-radio-group>
             </el-form-item>
             <el-form-item>
-              <el-button  class="elbuttonStyle" @click="onSubmit">提交</el-button>
+              <el-button class="elbuttonStyle" @click="onSubmit">提交</el-button>
             </el-form-item>
           </el-form>
         </el-col>
@@ -35,11 +35,6 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
-.box-card {
-  padding: 2%;
-}
-
 </style>  
 <script>
 // import ArticleDetail from './components/ArticleDetail'
@@ -52,7 +47,7 @@ export default {
   //   components: { ArticleDetail },
   data() {
     return {
-      labelPosition: "left",
+    
       Grade: false,
       form: {
         name: "",

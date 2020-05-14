@@ -16,6 +16,7 @@
           clearable
           style="width: 120px"
           class="filter-item"
+          size="small"
         >
           <el-option
             v-for="itemtype in importanceOptions"
@@ -30,6 +31,7 @@
           clearable
           style="width: 120px"
           class="filter-item"
+          size="small"
         >
           <el-option
             v-for="itemtime in importance1Options"
@@ -39,6 +41,7 @@
           />
         </el-select>
         <el-date-picker
+        size="small"
           v-model="datevalue2"
           class="filter-item"
           type="daterange"
@@ -51,6 +54,7 @@
           style="width: 280px"
         ></el-date-picker>
         <el-select
+        size="small"
           v-model="listQuery.importance2"
           placeholder="配送方式"
           clearable
@@ -65,6 +69,7 @@
           />
         </el-select>
         <el-select
+        size="small"
           v-model="listQuery.importance3"
           placeholder="订单号"
           clearable
@@ -78,10 +83,10 @@
             :value="itemdelivery"
           />
         </el-select>
-        <el-input placeholder="请输入关键词" style="width: 190px;" class="filter-item" />
-        <el-button size="mini" class="filter-item elbuttonStyle2">搜索</el-button>
-        <el-button size="mini" class="filter-item elbuttonStyle2">导出</el-button>
-        <el-button size="mini" class="filter-item elbuttonStyle2">导出数量</el-button>
+        <el-input placeholder="请输入关键词" style="width: 190px;" class="filter-item" size="small"/>
+        <el-button size="small" class="filter-item elbuttonStyle2">搜索</el-button>
+        <el-button size="small" class="filter-item elbuttonStyle2" @click="wholeleDownload">导出</el-button>
+        <el-button  size="small" class="filter-item elbuttonStyle2" @click="handleDownload">导出数量</el-button>
       </div>
 
       <!-- //table -->
@@ -208,10 +213,20 @@ import "dropzone/dist/dropzone.css";
 
 Dropzone.autoDiscover = false;
 // 上传图片
-
+import FilenameOption from './components/FilenameOption'
+import AutoWidthOption from './components/AutoWidthOption'
+import BookTypeOption from './components/BookTypeOption'
+// 导出
 export default {
   data() {
     return {
+       list: null,
+      listLoading: true,
+   
+      filename: '订单数据',
+      autoWidth: true,
+      bookType: 'xlsx',
+      // 导出 ↑
       activeName: "",
       PaymentSuccess: "",
       tableData1: [
@@ -358,6 +373,50 @@ export default {
     },
     details() {
       this.$router.push({ path: "/order/details" });
+    },
+    // 导出 ↓
+      handleDownload() {
+
+      import('@/vendor/Export2Excel').then(excel => {
+        const tHeader = ['名称', '数量']
+        const filterVal = ['name','quantity']
+        const list = this.tableData
+        const data = this.formatJson(filterVal, list)
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: this.filename,
+          autoWidth: this.autoWidth,
+          bookType: this.bookType
+        })
+
+      })
+    },
+      wholeleDownload() {
+
+      import('@/vendor/Export2Excel').then(excel => {
+        const tHeader = ['id','商品名称' ,'订单号','单价','数量','买家','支付','配送','小区']
+        const filterVal = ['id','name','ordernum','price','quantity','Buyer','Payment','distribution','Community']
+        const list = this.tableData
+        const data = this.formatJson(filterVal, list)
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: this.filename,
+          autoWidth: this.autoWidth,
+          bookType: this.bookType
+        })
+
+      })
+    },
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => {
+        if (j === 'timestamp') {
+          return parseTime(v[j])
+        } else {
+          return v[j]
+        }
+      }))
     }
   }
 };

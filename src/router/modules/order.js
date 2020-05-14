@@ -65,7 +65,7 @@ const orderRouter = {
       component: () => import('@/views/order/evaluation/index'), // Parent router-view
       name: 'EvaluationManagement',
       meta: { title: '评价管理' },
-      redirect: '/order/evaluation/index',
+      redirect: '/order/EvaluationManagement/evaluation-list',
       children: [
         {
           path: 'evaluation-list',

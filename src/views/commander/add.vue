@@ -4,8 +4,8 @@
       当前位置：
       <span>添加团长</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="100px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left">
         <el-form-item label="关联会员">
           <el-input v-model="vipValue" :disabled="true">
             <el-button slot="append" @click="dialogVisible = true">选择会员</el-button>
@@ -290,13 +290,7 @@ value:"",
 </script>
 
 <style lang="scss" scoped>
-.position {
-  margin: 2% 0 1% 1%;
-  font-size: 1em;
-  span {
-    color: rgb(76, 153, 89);
-  }
-}
+
 .bm-view {
   width: 50%;
   height: 300px;

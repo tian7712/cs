@@ -4,8 +4,8 @@
       当前位置：
       <span>模板消息设置</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="150px" style=" padding-right:4%;">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="160px" label-position="left">
         <el-form-item label="订单支付成功通知">
           <el-input v-model="form.OrderPayment"></el-input>
         </el-form-item>
@@ -52,11 +52,11 @@ export default {
   }
 };
 </script>
-<style lang="scss" >
+<style lang="scss" scoped>
 p {
   margin: 0;
 }
-.el-form-item__label {
-  padding-right: 2%;
-}
+// .el-form-item__label {
+//   padding-right: 2%;
+// }
 </style>

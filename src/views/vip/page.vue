@@ -7,38 +7,26 @@
     <el-card class="box-card">
       <el-row :gutter="20">
         <el-col :span="4">
-          <el-input placeholder="请输入内容" clearable size="mini"></el-input>
+          <el-input placeholder="请输入内容" clearable size="small"></el-input>
         </el-col>
 
         <el-col :span="2">
-          <el-button  icon="el-icon-search" class="elbuttonStyle2" size="mini">搜索</el-button>
+          <el-button icon="el-icon-search" class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
 
-        <el-col :span="2"  ></el-col>
- 
-          <!-- handleAddRole -->
-        
       </el-row>
-      
-         <el-button  @click="add" class="elbuttonStyle2" size="mini" style="float:right;">
-           <svg-icon icon-class="jiahao" style="margin-right:1%"/>添加虚拟会员</el-button>
-   <div style="margin-top:1%; ">
-      <el-button size="mini">删除</el-button>
-   </div>
-      
-        
- <el-table
-    ref="multipleTable"
-  :data="rolesList"
-    tooltip-effect="dark"
-    style="width: 100%"
-    @selection-change="handleSelectionChange">
-    <el-table-column
-      type="selection"
-      width="55">
-    </el-table-column>
-  
-     <el-table-column align="center" label="ID" width="150">
+
+      <el-button @click="add" class="elbuttonStyle2" size="mini" style="float:right;">
+        <svg-icon icon-class="jiahao" style="margin-right:1%" />添加虚拟会员
+      </el-button>
+      <div style="margin-top:1%; ">
+        <el-button size="mini">删除</el-button>
+      </div>
+
+      <el-table ref="multipleTable" :data="rolesList" tooltip-effect="dark" style="width: 100%">
+        <el-table-column type="selection" width="55"></el-table-column>
+
+        <el-table-column align="center" label="ID" width="150">
           <template slot-scope="scope">{{ scope.row.id }}</template>
         </el-table-column>
 
@@ -61,28 +49,22 @@
         <el-table-column align="center" label="操作">
           <template slot-scope="scope">
             <el-button icon="el-icon-edit" size="mini" @click="edit" class="elbuttonStyle2">修改</el-button>
-            <el-button icon="el-icon-delete" size="mini" @click="handleDelete(scope)" class="elbuttonStyle2">删除</el-button>
+            <el-button
+              icon="el-icon-delete"
+              size="mini"
+              @click="handleDelete(scope)"
+              class="elbuttonStyle2"
+            >删除</el-button>
           </template>
         </el-table-column>
+      </el-table>
 
-    
-  </el-table>
-
-
-
-
-
-
-<!-- {{ scope.row.code}} -->
-
-
+      <!-- {{ scope.row.code}} -->
 
       <el-row :gutter="20">
         <el-col :span="4" :offset="21">
-            <el-button style="margin:4%">
-            
+          <el-button style="margin:4%">
             <span>共1条记录</span>
-        
           </el-button>
         </el-col>
       </el-row>
@@ -111,7 +93,7 @@ const defaultRole = {
 export default {
   data() {
     return {
-      checked:'',
+      checked: "",
       fileList: [
         {
           url:
@@ -164,11 +146,10 @@ export default {
       this.rolesList = res.data;
     },
     add() {
- this.$router.push({ path: "/vip/addpage" });
- 
+      this.$router.push({ path: "/vip/addpage" });
     },
     edit() {
- this.$router.push({ path: "/vip/editpage" });
+      this.$router.push({ path: "/vip/editpage" });
     },
 
     // Reshape the routes structure so that it looks the same as the sidebar重塑路由结构，使其看起来与侧边栏相同
@@ -327,7 +308,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .app-container {
   .roles-table {
     margin-top: 30px;

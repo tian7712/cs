@@ -5,8 +5,8 @@
     <div class="position">当前位置：
       <span> 评价设置</span>
      </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="10%">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="10%" label-position="left" >
         <el-form-item label="手机号授权：">
           <el-radio v-model="form.phoneRadio" label="2">否</el-radio>
           <el-radio v-model="form.phoneRadio" label="1">是</el-radio>

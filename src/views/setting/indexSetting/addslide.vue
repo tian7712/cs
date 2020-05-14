@@ -4,8 +4,8 @@
       当前位置：
       <span>添加幻灯片</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="175px" style=" padding-right:3%;">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="140px" label-position="left">
         
         <el-form-item label="幻灯片名称">
           <el-input v-model="form.name"></el-input>
@@ -275,8 +275,8 @@ export default {
 };
 </script>
 
-<style lang="scss" >
-// scoped
+<style lang="scss" scoped>
+// 
 
 
 .box {
@@ -310,10 +310,7 @@ export default {
 
   // }
 }
-.elbuttonStyle {
-  background-color: #3071a9;
-  color: white;
-}
+
 
 .el-form-item__label {
   padding-right: 3%;

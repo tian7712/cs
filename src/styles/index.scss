@@ -7,6 +7,9 @@
 .app-main {
   background-color:#F2F2F2;
 }
+
+
+// 
 .position {
   border-left: 4px solid #009688;
   margin: 2% 0 1% 0%;
@@ -172,6 +175,14 @@ border: none;
 padding: 0 10px;
 }
 
+.cardStyle{
+  padding: 2%;
+  .el-form-item__label{
+    font-weight: 400 !important;
+    // margin-right: 1%;
+    // color: red;
+  }
+}
 //1
 body {
   height: 100%;
@@ -288,8 +299,16 @@ aside {
 }
 
 //main-container全局样式
+.app-container1{
+  min-width:1280px;
+}
 .app-container {
   padding: 20px;
+  width:100%;
+  min-width:1280px;
+
+
+
 }
 
 .components-container {

@@ -5,8 +5,8 @@
       当前位置：
       <span>编辑虚拟评价</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="120px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left" >
         <el-form-item label="评价内容">
           <el-input
   type="textarea"
@@ -48,7 +48,7 @@
           </div>
         </el-form-item>
         <el-form-item label="选择评价商品">
-          <el-input v-model="form.name" :disabled="true">
+          <el-input v-model="pvalue1" :disabled="true">
             <template slot="append">
               <el-button @click="dialogResidential = true">选择商品</el-button>
             </template>
@@ -165,9 +165,10 @@
 export default {
   data() {
     return {
-      Descriptionlevel: null,
-      satisfactionlevel: null,
-      pricelevel: null,
+      textarea:'',
+      Descriptionlevel: 5,
+      satisfactionlevel: 3,
+      pricelevel: 4,
       value: null,
       url: " ",
       pvalue: "",

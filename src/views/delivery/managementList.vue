@@ -14,7 +14,7 @@
         <el-table-column prop="" label="路径信息"></el-table-column>
       </el-table>
 
-      <el-button type="primary" @click="commanderAdd" style="float:right;margin-top:1%;background-color: #3071A9;">导出配货单</el-button>
+      <el-button type="primary" size="small" @click="commanderAdd" style="float:right;margin-top:1%;background-color: #3071A9;">导出配货单</el-button>
 
       <el-table
         ref="multipleTable"

@@ -5,10 +5,10 @@
       当前位置：
       <span>关于我们设置</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
-          <el-form ref="form" :model="form" label-width="10%" :label-position="labelPosition">
+          <el-form ref="form" :model="form" label-width="7%" :label-position="labelPosition">
             <el-form-item label="是否开启">
                <el-radio v-model="radio" label="1">否</el-radio>
   <el-radio v-model="radio" label="2">是</el-radio>
@@ -37,9 +37,6 @@
 </template>
 <style lang="scss" scoped>
 
-.box-card {
-  padding: 2%;
-}
 
 </style>  
 <script>

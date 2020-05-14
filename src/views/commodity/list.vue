@@ -16,7 +16,7 @@
         <el-tab-pane label="仓库" name="7"></el-tab-pane>
         <el-tab-pane label="回收站" name="8"></el-tab-pane>
       </el-tabs>
-      <el-row :gutter="20" style="margin:1% 0">
+      <el-row :gutter="10" style="margin:1% 0">
         <el-col :span="3">
           <el-input v-model="inputname" placeholder="输入商品编码或者名称" size="small"></el-input>
         </el-col>
@@ -56,11 +56,16 @@
         </el-col>
 
         <el-col :span="6">
-          <el-button class="buttonStyle" size="small">搜索</el-button>
+          <el-button class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
+         <el-col :span="3">
+     <el-button @click="commanderAdd" style="float:right" size="mini" class="elbuttonStyle2">
+          <svg-icon icon-class="jiahao" style="margin-right:1%" />添加商品
+        </el-button>
+        </el-col>
+        
       </el-row>
-      <el-row :gutter="20">
-        <el-col :span="12">
+      
           <el-button-group>
             <el-button size="mini">今日推荐</el-button>
             <el-button size="mini">上架</el-button>
@@ -71,21 +76,18 @@
             <el-button size="mini">设置活动时间</el-button>
             <el-button size="mini">删除</el-button>
           </el-button-group>
-        </el-col>
-        <!-- <el-col :span="4" :offset="6"></el-col> -->
-        <el-button @click="commanderAdd" style="float:right" size="mini" class="buttonStyle">
-          <svg-icon icon-class="jiahao" style="margin-right:1%" />添加商品
-        </el-button>
-      </el-row>
+       
 
       <el-table
         ref="multipleTable"
         :data="tableData"
         tooltip-effect="dark"
-        style="width: 100%"
-        header-cell-style="font-weight: 400;"
-        cell-style="color:#999999"
+        style="width: 100%;"
+        
+        
       >
+      <!-- cell-style="color:#999999"
+      header-cell-style="font-weight: 400;" -->
         <!-- @selection-change="handleSelectionChange" -->
         <el-table-column type="selection" width="55"></el-table-column>
 
@@ -196,8 +198,8 @@
           </template>
         </el-table-column>
         <el-table-column label="操作" align="center">
-          <el-button size="mini" @click="commanderEdit" class="buttonStyle" icon="el-icon-edit">编辑</el-button>
-          <el-button size="mini" @click="edit" class="buttonStyle" icon="el-icon-delete">删除</el-button>
+          <el-button size="mini" @click="commanderEdit" class="elbuttonStyle2" icon="el-icon-edit">编辑</el-button>
+          <el-button size="mini" @click="edit" class="elbuttonStyle2" icon="el-icon-delete">删除</el-button>
         </el-table-column>
       </el-table>
 
@@ -284,10 +286,8 @@ p {
   }
 }
 
-.buttonStyle {
-  background-color: #009688;
-  color: white;
-}
+
+
 </style>  
 <script>
 import Tinymce from "@/components/Tinymce";

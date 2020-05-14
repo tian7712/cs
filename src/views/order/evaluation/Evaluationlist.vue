@@ -6,12 +6,12 @@
       <span>评价列表</span>
     </div>
     <el-card class="box-card">
-      <el-row :gutter="20" style="margin:1% 0">
+      <el-row :gutter="10" style="margin:1% 0">
         <el-col :span="4">
-          <el-input v-model="inputenter" placeholder="输入关键词回车" size="mini"></el-input>
+          <el-input v-model="inputenter" placeholder="输入关键词回车" size="small"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-button size="mini" class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
+          <el-button size="small" class="elbuttonStyle2" icon="el-icon-search">搜索</el-button>
         </el-col>
       </el-row>
       <el-button-group>

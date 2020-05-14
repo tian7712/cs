@@ -4,7 +4,7 @@
     <div class="position">当前位置：
       <span>团长设置</span>
       </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
           <el-form ref="form" :model="form" label-width="10%" :label-position="labelPosition">
@@ -48,10 +48,7 @@
               <div>
                 <tinymce :height="300" />
               </div>
-              <!-- <div class="editor-content" v-html="content" /> -->
-              <!-- <div>
-<article-detail :is-edit="false" />
-              </div>-->
+         
             </el-form-item>
             <el-form-item>
               <el-button @click="onSubmit" class="elbuttonStyle">提交</el-button>
@@ -63,16 +60,9 @@
   </div>
 </template>
 <style lang="scss" scoped>
-.position {
-  margin: 3% 0 1% 1%;
-  span{
-    font-size: 0.9em;
-    color: #009688;
-  }
-}
-.box-card{
-  padding: 2%;
-}
+
+
+
 p{
   color: rgb(163, 161, 161);
     margin:  0 ;
@@ -84,9 +74,7 @@ import Tinymce from "@/components/Tinymce";
 export default {
   name: "TinymceDemo",
   components: { Tinymce },
-  // 
-  //  name: 'CreateArticle',
-  // components: { ArticleDetail },
+  
   data() {
     return {
       labelPosition: "left",
@@ -96,7 +84,7 @@ export default {
         record: "",
         evaluate: "",
         down: "",
-        moneyvalue:true,
+        moneyvalue:'金额',
         volume: "",
         vip: "",
         dengji:"不显示"

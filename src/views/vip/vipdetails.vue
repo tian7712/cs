@@ -4,13 +4,13 @@
       当前位置：
       <span>会员详情</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="120px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left" >
         <el-form-item label="用户">
           <!-- <template slot-scope="scope"></template> -->
           <!-- <div style="width: 100px; height: 50px;line-height:50px"> </div> -->
           <el-image style="width: 50px; height: 50px;" :src="form.url"></el-image>
-          <span style=" ">{{form.user}}</span>
+          <span >{{form.user}}</span>
         </el-form-item>
         <el-form-item label="OPENID">
           <el-input v-model="form.openID"></el-input>
@@ -71,6 +71,7 @@ export default {
     return {
       textarea: "",
       radio: "",
+  
       Gradelvalue: "",
       Groupingvalue: "",
       form: {

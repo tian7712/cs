@@ -4,8 +4,8 @@
       当前位置：
       <span>小程序tabbar设置</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="175px" >
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="155px" >
       <el-form-item label="首页标题">
           <el-input></el-input>
       </el-form-item>
@@ -393,16 +393,9 @@ export default {
 };
 </script>
 
-<style lang="scss" >
-// scoped
-.position {
-  margin: 2% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-    font-size: 0.95em;
-   
-  }
-}
+<style lang="scss" scoped>
+// 
+
 
 .box {
   display: flex;

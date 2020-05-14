@@ -4,8 +4,8 @@
       当前位置：
       <span>编辑团长修改【】</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="100px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left">
         <el-form-item label="关联会员">
           <el-input v-model="vipValue" :disabled="true">
             <el-button slot="append" @click="dialogVisible = true" class="elbuttonwhite">选择会员</el-button>

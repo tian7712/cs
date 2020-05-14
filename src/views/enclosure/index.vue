@@ -5,7 +5,7 @@
       当前位置：
       <span>附件设置</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
           <el-form ref="form" :model="form" label-width="120px" :label-position="labelPosition">

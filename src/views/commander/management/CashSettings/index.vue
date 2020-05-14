@@ -3,8 +3,8 @@
   <div >
     <!-- class="app-container" -->
     <div class="position">当前位置：<span>提现申请</span> </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="10%">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="150px" label-position="left">
         <el-form-item label="最小提现金额">
            <el-input  v-model="input2">
     <template slot="append">元</template>
@@ -45,9 +45,7 @@ span {
   font-size: 0.9em;
   // margin-right:3% ;
 }
-// .box-card {
-//   padding: 1%;
-// }
+
 </style>  
 <script>
 

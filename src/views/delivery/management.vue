@@ -78,7 +78,7 @@
         <el-table-column
           prop="Situation"
           label="	商品数量/订单数量"
-          width="100"
+          width="80"
           :render-header="renderheader"
         >
           <template slot-scope="scope">

@@ -16,10 +16,9 @@
         </el-col>
       </el-row>
       <el-button style="margin:0.5%;" size="mini">删除</el-button>
-      <el-button style="float:right;" @click="addRoute" class="elbuttonStyle2" size="mini"><svg-icon icon-class="jiahao" style="margin-right:1%"/>添加配送人员</el-button>
+      <el-button style="float:right;" @click="addPersonnel" class="elbuttonStyle2" size="mini"><svg-icon icon-class="jiahao" style="margin-right:1%"/>添加配送人员</el-button>
       <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark">
-        <!-- header-cell-style="width: 100%;background-color: #f2f2f2;" -->
-        <!-- @selection-change="handleSelectionChange" -->
+    
         <el-table-column type="selection" width="55"></el-table-column>
 
         <el-table-column prop="id" label="ID" width="80"></el-table-column>
@@ -29,23 +28,22 @@
         <el-table-column label="配送员" width="120" prop="Delivery"></el-table-column>
 
         <el-table-column prop="DeliveryPhone" label="	配送员手机号" width="250">
-          <!-- <template slot-scope="scope">
-            <p>{{scope.row.ProductNum}}</p>
-          </template>-->
+     
         </el-table-column>
 
-        <el-table-column label="配送社区" width="250" prop="community"></el-table-column>
+        <el-table-column label="配送社区" width="250" prop="community">
+          <template slot-scope="scope">
+           {{scope.row.community}} ->  {{scope.row.community1}}
+          </template>
+        </el-table-column>
 
         <el-table-column label="操作" align="center">
           <div class="statebutton">
-            <el-button size="mini" @click="deliver" icon="el-icon-edit">编辑</el-button>
+            <el-button size="mini"  @click="editPersonnel" type="success" icon="el-icon-edit">编辑</el-button>
             <el-button size="mini" @click="deliver" type="danger" icon="el-icon-delete">删除</el-button>
-            <!-- <el-button size="mini" @click="seelist">查看商品清单</el-button>
-            <el-button size="mini" @click="edit">导出配送清单</el-button>
-
-            <el-button size="mini" @click="del">导出相关订单</el-button>-->
+     
           </div>
-          <!-- show-overflow-tooltip -->
+         
         </el-table-column>
       </el-table>
       <el-button style="float:right;margin:1%">
@@ -57,13 +55,7 @@
 </template>
 <style lang="scss" scoped>
 
-.statebutton {
-  .el-button:nth-child(1) {
-    background-color: #009688;
-    color: white;
-    margin: 1%;
-  }
-}
+
 .text-item {
   width: 80%;
   height: 50px;
@@ -102,10 +94,7 @@ export default {
       vipvalue: "",
       vipvalue2: "",
       inputname: "",
-      textMap: {
-        update: "修改",
-        create: "添加"
-      },
+    
       form: {
         region: ""
       },
@@ -118,7 +107,8 @@ export default {
         {
           id: "12210",
 
-          community: "软件园二期->贡香城->莲坂西小区",
+          community: "软件园二期",
+           community1: "贡香城",
           LineName: "1",
           Delivery: "叶招旭",
           DeliveryPhone: 18050064050
@@ -130,27 +120,8 @@ export default {
     };
   },
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    },
-    add() {
-      this.dialogFormVisible = true;
-
-      //   this.dialogStatus = create;
-      this.dialogStatus = "create";
-      //    this.resetTemp();
-
-      //   this.$nextTick(() => {
-      //     this.$refs["dataForm"].clearValidate();
-      //   });
-    },
-    edit() {
-      this.dialogFormVisible = true;
-      this.dialogStatus = "update";
-    },
+   
+    
     del() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -192,8 +163,11 @@ export default {
     seelist() {
       this.$router.push({ path: "/delivery/delivery-managementList" });
     },
-    addRoute() {
+    addPersonnel() {
       this.$router.push({ path: "/delivery/delivery-addPersonnel" });
+    },
+    editPersonnel() {
+      this.$router.push({ path: "/delivery/delivery-editPersonnel" });
     },
     
   }

@@ -45,7 +45,7 @@
       :title="dialogType==='edit'?'编辑团长等级':'添加团长等级'"
       width="35%"
     >
-      <el-form :model="role" label-width="120px" label-position="left">
+      <el-form :model="role" label-width="120px" label-position="left" class="cardStyle">
         <p style="color:red;">此操作将启用等级全局提成，原商品比例失效，可到商品编辑“等级/分销”单独设置</p>
 
         <el-form-item label="等级名称">

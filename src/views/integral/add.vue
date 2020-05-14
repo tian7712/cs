@@ -4,7 +4,7 @@
       当前位置：
       <span>添加商品</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row :gutter="20">
         <el-col :span="4" :offset="21">
           <el-button class="elbuttonStyle" @click="create">提交</el-button>
@@ -19,8 +19,8 @@
             :rules="rules"
             :model="temp"
             label-position="left"
-            label-width="100px"
-            style="width: 90%; margin:2% 5%;"
+            label-width="120px"
+            style="width: 94%; margin:2% 3%;"
           >
             <el-form-item label="商品名称 " prop="title">
               <el-input v-model="temp.title" />
@@ -368,14 +368,14 @@
                   <el-table-column label="库存">
                     <el-table-column prop="stock" >
                       <template slot="header" slot-scope="scope">
-                        <el-input v-model="gobb" size="mini">
+                        <el-input v-model="search" size="mini" id="iupt">
                           <el-button slot="append" @click="assignment">
                             <svg-icon icon-class="down1" class-name="down1" />
                           </el-button>
                         </el-input>
                       </template>
                       <template slot-scope="scope">
-                        <el-input v-model="scope.row.namee" class="edit-input" size="small" />
+                        <el-input v-model="scope.row.namee" value="name" class="edit-input" size="small" />
                       </template>
 
                     
@@ -516,7 +516,7 @@
         <el-tabs v-model="activeName1">
           <el-tab-pane label="平台" name="first1">
             <el-row :gutter="10">
-              <el-col :span="8" offset="16">
+              <el-col :span="8" :offset="16">
                 <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
                 <el-dropdown split-button type="primary" size="small">
                   移动
@@ -680,8 +680,8 @@ export default {
   // name: "ComplexTable",
   // components: { Pagination },
   name: "TinymceDemo",
-  namee: "",
-  search: "",
+  
+  
   tableinput: [
     {
       classifier: "个",
@@ -732,6 +732,9 @@ export default {
     return {
       pvalue:'',
         month: "",
+        search: "",
+        namee: "1",
+         name: "1",
       dialogVisible: false,
       searchInput: "",
       url: "http://dev.xmduobanjin.com/static/images/default-pic.jpg",
@@ -993,9 +996,14 @@ export default {
     this.getList();
   },
   methods: {
-    assignment() {
-      // this.search = this.scope.row.namee;
-      console.log(this);
+    assignment(row) {
+//      const str=document.getElementById("iupt");
+// // alert(str.value);
+// str==this.namee
+        // this.search=this.namee;
+      console.log(this.search);console.log(this.name);
+      // console.log(row);
+           
     },
     addGG() {
       this.items.push("");
@@ -1028,11 +1036,11 @@ export default {
         this.specifications1 = false;
       }
 
-      console.log(this.value1);
+      // console.log(this.value1);
     },
     removeDomain(items) {
       var index = this.dynamicValidateForm.domains.indexOf(items);
-      console.log(index);
+      // console.log(index);
       if (index !== -1) {
         this.dynamicValidateForm.domains.splice(index, 1);
       }
@@ -1135,22 +1143,7 @@ export default {
       });
     },
     create() {
-      //   this.$refs["dataForm"].validate(valid => {
-      //     if (valid) {
-      //       this.temp.id = parseInt(Math.random() * 100) + 1024; // mock a id
-      //       this.temp.author = "vue-element-admin";
-      //       createArticle(this.temp).then(() => {
-      //         this.list.unshift(this.temp);
-      //         this.dialogFormVisible = false;
-      //         this.$notify({
-      //           title: "添加商品",
-      //           message: "添加成功",
-      //           type: "success",
-      //           duration: 2000
-      //         });
-      //       });
-      //     }
-      //   });
+   
       alert("提交成功");
     },
     fanhui() {
@@ -1165,34 +1158,7 @@ export default {
       //   console.log(this.time);
       console.log(this.thtime);
     },
-    // handleUpdate(row) {
-    //   this.temp = Object.assign({}, row); // copy obj
-    //   this.temp.timestamp = new Date(this.temp.timestamp);
-    //   this.dialogStatus = "update";
-    //   this.dialogFormVisible = true;
-    //   this.$nextTick(() => {
-    //     this.$refs["dataForm"].clearValidate();
-    //   });
-    // },
-    // updateData() {
-    //   this.$refs["dataForm"].validate(valid => {
-    //     if (valid) {
-    //       const tempData = Object.assign({}, this.temp);
-    //       tempData.timestamp = +new Date(tempData.timestamp); // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
-    //       updateArticle(tempData).then(() => {
-    //         const index = this.list.findIndex(v => v.id === this.temp.id);
-    //         this.list.splice(index, 1, this.temp);
-    //         this.dialogFormVisible = false;
-    //         this.$notify({
-    //           title: "添加",
-    //           message: "添加成功",
-    //           type: "success",
-    //           duration: 2000
-    //         });
-    //       });
-    //     }
-    //   });
-    // },
+    
     handleDelete(row, index) {
       this.$notify({
         title: "删除",

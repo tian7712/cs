@@ -5,9 +5,9 @@
       当前位置：
       <span>一键设置商品时间</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row :gutter="20">
-        <el-col :span="2" :offset="3"><div class="filter-time">团购时间</div></el-col>
+        <el-col :span="2" :offset="2"><div class="filter-time">团购时间</div></el-col>
         <el-col :span="5">
           <el-date-picker
             v-model="datevalue2"
@@ -18,7 +18,7 @@
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
-            :picker-options="pickerOptions"
+ 
           ></el-date-picker>
         </el-col>
       </el-row>

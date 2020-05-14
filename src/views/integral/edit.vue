@@ -4,7 +4,7 @@
       当前位置：
       <span>编辑商品</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row :gutter="20">
         <el-col :span="4" :offset="21">
           <el-button class="elbuttonStyle" @click="create">提交</el-button>
@@ -20,7 +20,7 @@
             :model="temp"
             label-position="left"
             label-width="100px"
-            style="width: 90%; margin:2% 5%;"
+            style="width: 94%; margin:2% 3%;"
           >
             <el-form-item label="商品名称 " prop="title">
               <el-input v-model="temp.title" />

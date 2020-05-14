@@ -18,10 +18,10 @@
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
 
-      <!-- <div class="drawer-item">
-        <span>侧边栏徽标</span>
+      <div class="drawer-item" v-if="disp">
+        <span>侧边栏头像</span>
         <el-switch v-model="sidebarLogo" class="drawer-switch" />
-      </div> -->
+      </div>
 
     </div>
   </div>
@@ -33,7 +33,10 @@ import ThemePicker from '@/components/ThemePicker'
 export default {
   components: { ThemePicker },
   data() {
-    return {}
+    return {
+     disp:false
+    
+    }
   },
   computed: {
     fixedHeader: {
@@ -61,13 +64,14 @@ export default {
     sidebarLogo: {
       get() {
         return this.$store.state.settings.sidebarLogo
-      },
-      set(val) {
-        this.$store.dispatch('settings/changeSetting', {
-          key: 'sidebarLogo',
-          value: val
-        })
+   
       }
+    //   set(val) {
+    //     this.$store.dispatch('settings/changeSetting', {
+    //       key: 'sidebarLogo',
+    //       value: val
+    //     })
+    //   }
     }
   },
   methods: {

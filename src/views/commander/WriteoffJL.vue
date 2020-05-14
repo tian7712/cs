@@ -8,10 +8,10 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="4">
-          <el-input v-model="input" placeholder="订单号"></el-input>
+          <el-input v-model="input" placeholder="订单号" size="small"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-button type="primary" icon="el-icon-search">搜索</el-button>
+          <el-button type="success" icon="el-icon-search" size="small">搜索</el-button>
         </el-col>
       </el-row>
       <!-- <el-button-group>
@@ -53,7 +53,7 @@
       </el-table>
       <el-row :gutter="20">
         <el-col :span="4" :offset="22">
-          <el-button style="margin-top:2%">共0条记录</el-button>
+          <el-button style="margin-top:2%;color:#009688;">共0条记录</el-button>
         </el-col>
       </el-row>
     </el-card>

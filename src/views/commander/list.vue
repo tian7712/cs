@@ -4,7 +4,6 @@
     <div class="position">
       当前位置：
       <span>团长列表</span>
-    
     </div>
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
@@ -16,7 +15,7 @@
               :label="item.label"
               :value="item.value"
             ></el-option>-->
-            <el-option :key="2" :label="会员等级" :value="1"></el-option>
+            <el-option label="会员等级" value="1"></el-option>
           </el-select>
         </el-col>
         <el-col :span="3">
@@ -27,12 +26,12 @@
         </el-col>
         <el-col :span="2">
           <el-select v-model="vipvalue2" placeholder="团长等级" size="small">
-            <el-option :key="1" :label="团长等级" :value="1"></el-option>
+            <el-option label="团长等级" value="1"></el-option>
           </el-select>
         </el-col>
         <el-col :span="6">
           <el-date-picker
-          size="small"
+            size="small"
             v-model="value2"
             type="daterange"
             align="right"
@@ -40,28 +39,28 @@
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
-            :picker-options="pickerOptions"
           ></el-date-picker>
         </el-col>
 
         <el-col :span="6">
           <el-button size="small" class="elbuttonStyle2">搜索</el-button>
-          <el-button size="small" class="elbuttonStyle2">导出</el-button>
-          <el-button size="small" class="elbuttonStyle2">导出配货单</el-button>
-          <el-button size="small" class="elbuttonStyle2">导出总单</el-button>
+          <el-button size="small" class="elbuttonStyle2" @click="wholeleDownload">导出</el-button>
+          <el-button size="small" class="elbuttonStyle2" @click="handleDownload">导出配货单</el-button>
+          <!-- <el-button size="small" class="elbuttonStyle2" @click="wholeleDownload">导出总单</el-button> -->
         </el-col>
       </el-row>
       <el-row :gutter="20">
         <el-col :span="6">
           <el-button-group>
             <el-button size="mini" @click="del">审核通过</el-button>
-            <el-button size="mini" @click="dialogFormVisible = true">拒绝通过</el-button>
-            <el-button size="mini" @click="dialogFormVisible1 = true">修改等级</el-button>
+            <el-button size="mini">拒绝通过</el-button>
+            <el-button size="mini" @click="dialogFormVisible = true">修改等级</el-button>
           </el-button-group>
         </el-col>
-        <el-col >
+        <el-col>
           <el-button size="mini" class="elbuttonStyle2" @click="commanderAdd" style="float:right;">
-            <svg-icon icon-class="jiahao" style="margin-right:1%"/>添加团长</el-button>
+            <svg-icon icon-class="jiahao" style="margin-right:1%" />添加团长
+          </el-button>
         </el-col>
       </el-row>
 
@@ -69,10 +68,9 @@
         ref="multipleTable"
         :data="tableData"
         tooltip-effect="dark"
-        style="width: 100%"
+        style="width: 100%;"
         header-cell-style="font-weight: 400;"
-        cell-style="color:#999999"
-        @selection-change="handleSelectionChange"
+        cell-style="color:#999999;"
       >
         <el-table-column type="selection" width="55"></el-table-column>
 
@@ -150,23 +148,31 @@
         </el-table-column>
         <el-table-column label="是否休息" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.rest" active-color="#5FB878" class="switch switchmini"
+            <el-switch
+              v-model="scope.row.rest"
+              active-color="#5FB878"
+              class="switch switchmini"
               active-text="是"
-             inactive-text="否"></el-switch>
+              inactive-text="否"
+            ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="状态" width="100">
           <template slot-scope="scope">
-            <el-switch v-model="scope.row.state" active-color="#5FB878" class="switch switchplus"
+            <el-switch
+              v-model="scope.row.state"
+              active-color="#5FB878"
+              class="switch switchplus"
               active-text="已审核"
-             inactive-text="未审核"></el-switch>
+              inactive-text="未审核"
+            ></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="300" align="center">
           <template slot-scope="scope">
             <el-row class="buttonstyle">
               <el-button size="mini" @click="commanderEdit" class="elbuttonStyle2" plain>编辑</el-button>
-              <el-button size="mini"  class="elbuttonStyle2" plain>推广订单</el-button>
+              <el-button size="mini" class="elbuttonStyle2" plain>推广订单</el-button>
               <el-button size="mini" @click="commanderSale" class="elbuttonStyle2" plain>查看在售商品</el-button>
             </el-row>
 
@@ -175,23 +181,21 @@
 
               <el-switch
                 v-model="scope.row.operation"
-              active-color="#5FB878" 
-              class="switch switchplus switchplus1"
-              active-text="已启用"
-             inactive-text="未启用"
+                active-color="#5FB878"
+                class="switch switchplus switchplus1"
+                active-text="已启用"
+                inactive-text="未启用"
                 @change="operationoff"
               ></el-switch>
 
               <el-button size="mini" @click="del" class="elbuttonStyle2" plain>删除</el-button>
             </el-row>
           </template>
-          <!-- <el-switch v-model="tableData.operation" active-color="#13ce66" inactive-color="#ff4949" @change="operationoff"></el-switch> -->
+       
         </el-table-column>
       </el-table>
 
       <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
         :current-page="currentPage4"
         :page-sizes="[10, 20, 50, 100]"
         :page-size="20"
@@ -199,41 +203,24 @@
         :total="100"
         style="margin:1%"
       ></el-pagination>
-      
     </el-card>
 
-    <!-- 表单1 -->
-    <el-dialog title="批量修改分组" :visible.sync="dialogFormVisible">
+    <el-dialog title="批量修改会员等级" :visible.sync="dialogFormVisible">
       <el-form :model="form">
-        <el-form-item label="会员分组" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="分组">
-            <el-option label="默认分组"></el-option>
+        <el-form-item label="团长等级" label-width="120px">
+          <el-select v-model="form.region" placeholder="团长等级">
+            <el-option label="一级"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dig2">确 定</el-button>
+        <el-button type="primary">确 定</el-button>
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-      </div>
-    </el-dialog>
-    <!-- 表单2 -->
-    <el-dialog title="批量修改等级" :visible.sync="dialogFormVisible1">
-      <el-form :model="form1">
-        <el-form-item label="团长等级" :label-width="formLabelWidth">
-          <el-select v-model="form1.region" placeholder="普通等级">
-            <el-option label="普通等级"></el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="dig">确 定</el-button>
-        <el-button @click="dialogFormVisible1 = false">取 消</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 <style lang="scss" scoped>
-
 .text-item {
   width: 80%;
   height: 50px;
@@ -282,16 +269,31 @@ p {
 </style>  
 <script>
 import Tinymce from "@/components/Tinymce";
-import { fetchList } from '@/api/article';
+import { fetchList } from "@/api/article";
+import FilenameOption from "./components/FilenameOption";
+import AutoWidthOption from "./components/AutoWidthOption";
+import BookTypeOption from "./components/BookTypeOption";
+// 导出
 
 export default {
+  name: "ExportExcel",
+  components: { FilenameOption, AutoWidthOption, BookTypeOption },
   data() {
     return {
+      list: null,
+      listLoading: true,
+      // downloadLoading: false,
+      // downloadLoading1: false,
+      filename: "团长数据",
+      autoWidth: true,
+      bookType: "xlsx",
+      // ex
+      value2: "",
       operation: "",
       name: "TinymceDemo",
       components: { Tinymce },
       dialogFormVisible: false,
-      dialogFormVisible1: false,
+
       list: false,
       vipvalue: "",
       vipvalue2: "",
@@ -303,7 +305,7 @@ export default {
       form: {
         region: ""
       },
-      formLabelWidth: "20%",
+
       form1: {
         region: ""
       },
@@ -338,7 +340,6 @@ export default {
           amount: 893.14,
           grade: ""
         }
-        
       ],
       multipleSelection: [],
       delivery: "",
@@ -346,27 +347,6 @@ export default {
     };
   },
   methods: {
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    },
-    add() {
-      this.dialogFormVisible = true;
-
-      //   this.dialogStatus = create;
-      this.dialogStatus = "create";
-      //    this.resetTemp();
-
-      //   this.$nextTick(() => {
-      //     this.$refs["dataForm"].clearValidate();
-      //   });
-    },
-    edit() {
-      this.dialogFormVisible = true;
-      this.dialogStatus = "update";
-    },
     del() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -386,8 +366,7 @@ export default {
           });
         });
     },
-   
-   
+
     operationoff() {
       this.$message("操作成功");
       console.log(this.operation);
@@ -401,22 +380,88 @@ export default {
         h("br"),
         h("span", {}, column.label.split("/")[2])
       ]);
-      
     },
 
-    commanderAdd(){
+    commanderAdd() {
       this.$router.push({ path: "/commander/commanderAdd" });
     },
-     commanderEdit(){
+    commanderEdit() {
       this.$router.push({ path: "/commander/commanderEdit" });
     },
-    commanderSale(){
+    commanderSale() {
       this.$router.push({ path: "/commander/commanderSale" });
     },
-     WriteoffList(){
+    WriteoffList() {
       this.$router.push({ path: "/commander/WriteoffList" });
+    },
+    //导出
+    wholeleDownload() {
+      import("@/vendor/Export2Excel").then(excel => {
+        const tHeader = [
+          "产品清单",
+          "规格",
+          "总数量",
+          "供应商",
+          "区域总数量",
+          "团长编号以及数量"
+        ];
+        const filterVal = ["id"];
+        const list = this.tableData;
+        const data = this.formatJson(filterVal, list);
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: this.filename,
+          autoWidth: this.autoWidth,
+          bookType: this.bookType
+        });
+      });
+    },
+    handleDownload() {
+      import("@/vendor/Export2Excel").then(excel => {
+        const tHeader = [
+          "ID",
+          "微信用户名",
+          "团长名称",
+          "联系方式",
+          "在售商品数量",
+          "openid",
+          "累计佣金",
+          "打款佣金",
+          "省",
+          "市",
+          "区",
+          "街道/镇",
+          "提货地址",
+          "完整提货地址",
+          "注册时间",
+          "成为团长时间",
+          "审核状态"
+        ];
+        const filterVal = ["id"];
+        const list = this.tableData;
+        const data = this.formatJson(filterVal, list);
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: this.filename,
+          autoWidth: this.autoWidth,
+          bookType: this.bookType
+        });
+      });
+    },
+
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v =>
+        filterVal.map(j => {
+          if (j === "timestamp") {
+            return parseTime(v[j]);
+          } else {
+            return v[j];
+          }
+        })
+      );
     }
-    
   }
 };
 </script>  

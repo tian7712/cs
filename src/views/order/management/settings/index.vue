@@ -2,7 +2,7 @@
 <template>
   <div class="app-container">
     <div class="position">当前位置：<span>订单设置</span> </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
           <el-form ref="form" :model="form" label-width="120px" :label-position="labelPosition">
@@ -161,13 +161,13 @@
       </el-row>
 
       <el-dialog title="图片" :visible.sync="dialogFormVisible">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="activeName">
           <el-tab-pane label="平台" name="first">
             <el-row :gutter="10">
               
-              <el-col :span="8" offset="16">
+              <el-col :span="8" :offset="16">
                 <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
-                <el-dropdown split-button type="primary" @click="handleClick" size="small">
+                <el-dropdown split-button type="primary"  size="small">
                   移动
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>1</el-dropdown-item>
@@ -182,7 +182,7 @@
               <el-col :span="24" :offset="2">
                 <el-upload
                   class="upload-demo"
-                  :on-change="handleChange"
+             
                   :file-list="fileList"
                   list-type="picture-card"
                   action="https://jsonplaceholder.typicode.com/posts/"
@@ -228,7 +228,7 @@
               </el-col>
               <el-col :span="8">
                 <el-button type="danger" icon="el-icon-delete" style="margin:2%" size="small">删除</el-button>
-                <el-dropdown split-button type="primary" @click="handleClick" size="small">
+                <el-dropdown split-button type="primary" size="small">
                   移动
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>1</el-dropdown-item>
@@ -244,7 +244,7 @@
               <el-col :span="24" :offset="2">
                 <el-upload
                   class="upload-demo"
-                  :on-change="handleChange"
+             
                   :file-list="fileList"
                   list-type="picture-card"
                   action="https://jsonplaceholder.typicode.com/posts/"

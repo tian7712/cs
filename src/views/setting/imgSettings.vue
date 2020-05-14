@@ -4,8 +4,8 @@
       当前位置：
       <span>图片设置</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="195px" style=" padding-right:3%;">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="140px" label-position="left">
       
 
         <el-form-item label="截团图片">

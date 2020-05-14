@@ -5,10 +5,10 @@
       当前位置：
       <span>添加角色</span>
     </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-row>
         <el-col :span="24">
-          <el-form ref="form" :model="form" label-width="10%" :label-position="labelPosition">
+          <el-form ref="form" :model="form" label-width="100px" label-position="left">
             <el-form-item label="角色">
               <el-input v-model="form.name" />
             </el-form-item>
@@ -262,9 +262,7 @@
 </template>
 <style lang="scss" scoped>
 
-.box-card {
-  padding: 2%;
-}
+
 p {
   color: #999999;
   margin: 0;
@@ -298,7 +296,7 @@ export default {
       user: false,
       Enclosure: false,
       Setup:false,
-      labelPosition: "left",
+    
 
       form: {
         name: "",

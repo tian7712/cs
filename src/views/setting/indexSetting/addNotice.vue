@@ -5,8 +5,8 @@
       当前位置：
       <span>添加公告</span>
     </div>
-    <el-card class="box-card">
-    <el-form ref="form" :model="form" label-width="150px">
+    <el-card class="box-card cardStyle">
+    <el-form ref="form" :model="form" label-width="120px" label-position="left">
   <el-form-item label="公告内容">
     <el-input v-model="form.name"></el-input>
   </el-form-item>

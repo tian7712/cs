@@ -98,46 +98,6 @@ export const constantRoutes = [
     ]
   },
 
-  // {
-  //   path: '/dashboard',
-  //   component: Layout,
-  //   name: 'dashboard',
-  //   children: [
-  //     {
-  //       path: 'dashboard',
-  //       component: () => import('@/views/dashboard/index'),
-  //       name: 'dashboard1',
-  //       meta: { title: '首页', icon: 'documentation' }
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/',
-  //   component: Layout,
-  //   redirect: '/dashboard',
-  //   // redirect: '/permission/page',
-  //   // alwaysShow:true , // 将始终显示根菜单
-  //   name: 'dashboard',
-  //   meta: {
-  //     title: '首页',
-  //     icon: 'lock',
-  //     roles: ['admin', 'editor'] // you can set roles in root nav
-  //   },
-  //   children: [
-  //     {
-  //       path: 'Commodity-management',
-  //       component: () => import('@/views/Survey/index'),
-  //       name: 'Documentation1',
-  //       meta: { title: '概况', icon: 'documentation' }
-  //     },
-  //     {
-  //       path: 'Commodity-management',
-  //       component: () => import('@/views/Survey/index'),
-  //       name: 'Documentation1',
-  //       meta: { title: '统计', icon: 'documentation' }
-  //     }
-  //   ]
-  // },
   {
     path: '/integral',
     component: Layout,
@@ -350,18 +310,6 @@ export const asyncRoutes = [
   ]
 },
 
-  // {
-  //   path: '/icon',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       component: () => import('@/views/icons/index'),
-  //       name: 'Icons',
-  //       meta: { title: 'Icons', icon: 'icon', noCache: true }
-  //     }
-  //   ]
-  // },
 
   /** when your routing map is too long, you can split it into small modules **/
   marketingRouter,
@@ -415,10 +363,23 @@ export const asyncRoutes = [
         name: 'addRoute',
         hidden:true,
         meta: { title: '添加路线' }
+      }, 
+      {
+        path: 'delivery-editRoute',
+        component: () => import('@/views/delivery/editRoute'),
+        name: 'editRoute',
+        hidden:true,
+        meta: { title: '编辑路线' }
       }, {
         path: 'delivery-addPersonnel',
         component: () => import('@/views/delivery/addPersonnel'),
         name: 'addPersonnel',
+        hidden:true,
+        meta: { title: '添加配送人员' }
+      },{
+        path: 'delivery-editPersonnel',
+        component: () => import('@/views/delivery/editPersonnel'),
+        name: 'editPersonnel',
         hidden:true,
         meta: { title: '添加配送人员' }
       }
@@ -493,9 +454,9 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'index',
+        path: 'fjindex',
         component: () => import('@/views/enclosure/index'),
-        name: 'index',
+        name: 'fjindex',
         meta: { title: '附件设置' }
       }
      

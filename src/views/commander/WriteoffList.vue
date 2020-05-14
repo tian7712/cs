@@ -5,10 +5,10 @@
     <el-card class="box-card">
       <el-row :gutter="20" style="margin:1% 0">
         <el-col :span="4">
-          <el-input v-model="input" placeholder="会员名称"></el-input>
+          <el-input v-model="input" placeholder="会员名称" size="small"></el-input>
         </el-col>
         <el-col :span="2">
-          <el-button  icon="el-icon-search" class="elbuttonStyle2">搜索</el-button>
+          <el-button  icon="el-icon-search" class="elbuttonStyle2" size="small">搜索</el-button>
         </el-col>
       </el-row>
 <el-button-group>
@@ -16,7 +16,8 @@
       <el-button size="mini" @click="Prohibit">禁用</el-button>
 
 </el-button-group>
-      <el-button style="float: right; padding: 3px 0" type="text" @click="add">添加核销会员</el-button>
+      <el-button style="float: right;" type="success" @click="add" size="mini">
+        <svg-icon icon-class="jiahao" style="margin-right:1%" />添加核销会员</el-button>
 
    
       <el-table
@@ -37,8 +38,10 @@
           <template slot-scope="scope">
           <el-switch
   v-model="scope.row.state"
-  active-color="#13ce66"
-  inactive-color="#ff4949">
+     active-color="#5FB878"
+              class="switch"
+              active-text="启用"
+              inactive-text="禁用">
 </el-switch>
           </template>
         </el-table-column>
@@ -46,8 +49,8 @@
                   <el-table-column prop="Remarks" label="备注" width="220"></el-table-column>
          
         <el-table-column label="操作" >
-          <el-button size="mini" @click="see"  type="primary" plain>查看核销记录</el-button>
-          <el-button size="mini" @click="del"  type="primary" plain>删除</el-button>
+          <el-button size="mini" @click="see"  type="success" >查看核销记录</el-button>
+          <el-button size="mini" @click="del"  type="success" >删除</el-button>
      
         </el-table-column>
       </el-table>

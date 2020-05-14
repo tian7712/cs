@@ -1,11 +1,11 @@
 <template>
-  <div class="app-container" style=" background-color:#F2F2F2;">
+  <div class="app-container">
     <div class="position">
       当前位置：
       <span>商城设置</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="175px" style=" padding-right:3%;">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="150px" label-position="left">
         <el-form-item label="开团状态">
           <el-radio v-model="radio" label="1">开启</el-radio>
           <el-radio v-model="radio" label="2">关闭</el-radio>
@@ -323,15 +323,8 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 // scoped
-.position {
-  margin: 2% 0 1% 1%;
-  span {
-    color: rgb(76, 153, 89);
-    font-size: 0.95em;
-  }
-}
 
 .box {
   display: flex;
@@ -357,16 +350,7 @@ export default {
   }
 }
 .upload-demo {
-  // width:25%;
-  // float: left;
-  // .el-upload-list,.el-upload-list__item{
   display: inline-block;
-
-  // }
-}
-.elbuttonStyle {
-  background-color: #3071a9;
-  color: white;
 }
 
 .el-form-item__label {

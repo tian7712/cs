@@ -2,8 +2,8 @@
 <template>
   <div class="app-container">
     <div class="position">当前位置：<span>添加商品规格</span> </div>
-    <el-card class="box-card">
-     <el-form ref="form" :model="form" label-width="120px">
+    <el-card class="box-card cardStyle">
+     <el-form ref="form" :model="form" label-width="100px" label-position="left" >
   <el-form-item label="规格名称">
     <el-input v-model="form.name"></el-input>
   </el-form-item>

@@ -3,8 +3,8 @@
     <div class="position">
       <span>当前位置：编辑分类</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="150px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left" >
         <el-form-item label="分类名称">
           <el-input v-model="form.name"></el-input>
         </el-form-item>

@@ -22,7 +22,7 @@
         </el-col>
 
         <el-col :span="4">
-          <el-button class="elbuttonStyle" icon="el-icon-search" size="small">搜索</el-button>
+          <el-button type="success" icon="el-icon-search" size="small">搜索</el-button>
         </el-col>
       </el-row>
       <el-button size="mini" @click="del">取消售卖</el-button>

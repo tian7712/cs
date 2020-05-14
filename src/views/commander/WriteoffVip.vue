@@ -1,9 +1,12 @@
 
 <template>
   <div class="app-container">
-    <div class="position">当前位置：<span>添加核销人员</span> </div>
-    <el-card class="box-card">
-         <el-form ref="form" :model="form" label-width="100px">
+    <div class="position">
+      当前位置：
+      <span>添加核销人员</span>
+    </div>
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left">
         <el-form-item label="关联会员">
           <el-input v-model="vipValue" :disabled="true">
             <el-button slot="append" @click="dialogVisible = true">选择会员</el-button>
@@ -22,49 +25,46 @@
               @click="del"
             ></el-button>
           </div>
-    
         </el-form-item>
-        <el-row :gutter="20">
-  <el-col :span="4" :offset="2">  <el-button type="primary" @click="Submission">提交</el-button></el-col>
-</el-row>
-            
-         </el-form>
-       <el-dialog title="信息" :visible.sync="dialogVisible" width="30%">
-      <el-input placeholder="请输入昵称进行搜索" v-model="input3" class="input-with-select">
-        <el-button slot="append" icon="el-icon-search"></el-button>
-      </el-input>
-      <el-table :data="tableData" style="width: 100%">
-        <!-- .filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase())) -->
-     
-        <el-table-column>
-          <template slot-scope="scope">
-            <el-image style="width: 40px; height: 40px" :src="scope.row.img"></el-image>
-          </template>
-        </el-table-column>
+        <el-form-item>
+          <el-button type="primary" @click="Submission">提交</el-button>
+        </el-form-item>
+      </el-form>
+      <el-dialog title="信息" :visible.sync="dialogVisible" width="30%">
+        <el-input placeholder="请输入昵称进行搜索" v-model="input3" class="input-with-select">
+          <el-button slot="append" icon="el-icon-search"></el-button>
+        </el-input>
+        <el-table :data="tableData" style="width: 100%">
+          <!-- .filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase())) -->
 
-        <el-table-column align="right">
-          <!-- <template slot="header" slot-scope="scope">
+          <el-table-column>
+            <template slot-scope="scope">
+              <el-image style="width: 40px; height: 40px" :src="scope.row.img"></el-image>
+            </template>
+          </el-table-column>
+
+          <el-table-column align="right">
+            <!-- <template slot="header" slot-scope="scope">
             <el-input
           v-model="search"
           size="mini"
             placeholder="输入关键字搜索"/>
-          </template>-->
-          <template slot-scope="scope">
-            <el-button size="mini" @click="handleClick(scope.row)">选择</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+            </template>-->
+            <template slot-scope="scope">
+              <el-button size="mini" @click="handleClick(scope.row)">选择</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
 
-      <span slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="handleClick(scope.row)">确 定</el-button>
-        <el-button @click="dialogVisible = false">取 消</el-button>
-      </span>
-    </el-dialog>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="handleClick(scope.row)">确 定</el-button>
+          <el-button @click="dialogVisible = false">取 消</el-button>
+        </span>
+      </el-dialog>
     </el-card>
   </div>
 </template>
 <style lang="scss" scoped>
-
 .p-value {
   background-color: #009688;
   width: 100px;
@@ -76,25 +76,25 @@
   position: absolute;
   bottom: 5%;
 }
-p{
-    margin: 0;
-    padding: 0;
+p {
+  margin: 0;
+  padding: 0;
 }
 </style>  
 <script>
-
 export default {
- data() {
+  data() {
     return {
-        pvalue:'',
-     dialogVisible: false,
+      pvalue: "",
+      dialogVisible: false,
       hide: false,
       vipValue1: "",
-      
+
       tableData: [
         {
           id: 132,
-          img:"https://wx.qlogo.cn/mmopen/vi_32/OkFdlgbIcS0bXTEoYticjgnXR2gjOH3g4n2hicyX3Oibgg1EDIoIDLicE01Jgr1wEpfvbVjzrdcsY3T5cvzjwRzH6w/132",
+          img:
+            "https://wx.qlogo.cn/mmopen/vi_32/OkFdlgbIcS0bXTEoYticjgnXR2gjOH3g4n2hicyX3Oibgg1EDIoIDLicE01Jgr1wEpfvbVjzrdcsY3T5cvzjwRzH6w/132",
           name: "君子兰"
         },
         {
@@ -104,14 +104,12 @@ export default {
           name: "王小"
         }
       ]
-      }
- },
- methods:{
-      handleClick(row) {
+    };
+  },
+  methods: {
+    handleClick(row) {
       this.hide = true;
       this.dialogVisible = false;
-
-
 
       this.url = row.img;
       this.vipValue = row.id;
@@ -121,13 +119,13 @@ export default {
     del() {
       this.hide = false;
     },
-    Submission(){
-         this.$message({
-          message: '提交成功',
-          type: 'success'
-        });
-        this.$router.push({ path: "/commander/WriteoffList" });
+    Submission() {
+      this.$message({
+        message: "提交成功",
+        type: "success"
+      });
+      this.$router.push({ path: "/commander/WriteoffList" });
     }
- }
+  }
 };
 </script>  

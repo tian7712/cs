@@ -4,8 +4,8 @@
       当前位置：
       <span>编辑快递</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="120px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="120px" label-position="left">
         <el-form-item label="快递名称">
           <el-input v-model="form.name"></el-input>
   

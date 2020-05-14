@@ -1,20 +1,19 @@
 <template>
-  <div  >
-    <!-- :class="{'has-logo':showLogo}" -->
+  <div :class="{'has-logo':showLogo}">
+    
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-       style="background-color:#20222A;"
+        :background-color="variables.menuBg"
         :text-color="variables.menuText"
         :unique-opened="false"
         :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
         mode="vertical"
       >
-       <!-- :background-color="variables.menuBg" -->
-        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" /> 
+        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -27,6 +26,11 @@ import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
 
 export default {
+  data(){
+  return{
+
+  }
+  },
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
@@ -42,21 +46,14 @@ export default {
       }
       return path
     },
-    // showLogo() {
-    //   return this.$store.state.settings.sidebarLogo
-    // },
+    showLogo() {
+      return this.$store.state.settings.sidebarLogo=true
+    },
     variables() {
       return variables
     },
     isCollapse() {
       return !this.sidebar.opened
-    }
-  },
-  
-  data() {
-    return {
-  
-      showLogo:true
     }
   }
 }

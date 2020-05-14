@@ -310,6 +310,7 @@ export default {
   font-size: 1em;
 }
 .outside-div {
+      min-width:1280px;
   margin: 1%;
   margin-top: 3%;
 }
@@ -342,15 +343,18 @@ export default {
 }
 .affair{
   padding-right:5% ;
+ 
 }
 .affairui {
   li {
+ 
     list-style: none;
     border-bottom: 1px solid gainsboro;
     padding: 15% 0;
     color: gray;
     font-size: 0.85em;
     span {
+     
       color: gray;
       font-weight: bold;
       float: right;

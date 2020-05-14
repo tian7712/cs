@@ -4,7 +4,7 @@
       
       <span>批量发货</span>
       </div>
-    <el-card class="box-card">
+    <el-card class="box-card cardStyle">
       <el-tabs v-model="activeName">
          <!-- @tab-click="handleClick" -->
         <el-tab-pane label="批量发货到团长" name="first">
@@ -119,9 +119,11 @@
 </template>
 <script>
 import UploadExcelComponent from "@/components/UploadExcel/index.vue";
+
 export default {
   name: "UploadExcel",
   components: { UploadExcelComponent },
+
   data() {
     return {
       
@@ -150,7 +152,7 @@ export default {
       }
 
       this.$message({
-        message: "Please do not upload files larger than 1m in size.",
+        message: "请不要上传大于1m的文件。",
         type: "warning"
       });
       return false;
@@ -158,7 +160,8 @@ export default {
     handleSuccess({ results, header }) {
       this.tableData = results;
       this.tableHeader = header;
-    }
+    },
+    
   }
 };
 </script>

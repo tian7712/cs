@@ -5,26 +5,38 @@
       当前位置：
       <span>添加虚拟评价</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="120px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="100px" label-position="left" >
         <el-form-item label="评价内容">
-          <el-input
-  type="textarea"
-  :rows="4"
-  placeholder="请输入内容"
-  v-model="textarea">
- 
-</el-input>
- <p class="pstyle2">评论内容请控制在200字以内</p>
+          <el-input type="textarea" :rows="4" placeholder="请输入内容" v-model="textarea"></el-input>
+          <p class="pstyle2">评论内容请控制在200字以内</p>
         </el-form-item>
         <el-form-item label="描述等级">
-          <el-rate v-model="Descriptionlevel" text-color="#ff9900" show-score score-template="{value} 星" class="elrate"></el-rate>
+          <el-rate
+            v-model="Descriptionlevel"
+            text-color="#ff9900"
+            show-score
+            score-template="{value} 星"
+            class="elrate"
+          ></el-rate>
         </el-form-item>
         <el-form-item label="价格合理等级">
-          <el-rate v-model="pricelevel" text-color="#ff9900" show-score score-template="{value} 星" class="elrate"></el-rate>
+          <el-rate
+            v-model="pricelevel"
+            text-color="#ff9900"
+            show-score
+            score-template="{value} 星"
+            class="elrate"
+          ></el-rate>
         </el-form-item>
-         <el-form-item label="质量满意等级">
-          <el-rate v-model="satisfactionlevel" text-color="#ff9900" show-score score-template="{value} 星" class="elrate"></el-rate>
+        <el-form-item label="质量满意等级">
+          <el-rate
+            v-model="satisfactionlevel"
+            text-color="#ff9900"
+            show-score
+            score-template="{value} 星"
+            class="elrate"
+          ></el-rate>
         </el-form-item>
         <el-form-item label="选择机器人">
           <el-input v-model="pvalue" :disabled="true">
@@ -48,7 +60,7 @@
           </div>
         </el-form-item>
         <el-form-item label="选择评价商品">
-          <el-input v-model="form.name" :disabled="true">
+          <el-input v-model="pvalue1" :disabled="true">
             <template slot="append">
               <el-button @click="dialogResidential = true">选择商品</el-button>
             </template>
@@ -67,13 +79,10 @@
               @click="Residentialdel"
             ></el-button>
           </div>
-          
         </el-form-item>
-        <el-form-item label="评价图片">
-          
-        </el-form-item>
+        <el-form-item label="评价图片"></el-form-item>
         <el-form-item label="评价时间">
-       <p class="pstyle2"> 您可以拖动图片改变其显示顺序</p>
+          <p class="pstyle2">您可以拖动图片改变其显示顺序</p>
         </el-form-item>
         <el-form-item>
           <el-button class="elbuttonStyle">提交</el-button>
@@ -125,12 +134,12 @@
           </template>
         </el-table-column>
         <el-table-column width="250" prop="Residentialname">
-           <template slot-scope="scope">
-              {{scope.row.Residentialname}}
-             {{scope.row.ResidentialNorms}}
-           </template>
+          <template slot-scope="scope">
+            {{scope.row.Residentialname}}
+            {{scope.row.ResidentialNorms}}
+          </template>
         </el-table-column>
-        
+
         <el-table-column align="right">
           <template slot-scope="scope">
             <el-button type="text" @click="ResidentialClick(scope.row)">选择</el-button>
@@ -157,7 +166,7 @@
   width: 13%;
   margin: 1% 0% 0% 1%;
 }
-.elrate{
+.elrate {
   margin: 0.5% 1%;
 }
 </style>  
@@ -165,6 +174,7 @@
 export default {
   data() {
     return {
+      textarea: "",
       Descriptionlevel: null,
       satisfactionlevel: null,
       pricelevel: null,
@@ -186,10 +196,11 @@ export default {
         {
           img:
             "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-            Residentialimg:'http://img.xmduobanjin.com/Uploads/image/goods/2020-03-25/5e7acc6b7c273.jpg',
+          Residentialimg:
+            "http://img.xmduobanjin.com/Uploads/image/goods/2020-03-25/5e7acc6b7c273.jpg",
           name: "王小虎",
-          Residentialname: '振坤记猪大骨',
-          ResidentialNorms: '（400g/盒）',
+          Residentialname: "振坤记猪大骨",
+          ResidentialNorms: "（400g/盒）",
           phone: 12346752432,
           Residential: "槟榔东里51号	",
           commander: "叶招旭	",
@@ -199,9 +210,10 @@ export default {
         {
           img:
             "https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-             Residentialimg:'http://img.xmduobanjin.com/Uploads/image/goods/2020-03-10/5e672aee48b34.jpg',
-            Residentialname: '百香顺免浆黑',
-           ResidentialNorms: '(250g/包)',
+          Residentialimg:
+            "http://img.xmduobanjin.com/Uploads/image/goods/2020-03-10/5e672aee48b34.jpg",
+          Residentialname: "百香顺免浆黑",
+          ResidentialNorms: "(250g/包)",
           name: "123",
           phone: 12323352432,
           Residential: "海沧星河花园	",
@@ -229,17 +241,15 @@ export default {
     ResidentialClick(row, index) {
       this.ResidentialHide = true;
       this.dialogResidential = false;
-    
+
       this.url1 = row.Residentialimg;
 
       this.pvalue1 = row.Residentialname;
-      
     },
 
     Residentialdel() {
       this.ResidentialHide = false;
-    },
-   
+    }
   }
 };
 </script>  

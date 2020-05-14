@@ -4,8 +4,8 @@
       当前位置：
       <span>编辑优惠券</span>
     </div>
-    <el-card class="box-card">
-      <el-form ref="form" :model="form" label-width="100px">
+    <el-card class="box-card cardStyle">
+      <el-form ref="form" :model="form" label-width="130px" label-position="left">
         <el-form-item label="排序">
           <el-input v-model="form.name"></el-input>
           <p>数字越大，排名越靠前</p>
